@@ -8,6 +8,7 @@ public class WindObject : MonoBehaviour
     public GameObject windZone;
 
     public Rigidbody rb; //Barco
+    public Transform sail; //Vela
 
     Vector3 windCurrent; //Direcao do vento
     Vector3 sailDirection; //Direcao da vela
@@ -27,7 +28,7 @@ public class WindObject : MonoBehaviour
 
     void Update()
     {
-        sailDirection = transform.right;
+        sailDirection = sail.right;
         angleDiff = Vector3.Angle(windCurrent, sailDirection);
         speedCur = Mathf.Abs(rb.velocity.x);
     }
@@ -76,5 +77,12 @@ public class WindObject : MonoBehaviour
         {
             inWindZone = false;
         }
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + windCurrent * 10);
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(sail.position, sail.position + sailDirection * 10);
     }
 }
