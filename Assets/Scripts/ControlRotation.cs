@@ -9,16 +9,18 @@ public class ControlRotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float angle = transform.localRotation.y;
         if (swapKeys)
         {
-            if (Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.LeftArrow) && angle > -0.5f)
             {
                 transform.Rotate(new Vector3(0, -50, 0) * Time.deltaTime);
             }
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.RightArrow) && angle < 0.5f)
             {
                 transform.Rotate(new Vector3(0, 50, 0) * Time.deltaTime);
             }
+            Debug.Log(angle);
         }
         else
         {

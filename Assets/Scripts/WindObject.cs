@@ -31,6 +31,10 @@ public class WindObject : MonoBehaviour
         sailDirection = sail.right;
         angleDiff = Vector3.Angle(windCurrent, sailDirection);
         speedCur = Mathf.Abs(rb.velocity.x);
+        if (!inWindZone)
+        {
+            windCurrent = Vector3.zero;
+        }
     }
     void FixedUpdate()
     {
