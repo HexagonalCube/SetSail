@@ -7,22 +7,49 @@ public class WindObject : MonoBehaviour
     public bool inWindZone = false;
     public GameObject windZone;
 
-    Rigidbody rb;
+    public Rigidbody rb; //Barco
 
-    Vector3 windCurrent;
-    float windSpeed;
+    Vector3 windCurrent; //Direcao do vento
+    Vector3 sailDirection; //Direcao da vela
+
+    [SerializeField] float angleDiff;
+    [SerializeField] float speedCur;
+
+    public float angleMin; //Minimo de angulo para vento tomar efeito
+    public float baseSpeed; //Velocidade normal sem vento
+    public float minSpeed; //Velocidade contra o vento
+    public float maxSpeed; //velocidade junto ao vento
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
+    void Update()
+    {
+        sailDirection = transform.right;
+        angleDiff = Vector3.Angle(windCurrent, sailDirection);
+        speedCur = Mathf.Abs(rb.velocity.x);
+    }
     void FixedUpdate()
     {
-        if (inWindZone)
+        if (inWindZone)//Quando afetado por ventos
         {
-            rb.AddForce(windCurrent * windSpeed);
+            if (angleDiff < angleMin)
+            {
+                //Forca Maxima
+                rb.AddForce(rb.transform.right * maxSpeed);
+            }
+            else
+            {
+                //Forca Minima
+                rb.AddForce(rb.transform.right * minSpeed);
+            }
+        }
+        else
+        {
+            //Forca normal
+            rb.AddForce(rb.transform.right * baseSpeed);
         }
     }
     private void OnTriggerEnter(Collider col)
@@ -32,7 +59,6 @@ public class WindObject : MonoBehaviour
             windZone = col.gameObject;
             inWindZone = true;
             windCurrent = windZone.GetComponent<WindArea>().direction;
-            windSpeed = windZone.GetComponent<WindArea>().strenght;
         }
     }
     private void OnTriggerStay(Collider col)
@@ -42,7 +68,6 @@ public class WindObject : MonoBehaviour
             windZone = col.gameObject;
             inWindZone = true;
             windCurrent = windZone.GetComponent<WindArea>().direction;
-            windSpeed = windZone.GetComponent<WindArea>().strenght;
         }
     }
     private void OnTriggerExit(Collider col)

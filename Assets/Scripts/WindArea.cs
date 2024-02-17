@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WindArea : MonoBehaviour
 {
-    public float strenght;
     public Vector3 direction;
 
     [SerializeField] BoxCollider box;
@@ -14,6 +13,6 @@ public class WindArea : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(transform.position, box.size);
         Gizmos.color = Color.magenta;
-        Gizmos.DrawLine(transform.position, transform.position + direction * strenght);
+        Gizmos.DrawLine(transform.position, transform.position + direction * 10);
     }
 }
