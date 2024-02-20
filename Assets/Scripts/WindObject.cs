@@ -13,7 +13,8 @@ public class WindObject : MonoBehaviour
     Vector3 windCurrent; //Direcao do vento
     Vector3 sailDirection; //Direcao da vela
 
-    [SerializeField] float angleDiff;
+    [SerializeField] float angleDiffR;
+    [SerializeField] float angleDiffL;
     [SerializeField] float speedCur;
 
     public float angleMin; //Minimo de angulo para vento tomar efeito
@@ -29,7 +30,8 @@ public class WindObject : MonoBehaviour
     void Update()
     {
         sailDirection = sail.right;
-        angleDiff = Vector3.Angle(windCurrent, sailDirection);
+        angleDiffR = Vector3.Angle(windCurrent, sailDirection);
+        angleDiffL = Vector3.Angle(windCurrent, -sailDirection);
         speedCur = Mathf.Abs(rb.velocity.x);
         if (!inWindZone)
         {
@@ -40,21 +42,21 @@ public class WindObject : MonoBehaviour
     {
         if (inWindZone)//Quando afetado por ventos
         {
-            if (angleDiff < angleMin)
+            if (angleDiffR < angleMin || angleDiffL < angleMin)
             {
                 //Forca Maxima
-                rb.AddForce(rb.transform.right * maxSpeed);
+                rb.AddForce(rb.transform.forward * maxSpeed);
             }
             else
             {
                 //Forca Minima
-                rb.AddForce(rb.transform.right * minSpeed);
+                rb.AddForce(rb.transform.forward * minSpeed);
             }
         }
         else
         {
             //Forca normal
-            rb.AddForce(rb.transform.right * baseSpeed);
+            rb.AddForce(rb.transform.forward * baseSpeed);
         }
     }
     private void OnTriggerEnter(Collider col)
@@ -85,8 +87,9 @@ public class WindObject : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + windCurrent * 10);
+        Gizmos.DrawLine(sail.position, sail.position + windCurrent * 10);
         Gizmos.color = Color.green;
         Gizmos.DrawLine(sail.position, sail.position + sailDirection * 10);
+        Gizmos.DrawLine(sail.position, sail.position + -sailDirection * 10);
     }
 }
