@@ -52,9 +52,9 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClipping: 8.4
-    - _CloudAlpha: 24.99
-    - _CloudPower: 0.7
-    - _CloudScale: 90
+    - _CloudAlpha: 25
+    - _CloudPower: 0.75
+    - _CloudScale: 300
     - _Coud_Scaling: 120
     - _DistortScale: 60
     - _QueueControl: 0
