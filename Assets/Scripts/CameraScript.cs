@@ -27,7 +27,7 @@ public class CameraScript : MonoBehaviour
         transform.position = cameraPoint.position;
 
         //Usando os vetores do barco para fazer movimento da camera junto ao barco
-        Vector2 targetVec = new Vector2(cameraTarget.localEulerAngles.x, -cameraTarget.localEulerAngles.y);
+        Vector2 targetVec = new Vector2(/*cameraTarget.localEulerAngles.x*/0, -cameraTarget.localEulerAngles.y);
         Vector2 cameraVec = transform.localEulerAngles;
 
         //Rotacao do mouse

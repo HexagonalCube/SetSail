@@ -19,9 +19,9 @@ public class BuoyancyObject : MonoBehaviour
 
     Rigidbody hull_Rb;
 
-    int floatersUnderwater;
+    [SerializeField] int floatersUnderwater;
 
-    bool underwater;
+    [SerializeField] bool underwater;
 
     void Start()
     {
