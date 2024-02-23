@@ -9,6 +9,8 @@ public class WindObject : MonoBehaviour
 
     public Rigidbody rb; //Barco
     public Transform sail; //Vela
+    public Transform windIndicator;
+    public Material flagMat;
 
     Vector3 windCurrent; //Direcao do vento
     Vector3 sailDirection; //Direcao da vela
@@ -44,26 +46,32 @@ public class WindObject : MonoBehaviour
     {
         if (inWindZone)//Quando afetado por ventos
         {
+            windIndicator.forward = windCurrent;
             if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
             {
                 //Forca Maxima
                 rb.AddForce(rb.transform.forward * maxSpeed);
+                flagMat.color = Color.green;
             }
             else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 100)
             {
                 //Forca Minima
                 rb.AddForce(rb.transform.forward * (minSpeed));
+                flagMat.color = Color.red;
             }
             else
             {
                 //Forca Contra Vento
                 rb.AddForce(rb.transform.forward * (minSpeed * 3));
+                flagMat.color = Color.cyan;
             }
         }
         else
         {
+            windIndicator.localEulerAngles = Vector3.zero;
             //Forca normal
             rb.AddForce(rb.transform.forward * baseSpeed);
+            flagMat.color = Color.yellow;
         }
     }
     private void OnTriggerEnter(Collider col)
