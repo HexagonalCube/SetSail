@@ -15,6 +15,7 @@ public class WindObject : MonoBehaviour
 
     [SerializeField] float angleDiffR;
     [SerializeField] float angleDiffL;
+    [SerializeField] float dirDiff;
     [SerializeField] float speedCur;
 
     public float angleMin; //Minimo de angulo para vento tomar efeito
@@ -32,7 +33,8 @@ public class WindObject : MonoBehaviour
         sailDirection = sail.right;
         angleDiffR = Vector3.Angle(windCurrent, sailDirection);
         angleDiffL = Vector3.Angle(windCurrent, -sailDirection);
-        speedCur = Mathf.Abs(rb.velocity.x);
+        dirDiff = Vector3.Angle(windCurrent, transform.forward);
+        speedCur = rb.velocity.magnitude;
         if (!inWindZone)
         {
             windCurrent = Vector3.zero;
@@ -42,15 +44,20 @@ public class WindObject : MonoBehaviour
     {
         if (inWindZone)//Quando afetado por ventos
         {
-            if (angleDiffR < angleMin || angleDiffL < angleMin)
+            if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 90)
             {
                 //Forca Maxima
                 rb.AddForce(rb.transform.forward * maxSpeed);
             }
-            else
+            else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 90)
             {
                 //Forca Minima
-                rb.AddForce(rb.transform.forward * minSpeed);
+                rb.AddForce(rb.transform.forward * (minSpeed));
+            }
+            else
+            {
+                //Forca Contra Vento
+                rb.AddForce(rb.transform.forward * (minSpeed * 3));
             }
         }
         else

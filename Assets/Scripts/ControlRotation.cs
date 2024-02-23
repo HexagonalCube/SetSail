@@ -6,11 +6,14 @@ public class ControlRotation : MonoBehaviour
 {
     [SerializeField] bool swapKeys=false;
     [SerializeField] float maxRotation;
+    [SerializeField] Animator animator;
+    [SerializeField] float inputRotation;
 
     // Update is called once per frame
     void Update()
     {
         float angle = transform.localRotation.y;
+        
         if (swapKeys)
         {
             if (Input.GetKey(KeyCode.LeftArrow) && angle > -maxRotation)
@@ -27,12 +30,25 @@ public class ControlRotation : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.A))
             {
-                transform.Rotate(new Vector3(0, -50, 0) * Time.deltaTime);
+                if (inputRotation > -1) { inputRotation -= 1 * Time.deltaTime; }
             }
-            if (Input.GetKey(KeyCode.D))
+            else if (Input.GetKey(KeyCode.D))
             {
-                transform.Rotate(new Vector3(0, 50, 0) * Time.deltaTime);
+                if (inputRotation < 1) { inputRotation += 1 * Time.deltaTime; }
+            }
+            else
+            {
+                if (inputRotation > 0) { inputRotation -= 1 * Time.deltaTime; }
+                else if (inputRotation < 0) { inputRotation += 1 * Time.deltaTime; }
             }
         }
+    }
+    private void FixedUpdate()
+    {
+        if (!swapKeys)
+        {
+            animator.SetFloat("xAxis", inputRotation);
+            transform.Rotate(new Vector3(0, 45 * inputRotation, 0) * Time.deltaTime);
+        } 
     }
 }
