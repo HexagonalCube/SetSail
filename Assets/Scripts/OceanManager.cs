@@ -12,7 +12,7 @@ public class OceanManager : MonoBehaviour
 
     public Transform ocean;
 
-    Material oceanMat;
+    [SerializeField] Material oceanMat;
 
     Texture2D wavesDisplacement;
 
