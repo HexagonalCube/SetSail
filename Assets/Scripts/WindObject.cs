@@ -44,12 +44,12 @@ public class WindObject : MonoBehaviour
     {
         if (inWindZone)//Quando afetado por ventos
         {
-            if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 90)
+            if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
             {
                 //Forca Maxima
                 rb.AddForce(rb.transform.forward * maxSpeed);
             }
-            else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 90)
+            else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 100)
             {
                 //Forca Minima
                 rb.AddForce(rb.transform.forward * (minSpeed));
