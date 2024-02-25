@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class TestObjectives : MonoBehaviour
@@ -9,6 +5,7 @@ public class TestObjectives : MonoBehaviour
     [SerializeField] Transform[] Objectives;
     [SerializeField] string objTag;
     [SerializeField] int selected = 0;
+    int count;
 
     private void Start()
     {
@@ -28,8 +25,9 @@ public class TestObjectives : MonoBehaviour
     {
         if (other.CompareTag("Finish"))
         {
+            count++;
             SelectObjective();
-            Debug.Log("AIIII");
+            Debug.Log($"Got Objective. Cur:({count})");
         }
     }
 
