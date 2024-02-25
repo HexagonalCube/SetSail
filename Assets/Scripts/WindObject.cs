@@ -47,6 +47,7 @@ public class WindObject : MonoBehaviour
         if (inWindZone)//Quando afetado por ventos
         {
             windIndicator.forward = windCurrent;
+            windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
             if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
             {
                 //Forca Maxima
