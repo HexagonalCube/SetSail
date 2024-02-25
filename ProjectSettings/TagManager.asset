@@ -6,6 +6,9 @@ TagManager:
   tags:
   - windArea
   - Sea
+  - DockEnter
+  - DockExit
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -14,7 +17,7 @@ TagManager:
   - Water
   - UI
   - Boat
-  - 
+  - Islands
   - 
   - 
   - 
