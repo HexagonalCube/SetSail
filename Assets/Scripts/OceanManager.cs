@@ -39,7 +39,8 @@ public class OceanManager : MonoBehaviour
         }
         UpdateMaterial();
     }
-    void UpdateMaterial() //Atualizando material no editor
+    
+    public void UpdateMaterial() //Atualizando material no editor
     {
         oceanMat.SetFloat("_WavesFrequency", wavesFrequency / 100);
         oceanMat.SetFloat("_WavesSpeed", waveSpeed / 100);
