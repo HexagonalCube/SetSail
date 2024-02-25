@@ -53,16 +53,16 @@ Material:
     m_Floats:
     - _AlphaClipping: 8.4
     - _CloudAlpha: 25
-    - _CloudPower: 0.75
+    - _CloudPower: 0.9
     - _CloudScale: 230
     - _Coud_Scaling: 120
     - _DistortScale: 60
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.7
+    - _Smoothness: 0
     - _VertexOffset: 60
     m_Colors:
-    - _CloudColor: {r: 2.1276257, g: 2.4331305, b: 3.27327, a: 1}
+    - _CloudColor: {r: 2.101961, g: 2.337255, b: 2.9960785, a: 4}
     - _CloudSpeed: {r: 0.001, g: 0.001, b: 0, a: 0}
     - _DistortSpeed: {r: -0.001, g: -0.001, b: 0, a: 0}
   m_BuildTextureStacks: []
