@@ -22,6 +22,7 @@ public class DockScript : MonoBehaviour
     {
         if (!inDock)
         {
+            player.position = playerPoint.position;
             player.gameObject.SetActive(true);
             aBoat.position = boatPoint.position;
             aBoat.rotation = boatPoint.rotation;

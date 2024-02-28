@@ -21,17 +21,7 @@ public class TestObjectives : MonoBehaviour
             }
         }
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Finish"))
-        {
-            count++;
-            SelectObjective();
-            Debug.Log($"Got Objective. Cur:({count})");
-        }
-    }
-
-    void SelectObjective()
+    public void SelectObjective()
     {
         Objectives[selected].gameObject.SetActive(false);
         selected = UnityEngine.Random.Range(0, Objectives.Length);

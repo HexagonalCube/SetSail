@@ -12,7 +12,8 @@ public class ItemScript : MonoBehaviour
         Type_1,
         Type_2,
         Type_3,
-        Type_4
+        Type_4,
+        Type_test
     }
     bool CheckIfVisible()
     {
@@ -36,6 +37,9 @@ public class ItemScript : MonoBehaviour
                     break;
                 case content.Type_4:
                     Destroy(gameObject);
+                    break;
+                case content.Type_test:
+                    GetComponentInParent<TestObjectives>().SelectObjective();
                     break;
             }
         }
