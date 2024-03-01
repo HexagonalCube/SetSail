@@ -14,11 +14,11 @@ public class WeatherController : MonoBehaviour
     public bool isRain;
     [SerializeField] Color baseColor;
     [SerializeField] Color stormColor;
-    private void OnValidate()
+    private void OnValidate() //Update in editor when values change
     {
         UpdateWeather();
     }
-    void UpdateWeather()
+    void UpdateWeather() //Update managers to set values
     {
         UpdateOcean();
         UpdateClouds();

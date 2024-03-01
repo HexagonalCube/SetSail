@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Placeholder Mechanics for boat rotation controls
+/// </summary>
 public class ControlRotation : MonoBehaviour
 {
     [SerializeField] bool swapKeys=false;
@@ -9,12 +11,12 @@ public class ControlRotation : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] float inputRotation;
 
-    // Update is called once per frame
+
     void Update()
     {
-        float angle = transform.localRotation.y;
+        float angle = transform.localRotation.y;//Self Rotation
         
-        if (swapKeys)
+        if (swapKeys) //Sail Controls
         {
             if (Input.GetKey(KeyCode.LeftArrow) && angle > -maxRotation)
             {
@@ -26,7 +28,7 @@ public class ControlRotation : MonoBehaviour
             }
             //Debug.Log(angle);
         }
-        else
+        else //Rudder Controls
         {
             if (Input.GetKey(KeyCode.A))
             {
@@ -36,14 +38,14 @@ public class ControlRotation : MonoBehaviour
             {
                 if (inputRotation < 1) { inputRotation += 1 * Time.deltaTime; }
             }
-            else
+            else //Decrement/Increment towards 0
             {
                 if (inputRotation > 0) { inputRotation -= 1 * Time.deltaTime; }
                 else if (inputRotation < 0) { inputRotation += 1 * Time.deltaTime; }
             }
         }
     }
-    private void FixedUpdate()
+    private void FixedUpdate() //Animator values update
     {
         if (!swapKeys)
         {

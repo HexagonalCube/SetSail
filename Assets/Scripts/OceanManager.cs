@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
-/// Simula a matematica dos shaders, e retorna o valor da altura da agua
+/// Simulates the Water Shader and returns a height value at a specific point in the water and time
 /// </summary>
 public class OceanManager : MonoBehaviour
 {
@@ -20,7 +20,7 @@ public class OceanManager : MonoBehaviour
     {
         SetVariables();
     }
-    void SetVariables() //Sempre ter as mesmas variaveis
+    void SetVariables() //Always have set variables
     {
         oceanMat = ocean.GetComponent<Renderer>().sharedMaterial;
         wavesDisplacement = (Texture2D)oceanMat.GetTexture("_WavesDisplacement");
@@ -31,16 +31,16 @@ public class OceanManager : MonoBehaviour
         //return ocean.position.y + wavesDisplacement.GetPixelBilinear(position.x * wavesFrequency / 100, position.z * wavesFrequency / 100 + Time.time * waveSpeed / 100).g * waveHeight / 100 * ocean.localScale.x;
         return ocean.position.y + wavesDisplacement.GetPixelBilinear(position.x * (wavesFrequency/100) * ocean.localScale.x, (position.z * (wavesFrequency/100) + Time.time * (waveSpeed/100)) * ocean.localScale.z).g * (waveHeight/100);
     }
-    private void OnValidate() //Sempre tenha os valores certos, e atualize eles no editor
+    private void OnValidate() //Update variables in editor
     {
         if (!oceanMat)
         {
-            SetVariables() ;
+            SetVariables();
         }
         UpdateMaterial();
     }
     
-    public void UpdateMaterial() //Atualizando material no editor
+    public void UpdateMaterial() //Update Materials in editor
     {
         oceanMat.SetFloat("_WavesFrequency", wavesFrequency / 100);
         oceanMat.SetFloat("_WavesSpeed", waveSpeed / 100);

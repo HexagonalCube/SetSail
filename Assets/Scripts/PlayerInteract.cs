@@ -2,7 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Player-Item Interactions
+/// Fov & view based
+/// </summary>
 public class PlayerInteract : MonoBehaviour
 {
     public bool closeToItem;
@@ -12,14 +15,14 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] float minAngle;
     [SerializeField] bool isInView;
 
-    public void Interact()
+    public void Interact() //Get item interaction
     {
         if (isInView)
         {
             curItem.GetComponent<ItemScript>().Interact();
         }
     }
-    bool inview(Vector3 campos, Vector3 camdir, Vector3 bodypos )
+    bool inview(Vector3 campos, Vector3 camdir, Vector3 bodypos ) //Checks if in view
     {
         //Get the vector to body
         Vector3 tobody = bodypos - campos;

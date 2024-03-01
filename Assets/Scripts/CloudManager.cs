@@ -1,4 +1,7 @@
 using UnityEngine;
+/// <summary>
+/// Controls Cloud visuals
+/// </summary>
 public class CloudManager : MonoBehaviour
 {
     public Color cloudColor;

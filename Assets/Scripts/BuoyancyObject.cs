@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Buoyancy physics on the Y axis
+/// Dependent on Heightmaps for water elevation
+/// </summary>
 [RequireComponent(typeof(Rigidbody))]
 public class BuoyancyObject : MonoBehaviour
 {
@@ -23,7 +26,7 @@ public class BuoyancyObject : MonoBehaviour
 
     [SerializeField] bool underwater;
 
-    void Start()
+    void Start() //Get values
     {
         hull_Rb = GetComponent<Rigidbody>();
         oceanManager = FindObjectOfType<OceanManager>();
@@ -33,13 +36,13 @@ public class BuoyancyObject : MonoBehaviour
     void FixedUpdate()
     {
         floatersUnderwater = 0;
-        for (int i = 0; i < floaters.Length; i++)
+        for (int i = 0; i < floaters.Length; i++) //Checks if floater is underwater
         {
-            float diff = floaters[i].position.y - oceanManager.WaterHeightAtPosition(floaters[i].position);
+            float diff = floaters[i].position.y - oceanManager.WaterHeightAtPosition(floaters[i].position); //Water Height to floater height difference
 
             if (diff < 0)
             {
-                hull_Rb.AddForceAtPosition(Vector3.up * floatingPower * Mathf.Abs(diff), floaters[i].position, ForceMode.Force);
+                hull_Rb.AddForceAtPosition(Vector3.up * floatingPower * Mathf.Abs(diff), floaters[i].position, ForceMode.Force); //Add buoyancy force relative to difference
                 floatersUnderwater += 1;
                 if (!underwater)
                 {
@@ -48,14 +51,14 @@ public class BuoyancyObject : MonoBehaviour
                 }
             }
         }
-        if (underwater && floatersUnderwater == 0)
+        if (underwater && floatersUnderwater == 0) //If none underwater
         {
             underwater = false;
             SwitchState(false);
         }
     }
 
-    void SwitchState(bool isUnderwater)
+    void SwitchState(bool isUnderwater) //Switches the physics values between Water&Air
     {
         if(isUnderwater)
         {

@@ -1,29 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Gives Wind forces when inside wind zones
+/// </summary>
 public class WindObject : MonoBehaviour
 {
-    public bool inWindZone = false;
-    public GameObject windZone;
+    public bool inWindZone = false; //If in windzone
+    public GameObject windZone; //AOE
 
-    public Rigidbody rb; //Barco
-    public Transform sail; //Vela
-    public Transform windIndicator;
-    public Material flagMat;
+    public Rigidbody rb; //Boat
+    public Transform sail; //Sail
+    public Transform windIndicator; //WindFlag
+    public Material flagMat; //FlagColor
 
-    Vector3 windCurrent; //Direcao do vento
-    Vector3 sailDirection; //Direcao da vela
+    Vector3 windCurrent; //Wind Dir
+    Vector3 sailDirection; //Sail Dir
 
     [SerializeField] float angleDiffR;
     [SerializeField] float angleDiffL;
     [SerializeField] float dirDiff;
     [SerializeField] float speedCur;
 
-    public float angleMin; //Minimo de angulo para vento tomar efeito
-    public float baseSpeed; //Velocidade normal sem vento
-    public float minSpeed; //Velocidade contra o vento
-    public float maxSpeed; //velocidade junto ao vento
+    public float angleMin; //MinAngle for wind effectiveness
+    public float baseSpeed; //Base speed without wind
+    public float minSpeed; //Speed against wind
+    public float maxSpeed; //Speed with wind
 
     void Start()
     {
@@ -32,6 +34,7 @@ public class WindObject : MonoBehaviour
 
     void Update()
     {
+        //Update Variables
         sailDirection = sail.right;
         angleDiffR = Vector3.Angle(windCurrent, sailDirection);
         angleDiffL = Vector3.Angle(windCurrent, -sailDirection);
@@ -44,38 +47,38 @@ public class WindObject : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (inWindZone)//Quando afetado por ventos
+        if (inWindZone)//When effected by winds
         {
             windIndicator.forward = windCurrent;
             windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
             if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
             {
-                //Forca Maxima
+                //Maximum Force
                 rb.AddForce(rb.transform.forward * maxSpeed);
                 flagMat.color = Color.green;
             }
             else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 100)
             {
-                //Forca Minima
+                //Minimum Force
                 rb.AddForce(rb.transform.forward * (minSpeed));
                 flagMat.color = Color.red;
             }
             else
             {
-                //Forca Contra Vento
+                //Paralel to Wind force
                 rb.AddForce(rb.transform.forward * (minSpeed * 3));
                 flagMat.color = Color.cyan;
             }
         }
         else
         {
+            //Normal Force
             windIndicator.localEulerAngles = Vector3.zero;
-            //Forca normal
             rb.AddForce(rb.transform.forward * baseSpeed);
             flagMat.color = Color.yellow;
         }
     }
-    private void OnTriggerEnter(Collider col)
+    private void OnTriggerEnter(Collider col)//Enter Wind
     {
         if(col.gameObject.tag == "windArea")
         {
@@ -84,7 +87,7 @@ public class WindObject : MonoBehaviour
             windCurrent = windZone.GetComponent<WindArea>().direction;
         }
     }
-    private void OnTriggerStay(Collider col)
+    private void OnTriggerStay(Collider col)//In Wind
     {
         if (col.gameObject.tag == "windArea")
         {
@@ -93,7 +96,7 @@ public class WindObject : MonoBehaviour
             windCurrent = windZone.GetComponent<WindArea>().direction;
         }
     }
-    private void OnTriggerExit(Collider col)
+    private void OnTriggerExit(Collider col)//Exit Wind
     {
         if (col.gameObject.tag == "windArea")
         {
