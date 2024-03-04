@@ -12,17 +12,22 @@ public class DockScript : MonoBehaviour
     [SerializeField] Transform boatPoint; //Boat Spawn
     [SerializeField] Transform player; //PlayerObj
     [SerializeField] BoatController boat; //BoatObj
-    bool inDock; //If in dock
+    [SerializeField] bool inDock; //If in dock
+    [SerializeField] bool canSwitch = true;
     public void DockExit() //When Exiting Dock
     {
-        player.position = playerPoint.position;
-        player.gameObject.SetActive(false);
-        boat.EnableBoat();
-        inDock = false;
+        if (/*inDock && */canSwitch) //WILL AUTOMATE PLAYER SETUP LATER
+        {
+            player.position = playerPoint.position;
+            player.gameObject.SetActive(false);
+            boat.EnableBoat();
+            inDock = false;
+            StartCoroutine(SwitchTimer());
+        }
     }
     public void DockEnter(Transform aBoat) //When Entering Dock
     {
-        if (!inDock)
+        if (!inDock && canSwitch)
         {
             player.position = playerPoint.position;
             player.gameObject.SetActive(true);
@@ -30,6 +35,19 @@ public class DockScript : MonoBehaviour
             aBoat.rotation = boatPoint.rotation;
             boat.DisableBoat();
             inDock = true;
+            StartCoroutine(SwitchTimer());
         }
+    }
+    IEnumerator SwitchTimer()
+    {
+        canSwitch = false;
+        yield return new WaitForSeconds(1);
+        canSwitch = true;
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(dockPArea.transform.position, dockPArea.GetComponent<BoxCollider>().size);
+        Gizmos.DrawWireSphere(dockBArea.transform.position, dockBArea.GetComponent<SphereCollider>().radius);
     }
 }

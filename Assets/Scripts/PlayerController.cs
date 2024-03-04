@@ -48,12 +48,19 @@ public class PlayerController : MonoBehaviour
         pVelocity.y += gravity * Time.deltaTime;
         cc.Move(pVelocity * Time.deltaTime);
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("DockExit"))
         {
-            other.GetComponentInParent<DockScript>().DockExit();
-            Debug.Log("ExitToBoat");
+            //Trigger Visual Indication HERE (like button overlay or smth)
+            //
+            //
+            if (Input.GetKey(KeyCode.E))
+            {
+                //Trigger Event
+                other.GetComponentInParent<DockScript>().DockExit();
+                Debug.Log("ExitToBoat");
+            }
         }
     }
 }

@@ -47,12 +47,19 @@ public class BoatController : MonoBehaviour
         rotate.enabled = false;
         mainCamera.SwitchCamera(false);
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("DockEnter"))
         {
-            other.GetComponentInParent<DockScript>().DockEnter(transform);
-            Debug.Log("EnterToDock");
+            //Trigger Visual Indication HERE (like button overlay or smth)
+            //
+            //
+            if (Input.GetKey(KeyCode.E))
+            {
+                //Trigger Event
+                other.GetComponentInParent<DockScript>().DockEnter(transform);
+                Debug.Log("EnterDock");
+            }
         }
     }
 }

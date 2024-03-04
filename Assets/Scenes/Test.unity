@@ -914,7 +914,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 209386191}
-  - component: {fileID: 209386190}
+  - component: {fileID: 209386192}
   m_Layer: 0
   m_Name: DockBoatArea
   m_TagString: DockEnter
@@ -922,8 +922,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &209386190
-BoxCollider:
+--- !u!4 &209386191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209386189}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 1.11, z: 19.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1629581093}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &209386192
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -941,23 +956,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8, y: 5, z: 15}
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &209386191
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 209386189}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 1.11, z: 19.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1629581093}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220558488
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,7 +1074,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250818206}
-  - component: {fileID: 250818207}
+  - component: {fileID: 250818208}
   m_Layer: 0
   m_Name: DockBoatArea
   m_TagString: DockEnter
@@ -1091,14 +1091,14 @@ Transform:
   m_GameObject: {fileID: 250818205}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 1.11, z: 19.7}
+  m_LocalPosition: {x: -17.1, y: 1.11, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1449013499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &250818207
-BoxCollider:
+--- !u!135 &250818208
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1116,7 +1116,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8, y: 5, z: 15}
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &317549577
 GameObject:
@@ -6858,7 +6858,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 703423766}
-  - component: {fileID: 703423765}
+  - component: {fileID: 703423767}
   m_Layer: 0
   m_Name: DockBoatArea
   m_TagString: DockEnter
@@ -6866,8 +6866,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &703423765
-BoxCollider:
+--- !u!4 &703423766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703423764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 1.11, z: 19.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1845019738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &703423767
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6885,23 +6900,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 8, y: 5, z: 15}
+  m_Radius: 25
   m_Center: {x: 0, y: 0, z: 0}
---- !u!4 &703423766
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703423764}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.04, y: 1.11, z: 19.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1845019738}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718216420
 GameObject:
   m_ObjectHideFlags: 0
@@ -13706,11 +13706,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dockPArea: {fileID: 488053228}
-  dockBArea: {fileID: 250818207}
+  dockBArea: {fileID: 250818208}
   playerPoint: {fileID: 385233953}
   boatPoint: {fileID: 1063326474}
   player: {fileID: 1167699861}
   boat: {fileID: 1865992690}
+  inDock: 0
+  canSwitch: 1
 --- !u!1 &1469504365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8493387436371889750, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
@@ -19051,11 +19053,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dockPArea: {fileID: 1312215274}
-  dockBArea: {fileID: 209386190}
+  dockBArea: {fileID: 209386192}
   playerPoint: {fileID: 473896277}
   boatPoint: {fileID: 1194073386}
   player: {fileID: 1167699861}
   boat: {fileID: 1865992690}
+  inDock: 0
+  canSwitch: 1
 --- !u!4 &1629581093
 Transform:
   m_ObjectHideFlags: 0
@@ -19579,11 +19583,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dockPArea: {fileID: 35434102}
-  dockBArea: {fileID: 703423765}
+  dockBArea: {fileID: 703423767}
   playerPoint: {fileID: 1598980529}
   boatPoint: {fileID: 1287091960}
   player: {fileID: 1167699861}
   boat: {fileID: 1865992690}
+  inDock: 0
+  canSwitch: 1
 --- !u!4 &1845019738
 Transform:
   m_ObjectHideFlags: 0
