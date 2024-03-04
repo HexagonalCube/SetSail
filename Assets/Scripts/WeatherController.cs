@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 /// <summary>
 /// Controls weather conditions
 /// </summary>
@@ -9,6 +10,8 @@ public class WeatherController : MonoBehaviour
     [SerializeField] CloudManager clouds;
     [SerializeField] OceanManager ocean;
     [SerializeField] ParticleSystem rain;
+    [SerializeField] Light sun;
+    [SerializeField] Material skybox;
     [Range(0f, 2f)]
     public float weather;
     public bool isRain;
@@ -23,6 +26,7 @@ public class WeatherController : MonoBehaviour
         UpdateOcean();
         UpdateClouds();
         UpdateRain();
+        UpdateSun();
     }
     void UpdateClouds() //DO NOT TOUCH UNLESS CHANGING VISUAL SETTINGS
     {
@@ -36,23 +40,21 @@ public class WeatherController : MonoBehaviour
     }
     void UpdateOcean() //DO NOT TOUCH UNLESS CHANGING VISUAL SETTINGS
     {
-        ocean.waveHeight = 600 + (200*weather);
+        ocean.waveHeight = 600 + (100*weather);
         ocean.wavesFrequency = 1.5f + (0.5f*weather);
         ocean.waveSpeed = 3 + (2*weather);
         ocean.UpdateMaterial();
     }
-    void UpdateRain()
+    void UpdateRain() //Updates rain particles
     {
-        switch (isRain)
-        {
-            case true:
-                rain.Play();
-                break;
-            case false:
-                rain.Stop();
-                break;
-        }
         var emmision = rain.emission;
         emmision.rateOverTime = 33 * weather;
+        emmision.enabled = isRain;
+    }
+    void UpdateSun() //Updates the skybox & sun to reflect the weather
+    {
+        sun.intensity = 2 - weather;
+        skybox.SetFloat("_Exposure", 1.3f * 1/(weather+1));
+        
     }
 }
