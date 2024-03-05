@@ -7,9 +7,15 @@ public class BoatController : MonoBehaviour
     [SerializeField] Rigidbody rb;
     [SerializeField] BuoyancyObject buoy;
     [SerializeField] WindObject wind;
-    [SerializeField] ControlRotation rotate;
+    [SerializeField] public ControlRotation rotateBoat;
+    [SerializeField] public ControlRotation rotateSail;
     [SerializeField] CameraScript mainCamera;
     [SerializeField] bool startEnabled = false;
+    [SerializeField] bool nearDock;
+    [SerializeField] DockScript dock;
+    [SerializeField] GameObject sailGeo;
+    [SerializeField] bool basicEnabled = true;
+    public bool sailUp = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +34,7 @@ public class BoatController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         buoy = GetComponent<BuoyancyObject>();
         wind = GetComponent<WindObject>();
-        rotate = GetComponent<ControlRotation>();
+        rotateBoat = GetComponent<ControlRotation>();
     }
     private void OnValidate()
     {
@@ -37,29 +43,73 @@ public class BoatController : MonoBehaviour
     public void EnableBoat()
     {
         wind.enabled = true;
-        rotate.enabled = true;
+        rotateBoat.rotEnabled = true;
+        rotateSail.rotEnabled = true;
         mainCamera.SwitchCamera(true);
+        basicEnabled = true;
+        sailGeo.SetActive(true);
+        sailUp = false;
     }
     public void DisableBoat()
     {
         rb.velocity = Vector3.zero;
         wind.enabled = false;
-        rotate.enabled = false;
+        rotateBoat.rotEnabled = false;
+        rotateSail.rotEnabled = false;
         mainCamera.SwitchCamera(false);
+        basicEnabled = false;
+        sailGeo.SetActive(false);
+        sailUp = true;
     }
-    private void OnTriggerStay(Collider other)
+    public void RaiseSail()
+    {
+        if (!sailUp & basicEnabled)
+        {
+            wind.boatStopped = true;
+            sailUp = true;
+            sailGeo.SetActive(false);
+            Debug.Log("RaiseSail");
+        }
+    }
+    public void LowerSail()
+    {
+        if (sailUp & basicEnabled)
+        {
+            wind.boatStopped = false;
+            sailUp = false;
+            sailGeo.SetActive(true);
+            Debug.Log("LowerSail");
+        }
+    }
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DockEnter"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
             //
             //
-            if (Input.GetKey(KeyCode.E))
-            {
-                //Trigger Event
-                other.GetComponentInParent<DockScript>().DockEnter(transform);
-                Debug.Log("EnterDock");
-            }
+            dock = other.GetComponentInParent<DockScript>();
+            nearDock = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("DockEnter"))
+        {
+            //Trigger Visual Indication HERE (like button overlay or smth)
+            //
+            //
+            dock = null;
+            nearDock = false;
+        }
+    }
+    public void EnterDock()
+    {
+        if (nearDock && dock!=null)
+        {
+            dock.DockEnter(transform);
+            dock = null;
+            Debug.Log("EnterDock");
         }
     }
 }

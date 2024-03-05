@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 /// <summary>
 /// Placeholder Mechanics for boat rotation controls
@@ -10,39 +11,47 @@ public class ControlRotation : MonoBehaviour
     [SerializeField] float maxRotation;
     [SerializeField] Animator animator;
     [SerializeField] float inputRotation;
+    [SerializeField] public bool rotEnabled = true;
+    float angle;
 
 
     void Update()
     {
-        float angle = transform.localRotation.y;//Self Rotation
-        
-        if (swapKeys) //Sail Controls
+        angle = transform.localRotation.y;
+        if (!Input.anyKey)
         {
-            if (Input.GetKey(KeyCode.LeftArrow) && angle > -maxRotation)
-            {
-                transform.Rotate(new Vector3(0, -50, 0) * Time.deltaTime);
-            }
-            if (Input.GetKey(KeyCode.RightArrow) && angle < maxRotation)
-            {
-                transform.Rotate(new Vector3(0, 50, 0) * Time.deltaTime);
-            }
-            //Debug.Log(angle);
+            if (inputRotation > 0) { inputRotation -= 1 * Time.deltaTime; }
+            else if (inputRotation < 0) { inputRotation += 1 * Time.deltaTime; }
         }
-        else //Rudder Controls
+    }
+    public void TurnSailLeft()
+    {
+        if (angle > -maxRotation && swapKeys && rotEnabled)
         {
-            if (Input.GetKey(KeyCode.A))
-            {
-                if (inputRotation > -1) { inputRotation -= 1 * Time.deltaTime; }
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                if (inputRotation < 1) { inputRotation += 1 * Time.deltaTime; }
-            }
-            else //Decrement/Increment towards 0
-            {
-                if (inputRotation > 0) { inputRotation -= 1 * Time.deltaTime; }
-                else if (inputRotation < 0) { inputRotation += 1 * Time.deltaTime; }
-            }
+            Debug.Log("Turning");
+            transform.Rotate(new Vector3(0, -50, 0) * Time.deltaTime);
+        }
+    }
+    public void TurnSailRight()
+    {
+        if (angle < maxRotation && swapKeys && rotEnabled)
+        {
+            Debug.Log("Turning");
+            transform.Rotate(new Vector3(0, 50, 0) * Time.deltaTime);
+        }
+    }
+    public void TurnRudderLeft()
+    {
+        if (inputRotation > -1 && !swapKeys && rotEnabled)
+        {
+            inputRotation -= 1 * Time.deltaTime;
+        }
+    }
+    public void TurnRudderRight()
+    {
+        if (inputRotation < 1 && !swapKeys && rotEnabled)
+        {
+            inputRotation += 1 * Time.deltaTime;
         }
     }
     private void FixedUpdate() //Animator values update

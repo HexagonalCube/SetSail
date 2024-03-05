@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 498384490734218317}
   - component: {fileID: 5671757308280897663}
   - component: {fileID: 7928581702704154116}
+  - component: {fileID: 4533908821465443134}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -293,8 +294,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5cdac160aa412409401e3b3f00688f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraPoint: {fileID: 0}
+  cameraBoatPoint: {fileID: 0}
+  cameraLandPoint: {fileID: 0}
   cameraTarget: {fileID: 0}
+  player: {fileID: 0}
   minX: -45
   maxX: 25
   minY: -90
@@ -303,3 +306,23 @@ MonoBehaviour:
   realVector: {x: 0, y: 0}
   realDiffVector: {x: 0, y: 0}
   sensitivity: 3
+  inBoat: 0
+  cameraMask: {fileID: 954911354636646120}
+--- !u!114 &4533908821465443134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8493387436371889750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422af32b41969d846a387fe7b3336ce1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closeToItem: 0
+  distanceToItem: 0
+  curItem: {fileID: 0}
+  maxDist: 20
+  minAngle: 0.3
+  isInView: 0

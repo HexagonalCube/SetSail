@@ -56,13 +56,8 @@ public class PlayerInteract : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * 5);
     }
 
-    //temporary
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Interact();
-        }
         if (curItem != null) 
         {
             isInView = inview(transform.position ,transform.forward ,curItem.position );

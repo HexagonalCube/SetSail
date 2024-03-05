@@ -7,6 +7,7 @@ using UnityEngine;
 public class WindObject : MonoBehaviour
 {
     public bool inWindZone = false; //If in windzone
+    public bool boatStopped = false;
     public GameObject windZone; //AOE
 
     public Rigidbody rb; //Boat
@@ -54,19 +55,19 @@ public class WindObject : MonoBehaviour
             if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
             {
                 //Maximum Force
-                rb.AddForce(rb.transform.forward * maxSpeed);
+                if (!boatStopped) { rb.AddForce(rb.transform.forward * maxSpeed); }
                 flagMat.color = Color.green;
             }
             else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 100)
             {
                 //Minimum Force
-                rb.AddForce(rb.transform.forward * (minSpeed));
+                if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed)); }
                 flagMat.color = Color.red;
             }
             else
             {
                 //Paralel to Wind force
-                rb.AddForce(rb.transform.forward * (minSpeed * 3));
+                if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed * 3)); }
                 flagMat.color = Color.cyan;
             }
         }
@@ -74,7 +75,7 @@ public class WindObject : MonoBehaviour
         {
             //Normal Force
             windIndicator.localEulerAngles = Vector3.zero;
-            rb.AddForce(rb.transform.forward * baseSpeed);
+            if (!boatStopped) { rb.AddForce(rb.transform.forward * baseSpeed); }
             flagMat.color = Color.yellow;
         }
     }

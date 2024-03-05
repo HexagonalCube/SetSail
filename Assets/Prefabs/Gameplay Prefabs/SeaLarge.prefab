@@ -86,6 +86,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5325134930407820665}
   m_SourcePrefab: {fileID: 100100000, guid: e05716c87f1344d4797792363589c1ae, type: 3}
+--- !u!4 &4007461798637344539 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e05716c87f1344d4797792363589c1ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 3465489369602158832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4383847320837049761 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e05716c87f1344d4797792363589c1ae,
@@ -121,5 +127,5 @@ MonoBehaviour:
   waveHeight: 607.1
   waveSpeed: 5
   wavesFrequency: 1.8
-  ocean: {fileID: 0}
+  ocean: {fileID: 4007461798637344539}
   oceanMat: {fileID: 2100000, guid: d4525fa739f6daf45bdb74a96e5dfd71, type: 2}

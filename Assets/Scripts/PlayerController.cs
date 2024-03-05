@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 pVelocity;
     public bool grounded;
+
+    [SerializeField] bool nearDock;
+    [SerializeField] DockScript dock;
     private void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -48,19 +51,35 @@ public class PlayerController : MonoBehaviour
         pVelocity.y += gravity * Time.deltaTime;
         cc.Move(pVelocity * Time.deltaTime);
     }
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DockExit"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
             //
             //
-            if (Input.GetKey(KeyCode.E))
-            {
-                //Trigger Event
-                other.GetComponentInParent<DockScript>().DockExit();
-                Debug.Log("ExitToBoat");
-            }
+            dock = other.GetComponentInParent<DockScript>();
+            nearDock = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("DockExit"))
+        {
+            //Trigger Visual Indication HERE (like button overlay or smth)
+            //
+            //
+            dock = null;
+            nearDock = false;
+        }
+    }
+    public void ExitDock()
+    {
+        if (nearDock && dock != null)
+        {
+            dock.DockExit();
+            dock = null;
+            Debug.Log("ExitDock");
         }
     }
 }
