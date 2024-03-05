@@ -28,7 +28,7 @@ public class ControlRotation : MonoBehaviour
     {
         if (angle > -maxRotation && swapKeys && rotEnabled)
         {
-            Debug.Log("Turning");
+            //Debug.Log("Turning");
             transform.Rotate(new Vector3(0, -50, 0) * Time.deltaTime);
         }
     }
@@ -36,7 +36,7 @@ public class ControlRotation : MonoBehaviour
     {
         if (angle < maxRotation && swapKeys && rotEnabled)
         {
-            Debug.Log("Turning");
+            //Debug.Log("Turning");
             transform.Rotate(new Vector3(0, 50, 0) * Time.deltaTime);
         }
     }

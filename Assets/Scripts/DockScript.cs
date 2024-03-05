@@ -12,8 +12,16 @@ public class DockScript : MonoBehaviour
     [SerializeField] Transform boatPoint; //Boat Spawn
     [SerializeField] Transform player; //PlayerObj
     [SerializeField] BoatController boat; //BoatObj
+    [SerializeField] CloudFollower clouds;
     [SerializeField] bool inDock; //If in dock
     [SerializeField] bool canSwitch = true;
+    private void Start()
+    {
+        if (inDock)
+        {
+            clouds.isInBoat = false;
+        }
+    }
     public void DockExit() //When Exiting Dock
     {
         if (/*inDock && */canSwitch) //WILL AUTOMATE PLAYER SETUP LATER
@@ -22,6 +30,7 @@ public class DockScript : MonoBehaviour
             player.gameObject.SetActive(false);
             boat.EnableBoat();
             inDock = false;
+            clouds.isInBoat = true;
             StartCoroutine(SwitchTimer());
         }
     }
@@ -35,6 +44,7 @@ public class DockScript : MonoBehaviour
             aBoat.rotation = boatPoint.rotation;
             boat.DisableBoat();
             inDock = true;
+            clouds.isInBoat = false;
             StartCoroutine(SwitchTimer());
         }
     }

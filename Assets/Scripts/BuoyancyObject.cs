@@ -18,9 +18,9 @@ public class BuoyancyObject : MonoBehaviour
 
     public float floatingPower = 15f;
 
-    OceanManager oceanManager;
+    [SerializeField] OceanManager oceanManager;
 
-    Rigidbody hull_Rb;
+    [SerializeField] Rigidbody hull_Rb;
 
     [SerializeField] int floatersUnderwater;
 
@@ -79,5 +79,8 @@ public class BuoyancyObject : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(floaters[i].position, 0.2f);
         }
+        Gizmos.color= Color.blue;
+        Gizmos.DrawWireSphere(hull_Rb.centerOfMass + transform.position, 1f);
+        //Debug.Log(hull_Rb.centerOfMass);
     }
 }

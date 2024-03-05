@@ -40,9 +40,9 @@ public class WeatherController : MonoBehaviour
     }
     void UpdateOcean() //DO NOT TOUCH UNLESS CHANGING VISUAL SETTINGS
     {
-        ocean.waveHeight = 600 + (100*weather);
+        ocean.waveHeight = 600 + (25*weather);
         ocean.wavesFrequency = 1.5f + (0.5f*weather);
-        ocean.waveSpeed = 3 + (2*weather);
+        ocean.waveSpeed = 4 + (3*weather);
         ocean.UpdateMaterial();
     }
     void UpdateRain() //Updates rain particles
