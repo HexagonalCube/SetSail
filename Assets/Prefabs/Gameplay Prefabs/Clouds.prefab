@@ -26,7 +26,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a09e41071b4fdd34b9248e515dbb5bf2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 300
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a09e41071b4fdd34b9248e515dbb5bf2,
         type: 3}
@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boat: {fileID: 0}
+  player: {fileID: 0}
+  isInBoat: 0
 --- !u!114 &7315281592113838652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a058b7c167f90f45a38bfc347436f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudColor: {r: 0.6509434, g: 0.6509434, b: 0.6509434, a: 0}
+  cloudColor: {r: 0.404, g: 0.404, b: 0.404, a: 0}
   colorIntensity: 4
   cloudScale: 230
   cloudSpeed: {x: 1, y: 1}
