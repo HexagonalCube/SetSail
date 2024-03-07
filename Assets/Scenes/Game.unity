@@ -2268,6 +2268,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ilha um
       objectReference: {fileID: 0}
+    - target: {fileID: 159107556032474748, guid: d056f6fa9db79a54caf32e75d6016381,
+        type: 3}
+      propertyPath: m_DetailObjectDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 159107556032474748, guid: d056f6fa9db79a54caf32e75d6016381,
+        type: 3}
+      propertyPath: m_EnableHeightmapRayTracing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 159107556032474751, guid: d056f6fa9db79a54caf32e75d6016381,
         type: 3}
       propertyPath: m_RootOrder
