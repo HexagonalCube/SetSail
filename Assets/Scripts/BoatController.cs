@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class BoatController : MonoBehaviour
 {
@@ -49,6 +50,7 @@ public class BoatController : MonoBehaviour
         basicEnabled = true;
         sailGeo.SetActive(true);
         sailUp = false;
+        LowerSail();
     }
     public void DisableBoat()
     {
@@ -65,8 +67,8 @@ public class BoatController : MonoBehaviour
     {
         if (!sailUp & basicEnabled)
         {
-            wind.boatStopped = true;
             sailUp = true;
+            wind.SwitchBoatStopped(sailUp);
             sailGeo.SetActive(false);
             Debug.Log("RaiseSail");
         }
@@ -75,8 +77,8 @@ public class BoatController : MonoBehaviour
     {
         if (sailUp & basicEnabled)
         {
-            wind.boatStopped = false;
             sailUp = false;
+            wind.SwitchBoatStopped(sailUp);
             sailGeo.SetActive(true);
             Debug.Log("LowerSail");
         }
