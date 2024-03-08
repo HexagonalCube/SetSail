@@ -75872,46 +75872,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2115158757984988114, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: airDrag
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2115158757984988114, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: underWaterDrag
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3829940063967678495, guid: 983e08b13d643064f979bcb12bb71810,
         type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1252278407}
-    - target: {fileID: 6645345789002325238, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: maxSpeed
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 6645345789002325238, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: minSpeed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6645345789002325238, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: baseSpeed
-      value: 75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6645345789002325238, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: boatStopped
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6645345789002325238, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: passiveScale
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
