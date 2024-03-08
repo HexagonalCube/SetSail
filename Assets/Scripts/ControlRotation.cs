@@ -18,7 +18,7 @@ public class ControlRotation : MonoBehaviour
     void Update()
     {
         angle = transform.localRotation.y;
-        if (!Input.anyKey)
+        if (!(Mathf.Abs(Input.GetAxis("Horizontal"))>0.1f))
         {
             if (inputRotation > 0) { inputRotation -= 1 * Time.deltaTime; }
             else if (inputRotation < 0) { inputRotation += 1 * Time.deltaTime; }
