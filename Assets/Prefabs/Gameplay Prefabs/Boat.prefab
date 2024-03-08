@@ -27,12 +27,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 80018361763340343}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.04}
-  m_LocalScale: {x: 0.5359775, y: 1, z: 5.134537}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3.039916}
+  m_LocalScale: {x: 0.5359774, y: 1, z: 5.134537}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1750012703822141501}
+  m_Father: {fileID: 316230549979513860}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4899486314312175752
 MeshFilter:
@@ -136,6 +136,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1893689174044130442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2421459019895562196
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 316230549979513860}
+  m_Layer: 6
+  m_Name: FlagPivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &316230549979513860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421459019895562196}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7371163463256853246}
+  m_Father: {fileID: 1750012703822141501}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3193750890011297872
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,7 +231,7 @@ Transform:
   m_LocalScale: {x: 0.084981434, y: 0.2859115, z: 0.084981434}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7371163463256853246}
+  - {fileID: 316230549979513860}
   m_Father: {fileID: 9078899720593099975}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4934088558164311652
@@ -594,9 +626,9 @@ MonoBehaviour:
   - {fileID: 4478716975627385414}
   - {fileID: 4902487826538379897}
   - {fileID: 2864297473898007827}
-  underWaterDrag: 2
+  underWaterDrag: 1
   underWaterAngularDrag: 2.5
-  airDrag: 2
+  airDrag: 0.5
   airAngularDrag: 1
   floatingPower: 10
   oceanManager: {fileID: 0}
@@ -620,16 +652,21 @@ MonoBehaviour:
   windZone: {fileID: 0}
   rb: {fileID: 822848610243789852}
   sail: {fileID: 1706492772087209019}
-  windIndicator: {fileID: 7371163463256853246}
+  windIndicator: {fileID: 316230549979513860}
   flagMat: {fileID: 2100000, guid: d918e573b8084544b9813e2c1905fa26, type: 2}
+  passiveDir: {x: 0, y: 0, z: 0}
+  passiveScale: 0.1
+  canRollForWind: 1
   angleDiffR: 0
   angleDiffL: 0
   dirDiff: 0
   speedCur: 0
+  passiveAngleDiffR: 0
+  passiveAngleDiffL: 0
   angleMin: 40
-  baseSpeed: 175
-  minSpeed: 25
-  maxSpeed: 350
+  baseSpeed: 75
+  minSpeed: 30
+  maxSpeed: 150
 --- !u!114 &1360603650110595770
 MonoBehaviour:
   m_ObjectHideFlags: 0
