@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// Gives Wind forces when inside wind zones
@@ -17,11 +16,19 @@ public class WindObject : MonoBehaviour
 
     Vector3 windCurrent; //Wind Dir
     Vector3 sailDirection; //Sail Dir
+    [SerializeField] Vector3 passiveDir; //Passive Wind Dir
+    float passiveChange;
+    [Range(0f, 1f)]
+    [SerializeField] float passiveScale = 0.1f;
+    [SerializeField] bool canRollForWind = true;
 
     [SerializeField] float angleDiffR;
     [SerializeField] float angleDiffL;
     [SerializeField] float dirDiff;
     [SerializeField] float speedCur;
+
+    [SerializeField] float passiveAngleDiffR;
+    [SerializeField] float passiveAngleDiffL;
 
     public float angleMin; //MinAngle for wind effectiveness
     public float baseSpeed; //Base speed without wind
@@ -39,6 +46,8 @@ public class WindObject : MonoBehaviour
         sailDirection = sail.right;
         angleDiffR = Vector3.Angle(windCurrent, sailDirection);
         angleDiffL = Vector3.Angle(windCurrent, -sailDirection);
+        passiveAngleDiffR = Vector3.Angle(passiveDir, sailDirection);
+        passiveAngleDiffL = Vector3.Angle(passiveDir, -sailDirection);
         dirDiff = Vector3.Angle(windCurrent, transform.forward);
         speedCur = rb.velocity.magnitude;
         if (!inWindZone)
@@ -48,6 +57,7 @@ public class WindObject : MonoBehaviour
     }
     void FixedUpdate()
     {
+        RollForWindChange();
         if (inWindZone)//When effected by winds
         {
             windIndicator.forward = windCurrent;
@@ -74,10 +84,48 @@ public class WindObject : MonoBehaviour
         else
         {
             //Normal Force
-            windIndicator.localEulerAngles = Vector3.zero;
-            if (!boatStopped) { rb.AddForce(rb.transform.forward * baseSpeed); }
+            windIndicator.forward = Vector3.RotateTowards(windIndicator.forward,passiveDir,0.005f,0.001f);
+            windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+            float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
+            if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 100, 0, 100))); }
             flagMat.color = Color.yellow;
         }
+    }
+    void RollForWindChange()
+    {
+        if (canRollForWind)
+        {
+            canRollForWind = false;
+            float roll = Random.value;
+            if (roll > 0.5f) { PassiveWindChange(); }
+            StartCoroutine(RollCooldown());
+        }
+    }
+    IEnumerator RollCooldown()
+    {
+        yield return new WaitForSecondsRealtime(3f);
+        canRollForWind = true;
+    }
+    void PassiveWindChange()
+    {
+        float newChange = Random.value;
+        float newRange = Random.Range(0.8f, 1f);
+        if (RoundToDecimalPlace(newChange, 2) > 0.5f) { passiveChange = Mathf.MoveTowards(passiveChange, -1 * newRange, passiveScale); }
+        if (RoundToDecimalPlace(newChange, 2) < 0.5f) { passiveChange = Mathf.MoveTowards(passiveChange, 1 * newRange, passiveScale); }
+        passiveDir = transform.forward + (transform.right * passiveChange);
+    }
+    float RoundToDecimalPlace(float number, int decimalPlaces)
+    {
+        float pow = Mathf.Pow(10, decimalPlaces);
+        return Mathf.Round((number * pow) / pow);
+    }
+    private void OnEnable()
+    {
+        boatStopped = false;
+    }
+    public void SwitchBoatStopped(bool stopped)
+    {
+        boatStopped = stopped;
     }
     private void OnTriggerEnter(Collider col)//Enter Wind
     {
