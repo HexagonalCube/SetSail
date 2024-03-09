@@ -10,6 +10,7 @@ public class CloudManager : MonoBehaviour
     public Vector2 cloudSpeed;
     public float cloudHeight;
     public float cloudPower;
+    public float cloudSmooth;
 
     public Transform clouds;
 
@@ -39,5 +40,6 @@ public class CloudManager : MonoBehaviour
         cloudMat.SetVector("_DistortSpeed", -cloudSpeed / 1000);
         cloudMat.SetFloat("_VertexOffset", cloudHeight);
         cloudMat.SetFloat("_CloudPower", cloudPower / 100);
+        cloudMat.SetFloat("_Smoothness", cloudSmooth);
     }
 }

@@ -21,7 +21,7 @@ public class WeatherController : MonoBehaviour
     {
         UpdateWeather();
     }
-    void UpdateWeather() //Update managers to set values
+    public void UpdateWeather() //Update managers to set values
     {
         UpdateOcean();
         UpdateClouds();
@@ -36,13 +36,14 @@ public class WeatherController : MonoBehaviour
         clouds.cloudSpeed = new Vector2 (weather*10+1, weather*10+1);
         clouds.cloudColor = Color.Lerp(baseColor, stormColor, weather);
         clouds.colorIntensity = 4 / (1+weather);
+        clouds.cloudSmooth = 0.4f - (weather/5);
         clouds.UpdateMaterial();
     }
     void UpdateOcean() //DO NOT TOUCH UNLESS CHANGING VISUAL SETTINGS
     {
-        ocean.waveHeight = 600 + (25*weather);
-        ocean.wavesFrequency = 1.5f + (0.5f*weather);
-        ocean.waveSpeed = 4 + (3*weather);
+        ocean.waveHeight = 600 + (200*weather);
+        //ocean.wavesFrequency = 1.5f + (0.5f*weather);
+        //ocean.waveSpeed = 4 + (3*weather);
         ocean.UpdateMaterial();
     }
     void UpdateRain() //Updates rain particles
@@ -54,7 +55,7 @@ public class WeatherController : MonoBehaviour
     void UpdateSun() //Updates the skybox & sun to reflect the weather
     {
         sun.intensity = 2 - weather;
-        skybox.SetFloat("_Exposure", 1.3f * 1/(weather+1));
+        skybox.SetFloat("_Exposure", 1.3f * 1/(weather*2+1));
         
     }
 }

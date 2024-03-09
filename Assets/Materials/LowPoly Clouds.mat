@@ -51,15 +51,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClipping: 8.4
-    - _CloudAlpha: 25
+    - _AlphaClipping: 5.74
+    - _CloudAlpha: 20
     - _CloudPower: 0.9
     - _CloudScale: 230
     - _Coud_Scaling: 120
     - _DistortScale: 60
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0
+    - _Smoothness: 0.4
     - _VertexOffset: 60
     m_Colors:
     - _CloudColor: {r: 1.616, g: 1.616, b: 1.616, a: 0}
