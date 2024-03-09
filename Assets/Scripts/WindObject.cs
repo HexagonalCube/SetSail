@@ -6,6 +6,7 @@ using UnityEngine;
 public class WindObject : MonoBehaviour
 {
     public bool inWindZone = false; //If in windzone
+    public bool inEndZone = false; //If at edge of map
     public bool boatStopped = false;
     public GameObject windZone; //AOE
 
@@ -14,7 +15,7 @@ public class WindObject : MonoBehaviour
     public Transform windIndicator; //WindFlag
     public Material flagMat; //FlagColor
 
-    Vector3 windCurrent; //Wind Dir
+    [SerializeField] Vector3 windCurrent; //Wind Dir
     Vector3 sailDirection; //Sail Dir
     [SerializeField] Vector3 passiveDir; //Passive Wind Dir
     float passiveChange;
@@ -58,37 +59,46 @@ public class WindObject : MonoBehaviour
     void FixedUpdate()
     {
         RollForWindChange();
-        if (inWindZone)//When effected by winds
+        if (!inEndZone)//When not at edge of map
         {
-            windIndicator.forward = windCurrent;
-            windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
-            if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
+            if (inWindZone)//When effected by winds
             {
-                //Maximum Force
-                if (!boatStopped) { rb.AddForce(rb.transform.forward * maxSpeed); }
-                flagMat.color = Color.green;
-            }
-            else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 100)
-            {
-                //Minimum Force
-                if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed)); }
-                flagMat.color = Color.red;
+                windIndicator.forward = windCurrent;
+                windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
+                {
+                    //Maximum Force
+                    if (!boatStopped) { rb.AddForce(rb.transform.forward * maxSpeed); }
+                    flagMat.color = Color.green;
+                }
+                else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 100)
+                {
+                    //Minimum Force
+                    if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed)); }
+                    flagMat.color = Color.red;
+                }
+                else
+                {
+                    //Paralel to Wind force
+                    if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed * 3)); }
+                    flagMat.color = Color.cyan;
+                }
             }
             else
             {
-                //Paralel to Wind force
-                if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed * 3)); }
-                flagMat.color = Color.cyan;
+                //Normal Force
+                windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
+                windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
+                if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 100, 0, 100))); }
+                flagMat.color = Color.yellow;
             }
         }
-        else
+        else //When at edge of map
         {
-            //Normal Force
-            windIndicator.forward = Vector3.RotateTowards(windIndicator.forward,passiveDir,0.005f,0.001f);
-            windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
-            float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
-            if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 100, 0, 100))); }
-            flagMat.color = Color.yellow;
+            windIndicator.forward = windCurrent;
+            rb.AddForce(windCurrent * 75);
+            flagMat.color = Color.red;
         }
     }
     void RollForWindChange()
@@ -135,6 +145,13 @@ public class WindObject : MonoBehaviour
             inWindZone = true;
             windCurrent = windZone.GetComponent<WindArea>().direction;
         }
+        if (col.gameObject.tag == "windBarrier")
+        {
+            windZone = col.gameObject;
+            inWindZone = true;
+            inEndZone = true;
+            windCurrent = windZone.GetComponent<WindArea>().direction;
+        }
     }
     private void OnTriggerStay(Collider col)//In Wind
     {
@@ -144,12 +161,24 @@ public class WindObject : MonoBehaviour
             inWindZone = true;
             windCurrent = windZone.GetComponent<WindArea>().direction;
         }
+        if (col.gameObject.tag == "windBarrier")
+        {
+            windZone = col.gameObject;
+            inWindZone = true;
+            inEndZone = true;
+            windCurrent = windZone.GetComponent<WindArea>().direction;
+        }
     }
     private void OnTriggerExit(Collider col)//Exit Wind
     {
         if (col.gameObject.tag == "windArea")
         {
             inWindZone = false;
+        }
+        if (col.gameObject.tag == "windBarrier")
+        {
+            inWindZone = false;
+            inEndZone = false;
         }
     }
     private void OnDrawGizmos()

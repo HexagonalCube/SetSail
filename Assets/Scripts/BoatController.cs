@@ -70,7 +70,6 @@ public class BoatController : MonoBehaviour
             sailUp = true;
             wind.SwitchBoatStopped(sailUp);
             sailGeo.SetActive(false);
-            Debug.Log("RaiseSail");
         }
     }
     public void LowerSail()
@@ -80,7 +79,6 @@ public class BoatController : MonoBehaviour
             sailUp = false;
             wind.SwitchBoatStopped(sailUp);
             sailGeo.SetActive(true);
-            Debug.Log("LowerSail");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -111,7 +109,6 @@ public class BoatController : MonoBehaviour
         {
             dock.DockEnter(transform);
             dock = null;
-            Debug.Log("EnterDock");
         }
     }
 }

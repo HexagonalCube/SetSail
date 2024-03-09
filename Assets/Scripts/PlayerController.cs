@@ -79,7 +79,6 @@ public class PlayerController : MonoBehaviour
         {
             dock.DockExit();
             dock = null;
-            Debug.Log("ExitDock");
         }
     }
 }

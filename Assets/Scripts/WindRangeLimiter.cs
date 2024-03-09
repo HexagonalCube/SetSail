@@ -43,6 +43,21 @@ public class WindRangeLimiter : MonoBehaviour
                         i++;
                     }
                 }
+                if (obj.CompareTag("windBarrier"))
+                {
+                    windAreas[i] = obj.GetComponent<WindArea>();
+                    if (Vector3.Distance(obj.transform.position, transform.position) < drawRange - 0.1f)
+                    {
+                        windAreas[i].VisibilitySwitch(true);
+                        i++;
+                    }
+                    else
+                    {
+                        windAreas[i].VisibilitySwitch(false);
+                        windAreas[i] = null;
+                        i++;
+                    }
+                }
             }
         }
     }

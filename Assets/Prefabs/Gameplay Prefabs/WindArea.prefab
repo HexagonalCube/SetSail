@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1187976449199697810}
   - component: {fileID: 2658172733676655684}
   - component: {fileID: 8230301940363814569}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WindArea
   m_TagString: windArea
   m_Icon: {fileID: 0}
@@ -70,7 +70,9 @@ MonoBehaviour:
   Rotation: -45
   trDirection: {fileID: 2848000970752145724}
   direction: {x: 0.7071067, y: 0, z: 0.7071068}
-  particles: {fileID: 8621413073833689422}
+  particles:
+  - {fileID: 4844753091691064592}
+  - {fileID: 1048288571900261759}
   box: {fileID: 2658172733676655684}
 --- !u!1 &332501687501370214
 GameObject:
@@ -81,7 +83,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2848000970752145724}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Direction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +119,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wind Straight
+      objectReference: {fileID: 0}
+    - target: {fileID: 347428462806514589, guid: e4e7ef475cb42e94f8e85861e5b22201,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6877997338999926153, guid: e4e7ef475cb42e94f8e85861e5b22201,
         type: 3}
@@ -198,6 +205,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4e7ef475cb42e94f8e85861e5b22201, type: 3}
+--- !u!198 &4844753091691064592 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7776277179722138071, guid: e4e7ef475cb42e94f8e85861e5b22201,
+    type: 3}
+  m_PrefabInstance: {fileID: 2942794082304928967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8621413073833689422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6877997338999926153, guid: e4e7ef475cb42e94f8e85861e5b22201,
@@ -216,6 +229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Wind Loop
+      objectReference: {fileID: 0}
+    - target: {fileID: 347428462806514589, guid: 836d5fdc85e27f449960cee5b13fe06b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6877997338999926153, guid: 836d5fdc85e27f449960cee5b13fe06b,
         type: 3}
@@ -297,6 +315,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 836d5fdc85e27f449960cee5b13fe06b, type: 3}
+--- !u!198 &1048288571900261759 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 7776277179722138071, guid: 836d5fdc85e27f449960cee5b13fe06b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7306709973284156584}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4185295552777017633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6877997338999926153, guid: 836d5fdc85e27f449960cee5b13fe06b,
