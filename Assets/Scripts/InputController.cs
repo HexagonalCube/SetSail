@@ -7,8 +7,10 @@ public class InputController : MonoBehaviour
     [SerializeField] BoatController bController;
     [SerializeField] PlayerController pController;
     [SerializeField] PlayerInteract pInteract;
+    [SerializeField] InstrumentsController pInstruments;
 
     [SerializeField] KeyCode interact = KeyCode.E;
+    [SerializeField] KeyCode raiseLowerCompass = KeyCode.C;
     [SerializeField] KeyCode sailPositive = KeyCode.W;
     [SerializeField] KeyCode sailNegative = KeyCode.S;
     [SerializeField] KeyCode raiseLowerSail = KeyCode.Space;
@@ -23,6 +25,10 @@ public class InputController : MonoBehaviour
             bController.EnterDock();
             pController.ExitDock();
             pInteract.Interact();
+        }
+        if (Input.GetKeyDown(raiseLowerCompass))
+        {
+            pInstruments.RaiseLowerCompass();
         }
         //BoatControls
         if (Input.GetKey(sailNegative))
