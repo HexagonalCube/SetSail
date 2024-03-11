@@ -47899,109 +47899,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987654095}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &989160676 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3078929274660902506, guid: 983e08b13d643064f979bcb12bb71810,
-    type: 3}
-  m_PrefabInstance: {fileID: 5269652335546715411}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &989160687
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989160676}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 3222576950948981224, guid: 15cbc6679559b904c8d12db05f2bd57a,
-    type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &994159435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82799,34 +82696,10 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1252278407}
-    - target: {fileID: 5972551894504957525, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: woodCreakSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 389a35fbf6a23574abaa4ecc0cf94796, type: 3}
-    - target: {fileID: 5972551894504957525, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: sourceMiscSFX
-      value: 
-      objectReference: {fileID: 989160687}
-    - target: {fileID: 8744478705717415455, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: m_Volume
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8744478705717415455, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0769b1d4190d0434793e8716b7e4fe39, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3078929274660902506, guid: 983e08b13d643064f979bcb12bb71810,
-        type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 989160687}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983e08b13d643064f979bcb12bb71810, type: 3}
 --- !u!1001 &5950319597188738609
 PrefabInstance:

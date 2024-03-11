@@ -178,6 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7789338866625775387}
   - component: {fileID: 753543840707551875}
+  - component: {fileID: 688354821925599823}
   - component: {fileID: 5972551894504957525}
   - component: {fileID: 8744478705717415455}
   - component: {fileID: 4342998319154301797}
@@ -301,6 +302,103 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!82 &688354821925599823
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078929274660902506}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3222576950948981224, guid: 15cbc6679559b904c8d12db05f2bd57a,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &5972551894504957525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,12 +412,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sourceWaterSFX: {fileID: 753543840707551875}
-  sourceMiscSFX: {fileID: 0}
+  sourceMiscSFX: {fileID: 688354821925599823}
   sourceWindSFX: {fileID: 2715971329683669719}
   wavesSoftSFX: {fileID: 8300000, guid: 89ed0bd0ddf5a324aa541393592c3287, type: 3}
   wavesHardSFX: {fileID: 8300000, guid: 2735de127afa5b440bed4bcad82027e3, type: 3}
   wavesSplashSFX: {fileID: 8300000, guid: 10f8051fec2cb5e49812b72cd0b20fc1, type: 3}
-  woodCreakSFX: {fileID: 0}
+  woodCreakSFX: {fileID: 8300000, guid: 389a35fbf6a23574abaa4ecc0cf94796, type: 3}
   windsSoftSFX: {fileID: 8300000, guid: 9b45a0e7c321f6d40b7c4c7d163a16ae, type: 3}
   inBoat: 1
   sailRaised: 0
@@ -335,9 +433,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3222576950948981224, guid: 15cbc6679559b904c8d12db05f2bd57a,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 778b946087b0e724e8cd6b7117243beb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0769b1d4190d0434793e8716b7e4fe39, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.628
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -430,7 +528,8 @@ AudioSource:
   m_GameObject: {fileID: 3078929274660902506}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 3222576950948981224, guid: 15cbc6679559b904c8d12db05f2bd57a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 673ae7e71a7a51649a1f56889495ca8e, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.4
