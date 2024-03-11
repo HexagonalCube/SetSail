@@ -61405,8 +61405,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5294122812017124130, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
         type: 3}
+      propertyPath: field of view
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294122812017124130, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
+        type: 3}
+      propertyPath: m_FocalLength
+      value: 15.638705
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294122812017124130, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
+        type: 3}
       propertyPath: far clip plane
       value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294122812017124130, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
+        type: 3}
+      propertyPath: m_SensorSize.x
+      value: 42.5
       objectReference: {fileID: 0}
     - target: {fileID: 5294122812017124130, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
         type: 3}
@@ -61417,6 +61432,16 @@ PrefabInstance:
         type: 3}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294122812017124130, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5671757308280897663, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
+        type: 3}
+      propertyPath: m_CameraType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7928581702704154116, guid: 3b0c9378d8bf8704bb5fa0283a4aca24,
         type: 3}
