@@ -15,6 +15,7 @@ public class BoatController : MonoBehaviour
     [SerializeField] bool nearDock;
     [SerializeField] DockScript dock;
     [SerializeField] GameObject sailGeo;
+    [SerializeField] SFXController boatSFX;
     [SerializeField] bool basicEnabled = true;
     public bool sailUp = false;
     // Start is called before the first frame update
@@ -50,7 +51,9 @@ public class BoatController : MonoBehaviour
         basicEnabled = true;
         sailGeo.SetActive(true);
         sailUp = false;
+        boatSFX.EnterBoat();
         LowerSail();
+        boatSFX.sailRaised = false;
     }
     public void DisableBoat()
     {
@@ -61,7 +64,9 @@ public class BoatController : MonoBehaviour
         mainCamera.SwitchCamera(false);
         basicEnabled = false;
         sailGeo.SetActive(false);
+        boatSFX.ExitBoat();
         sailUp = true;
+        boatSFX.sailRaised = true;
     }
     public void RaiseSail()
     {
@@ -70,6 +75,7 @@ public class BoatController : MonoBehaviour
             sailUp = true;
             wind.SwitchBoatStopped(sailUp);
             sailGeo.SetActive(false);
+            boatSFX.sailRaised = true;
         }
     }
     public void LowerSail()
@@ -79,6 +85,7 @@ public class BoatController : MonoBehaviour
             sailUp = false;
             wind.SwitchBoatStopped(sailUp);
             sailGeo.SetActive(true);
+            boatSFX.sailRaised = false;
         }
     }
     private void OnTriggerEnter(Collider other)
