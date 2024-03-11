@@ -90,8 +90,10 @@ public class WindObject : MonoBehaviour
                 windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
                 windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
                 float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
-                if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 100, 0, 100))); }
-                flagMat.color = Color.yellow;
+                if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 400, 0, 100))); }
+                if (diff < 10f) { flagMat.color = Color.magenta; }
+                else if (diff < 25f) { flagMat.color = Color.green; }
+                else {  flagMat.color = Color.yellow; }
             }
         }
         else //When at edge of map
