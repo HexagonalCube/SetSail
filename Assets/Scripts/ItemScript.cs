@@ -7,6 +7,14 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     [SerializeField] content type;
+    [SerializeField] Outline outline;
+    [SerializeField] GameUI_Controller ui;
+    bool canOutline = true;
+    private void Start()
+    {
+        outline = GetComponent<Outline>();
+        outline.enabled = false;
+    }
     enum content
     {
         Type_1,
@@ -17,7 +25,7 @@ public class ItemScript : MonoBehaviour
     }
     bool CheckIfVisible()
     {
-        if (GetComponent<Renderer>().isVisible) return true;
+        if (GetComponentInChildren<Renderer>().isVisible) return true;
         else return false;
     }
     public void Interact()
@@ -27,16 +35,24 @@ public class ItemScript : MonoBehaviour
             switch (type)
             {
                 case content.Type_1:
-                    Destroy(gameObject);
+                    canOutline = false;
+                    ui.Interact(false);
+                    StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Type_2:
-                    Destroy(gameObject);
+                    canOutline = false;
+                    ui.Interact(false);
+                    StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Type_3:
-                    Destroy(gameObject);
+                    canOutline = false;
+                    ui.Interact(false);
+                    StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Type_4:
-                    Destroy(gameObject);
+                    canOutline = false;
+                    ui.Interact(false);
+                    StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Type_test:
                     GetComponentInParent<TestObjectives>().SelectObjective();
@@ -44,16 +60,30 @@ public class ItemScript : MonoBehaviour
             }
         }
     }
-    public void HiglightObject(bool highlight)
+    public void HiglightObjectNear(bool highlight)
     {
-        if (highlight)
+        if (highlight && CheckIfVisible() && canOutline)
         {
-            if (CheckIfVisible())
-            {
-                GetComponent<Renderer>().material.color = Color.red;
-            }
-            else { GetComponent<Renderer>().material.color = Color.white; }
+            ui.Interact(true);
         }
-        else { GetComponent<Renderer>().material.color = Color.white; }
+        else 
+        {
+            ui.Interact(false); 
+        }
+    }
+    public void HighlightObjectSimple(bool highlight)
+    {
+        if (highlight && canOutline)
+        {
+            outline.enabled = true;
+        }
+        else { outline.enabled = false; ui.Interact(false); }
+    }
+    IEnumerator DestroyAfterSeconds(float seconds)
+    {
+        ui.Interact(false);
+        ui.scheduleFade = true;
+        yield return new WaitForSeconds(seconds);
+        Destroy(gameObject);
     }
 }

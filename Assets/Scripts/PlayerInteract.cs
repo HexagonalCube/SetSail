@@ -19,7 +19,11 @@ public class PlayerInteract : MonoBehaviour
     {
         if (isInView)
         {
-            curItem.GetComponent<ItemScript>().Interact();
+            if(curItem != null) { curItem.GetComponent<ItemScript>().Interact(); }
+        }
+        else
+        {
+            //curItem = null;
         }
     }
     bool inview(Vector3 campos, Vector3 camdir, Vector3 bodypos ) //Checks if in view
@@ -61,7 +65,7 @@ public class PlayerInteract : MonoBehaviour
         if (curItem != null) 
         {
             isInView = inview(transform.position ,transform.forward ,curItem.position );
-            curItem.GetComponent<ItemScript>().HiglightObject(isInView);
+            curItem.GetComponent<ItemScript>().HiglightObjectNear(isInView);
         }
     }
 }
