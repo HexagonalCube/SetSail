@@ -17,6 +17,7 @@ public class BoatController : MonoBehaviour
     [SerializeField] GameObject sailGeo;
     [SerializeField] SFXController boatSFX;
     [SerializeField] bool basicEnabled = true;
+    [SerializeField] GameUI_Controller gameUI;
     public bool sailUp = false;
     // Start is called before the first frame update
     void Start()
@@ -44,6 +45,8 @@ public class BoatController : MonoBehaviour
     }
     public void EnableBoat()
     {
+        gameUI.Interact(false);
+        gameUI.scheduleFade = true;
         wind.enabled = true;
         rotateBoat.rotEnabled = true;
         rotateSail.rotEnabled = true;
@@ -93,7 +96,7 @@ public class BoatController : MonoBehaviour
         if (other.CompareTag("DockEnter"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
-            //
+            if (basicEnabled) { gameUI.Interact(true); }
             //
             dock = other.GetComponentInParent<DockScript>();
             nearDock = true;
@@ -104,7 +107,7 @@ public class BoatController : MonoBehaviour
         if (other.CompareTag("DockEnter"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
-            //
+            gameUI.Interact(false);
             //
             dock = null;
             nearDock = false;
@@ -114,6 +117,7 @@ public class BoatController : MonoBehaviour
     {
         if (nearDock && dock!=null)
         {
+            gameUI.Interact(false);
             dock.DockEnter(transform);
             dock = null;
         }

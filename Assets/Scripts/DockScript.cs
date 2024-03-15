@@ -19,7 +19,7 @@ public class DockScript : MonoBehaviour
     {
         if (inDock)
         {
-            clouds.isInBoat = false;
+            clouds.isInBoat = true;
         }
     }
     public void DockExit() //When Exiting Dock
@@ -44,7 +44,7 @@ public class DockScript : MonoBehaviour
             aBoat.rotation = boatPoint.rotation;
             boat.DisableBoat();
             inDock = true;
-            clouds.isInBoat = false;
+            clouds.isInBoat = true;
             StartCoroutine(SwitchTimer());
         }
     }

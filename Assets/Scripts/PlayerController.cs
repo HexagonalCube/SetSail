@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] bool nearDock;
     [SerializeField] DockScript dock;
+    [SerializeField] GameUI_Controller gameUIController;
     private void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("DockExit"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
-            //
+            gameUIController.Interact(true);
             //
             dock = other.GetComponentInParent<DockScript>();
             nearDock = true;
@@ -67,7 +68,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("DockExit"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
-            //
+            gameUIController.Interact(false);
             //
             dock = null;
             nearDock = false;
@@ -77,6 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         if (nearDock && dock != null)
         {
+            gameUIController.Interact(false);
             dock.DockExit();
             dock = null;
         }

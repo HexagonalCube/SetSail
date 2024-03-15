@@ -5,11 +5,21 @@ using UnityEngine;
 public class PlayerItemDistance : MonoBehaviour
 {
     [SerializeField] PlayerInteract pInt;
-
+    ItemScript item;
+    bool near;
+    private void Update()
+    {
+        if (item != null)
+        {
+            item.HighlightObjectSimple(near);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Item"))
         {
+            item = other.GetComponent<ItemScript>();
+            near = true;
             pInt.closeToItem = true;
             pInt.distanceToItem = Vector3.Distance(transform.position, other.transform.position);
             pInt.curItem = other.transform;
@@ -19,7 +29,7 @@ public class PlayerItemDistance : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
-            other.GetComponent<ItemScript>().HiglightObject(false);
+            near = false;
             pInt.closeToItem = false;
             pInt.curItem = null;
         }
