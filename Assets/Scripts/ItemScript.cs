@@ -64,10 +64,12 @@ public class ItemScript : MonoBehaviour
     {
         if (highlight && CheckIfVisible() && canOutline)
         {
+            ui.CursorUpdate(true, true);
             ui.Interact(true);
         }
         else 
         {
+            ui.CursorUpdate(false, true);
             ui.Interact(false); 
         }
     }
@@ -75,9 +77,10 @@ public class ItemScript : MonoBehaviour
     {
         if (highlight && canOutline)
         {
+            ui.CursorUpdate(false, true);
             outline.enabled = true;
         }
-        else { outline.enabled = false; ui.Interact(false); }
+        else { outline.enabled = false; ui.Interact(false); ui.CursorUpdate(false, false); }
     }
     IEnumerator DestroyAfterSeconds(float seconds)
     {
