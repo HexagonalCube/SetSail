@@ -46,7 +46,7 @@ public class BoatController : MonoBehaviour
     public void EnableBoat()
     {
         gameUI.Interact(false);
-        gameUI.scheduleFade = true;
+        gameUI.scheduleFadeOut = true;
         wind.enabled = true;
         rotateBoat.rotEnabled = true;
         rotateSail.rotEnabled = true;

@@ -9,7 +9,7 @@ public class GameUI_Controller : MonoBehaviour
     [SerializeField] GameObject controlsHud;
     float fade = 0f;
     bool fading = false;
-    public bool scheduleFade;
+    public bool scheduleFadeOut;
     private void Start()
     {
         interactionText.color = new Color(1, 1, 1, 0);
@@ -19,6 +19,7 @@ public class GameUI_Controller : MonoBehaviour
         if (on && !fading)
         {
             fading = true;
+            StopAllCoroutines();
             //Debug.Log("ACTIVE");
             StartCoroutine(ColorFadeIn());
         }
@@ -26,15 +27,17 @@ public class GameUI_Controller : MonoBehaviour
         if (!on && !fading) 
         {
             fading = true;
+            StopAllCoroutines();
             //Debug.Log("NOT");
             StartCoroutine(ColorFadeOut());
         }
     }
     private void Update()
     {
-        if(scheduleFade)
+        if(scheduleFadeOut)
         {
-            scheduleFade = false;
+            StopAllCoroutines();
+            scheduleFadeOut = false;
             StartCoroutine(ColorFadeOut());
         }
     }
