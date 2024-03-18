@@ -110,10 +110,8 @@ public class WindObject : MonoBehaviour
     }
     IEnumerator BoatSlide(float speed)
     {
-        Debug.Log("A");
         if (timeSliding > 0)
         {
-            Debug.Log("AB");
             rb.AddForce(rb.transform.forward * (speed * 3));
             yield return new WaitForSeconds(0.1f);
             timeSliding -= 1;
