@@ -6,7 +6,7 @@ public class IslandsDistanceController : MonoBehaviour
     [SerializeField] float[] distances;
     [SerializeField] Transform boat;
     [SerializeField] WeatherController weather;
-    [SerializeField] float dist;
+    [SerializeField] public float dist;
     private void Update()
     {
         distances = new float[islands.Length];

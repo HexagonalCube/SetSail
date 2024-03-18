@@ -12,14 +12,17 @@ public class CloudFollower : MonoBehaviour
 
     void Update()
     {
-        switch (isInBoat)
-        {
-            case false:
-                transform.position = new Vector3(player.position.x, transform.position.y, player.position.z);
-                break;
-            case true:
-                transform.position = new Vector3(boat.position.x, transform.position.y, boat.position.z);
-                break;
-        }
+        //switch (isInBoat)
+        //{
+        //    case false:
+        //        transform.position = new Vector3(player.position.x, transform.position.y, player.position.z);
+        //        break;
+        //    case true:
+        //        transform.position = new Vector3(boat.position.x, transform.position.y, boat.position.z);
+        //        break;
+        //}
+
+        //Boat Only
+        transform.position = new Vector3(boat.position.x, transform.position.y, boat.position.z);
     }
 }
