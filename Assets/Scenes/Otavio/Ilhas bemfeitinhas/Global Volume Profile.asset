@@ -86,13 +86,13 @@ MonoBehaviour:
   active: 1
   rayIntensity:
     m_OverrideState: 1
-    m_Value: 0.129
+    m_Value: 0.503
   rayDecay:
     m_OverrideState: 1
-    m_Value: 0.937
+    m_Value: 0.903
   rayDensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.5
   sunTransformPosition:
     m_OverrideState: 0
     m_Value: {x: 0, y: 0, z: 0}

@@ -27,6 +27,8 @@ public class WindObject : MonoBehaviour
     [SerializeField] float angleDiffL;
     [SerializeField] float dirDiff;
     [SerializeField] float speedCur;
+    [SerializeField] int maxSlideTime = 5;
+    [SerializeField] int timeSliding;
 
     [SerializeField] float passiveAngleDiffR;
     [SerializeField] float passiveAngleDiffL;
@@ -68,19 +70,21 @@ public class WindObject : MonoBehaviour
                 if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
                 {
                     //Maximum Force
-                    if (!boatStopped) { rb.AddForce(rb.transform.forward * maxSpeed); }
+                    if (!boatStopped) { rb.AddForce(rb.transform.forward * maxSpeed);  timeSliding = maxSlideTime; }
+                    else { StartCoroutine(BoatSlide(maxSpeed)); }
                     flagMat.color = Color.green;
                 }
                 else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 100)
                 {
                     //Minimum Force
-                    if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed)); }
+                    if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed)); timeSliding = maxSlideTime; }
                     flagMat.color = Color.red;
                 }
                 else
                 {
                     //Paralel to Wind force
-                    if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed * 3)); }
+                    if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed * 3)); timeSliding = maxSlideTime; }
+                    else { StartCoroutine(BoatSlide(minSpeed)); }
                     flagMat.color = Color.cyan;
                 }
             }
@@ -90,7 +94,8 @@ public class WindObject : MonoBehaviour
                 windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
                 windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
                 float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
-                if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 400, 0, 100))); }
+                if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 400, 0, 100))); timeSliding = maxSlideTime; }
+                else { StartCoroutine(BoatSlide(baseSpeed)); }
                 if (diff < 10f) { flagMat.color = Color.magenta; }
                 else if (diff < 25f) { flagMat.color = Color.green; }
                 else {  flagMat.color = Color.yellow; }
@@ -101,6 +106,17 @@ public class WindObject : MonoBehaviour
             windIndicator.forward = windCurrent;
             rb.AddForce(windCurrent * 75);
             flagMat.color = Color.red;
+        }
+    }
+    IEnumerator BoatSlide(float speed)
+    {
+        Debug.Log("A");
+        if (timeSliding > 0)
+        {
+            Debug.Log("AB");
+            rb.AddForce(rb.transform.forward * (speed * 3));
+            yield return new WaitForSeconds(0.1f);
+            timeSliding -= 1;
         }
     }
     void RollForWindChange()

@@ -44,6 +44,22 @@ MonoBehaviour:
   settings:
     renderPassEvent: 400
     shader: {fileID: 0}
+--- !u!114 &-5368969720219946914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74642f8011344c14e82cfe8dbb0776f5, type: 3}
+  m_Name: PRISM Flares
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 400
+    shader: {fileID: 0}
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +114,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: -8797863886608585122}
-  m_RendererFeatureMap: adc0de57c6d2eee55e2e758068b5e785
+  - {fileID: -5368969720219946914}
+  m_RendererFeatureMap: adc0de57c6d2eee55e2e758068b5e7855e3076487c967db5
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}

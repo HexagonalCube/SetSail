@@ -14,21 +14,26 @@ public class BoatController : MonoBehaviour
     [SerializeField] bool startEnabled = false;
     [SerializeField] bool nearDock;
     [SerializeField] DockScript dock;
+    [SerializeField] Animator sailAnim;
     [SerializeField] GameObject sailGeo;
     [SerializeField] SFXController boatSFX;
     [SerializeField] bool basicEnabled = true;
     [SerializeField] GameUI_Controller gameUI;
-    public bool sailUp = false;
+    public bool sailStowed = false;
     // Start is called before the first frame update
     void Start()
     {
         GetVariables();
         if (startEnabled)
         {
+            sailStowed = false;
+            sailAnim.Play("RaisedSail");
             EnableBoat();
         }
         else
         {
+            sailStowed = true;
+            sailAnim.Play("LoweredSail");
             DisableBoat();
         }
     }
@@ -52,10 +57,9 @@ public class BoatController : MonoBehaviour
         rotateSail.rotEnabled = true;
         mainCamera.SwitchCamera(true);
         basicEnabled = true;
-        sailGeo.SetActive(true);
-        sailUp = false;
+        //sailStowed = false;
         boatSFX.EnterBoat();
-        LowerSail();
+        ReleaseSail();
         boatSFX.sailRaised = false;
     }
     public void DisableBoat()
@@ -66,29 +70,29 @@ public class BoatController : MonoBehaviour
         rotateSail.rotEnabled = false;
         mainCamera.SwitchCamera(false);
         basicEnabled = false;
-        sailGeo.SetActive(false);
         boatSFX.ExitBoat();
-        sailUp = true;
+        //sailStowed = true;
+        StowSail();
         boatSFX.sailRaised = true;
     }
-    public void RaiseSail()
+    public void StowSail()
     {
-        if (!sailUp & basicEnabled)
+        if (!sailStowed & basicEnabled)
         {
-            sailUp = true;
-            wind.SwitchBoatStopped(sailUp);
-            sailGeo.SetActive(false);
+            sailStowed = true;
+            wind.SwitchBoatStopped(sailStowed);
             boatSFX.sailRaised = true;
+            sailAnim.Play("LoweredSail");
         }
     }
-    public void LowerSail()
+    public void ReleaseSail()
     {
-        if (sailUp & basicEnabled)
+        if (sailStowed & basicEnabled)
         {
-            sailUp = false;
-            wind.SwitchBoatStopped(sailUp);
-            sailGeo.SetActive(true);
+            sailStowed = false;
+            wind.SwitchBoatStopped(sailStowed);
             boatSFX.sailRaised = false;
+            sailAnim.Play("RaisedSail");
         }
     }
     private void OnTriggerEnter(Collider other)
