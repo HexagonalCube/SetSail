@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9049651951912822071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0a108e5185fc44aa8a6f37f53d6464a, type: 3}
+  m_Name: SunShaftFeature
+  m_EditorClassIdentifier: 
+  m_Active: 0
+  settings:
+    passEvent: 550
+    sunShaftMaterial: {fileID: 2100000, guid: 44b46f49e391d4d46b15e54072331234, type: 2}
+    renderMode: 2
+    resolution: 2
+    blendMode: 4
+    depthThreshold: 0
+    opacity: 1
+    sunPosition: {x: 0, y: 3, z: 0}
+    radialBlurIterations: 1
+    sunColor: {r: 1, g: 1, b: 1, a: 1}
+    sunIntensity: 0.25
+    sunColorThreshold: {r: 0, g: 0, b: 0, a: 1}
+    sunBlurRadius: 2.5
+    maxRadius: 1
+--- !u!114 &-8797863886608585122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2473e803d450e04d944c39b4260667b, type: 3}
+  m_Name: PRISM Sunshafts
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 400
+    shader: {fileID: 0}
+--- !u!114 &-5368969720219946914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74642f8011344c14e82cfe8dbb0776f5, type: 3}
+  m_Name: PRISM Flares
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    renderPassEvent: 400
+    shader: {fileID: 0}
 --- !u!114 &-1878332245247344467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53,7 +113,9 @@ MonoBehaviour:
     hdrDebugViewPS: {fileID: 4800000, guid: 573620ae32aec764abd4d728906d2587, type: 3}
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
-  m_RendererFeatureMap: adc0de57c6d2eee5
+  - {fileID: -8797863886608585122}
+  - {fileID: -5368969720219946914}
+  m_RendererFeatureMap: adc0de57c6d2eee55e2e758068b5e7855e3076487c967db5
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}

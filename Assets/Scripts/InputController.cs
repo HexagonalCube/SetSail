@@ -41,13 +41,13 @@ public class InputController : MonoBehaviour
         }
         if (Input.GetKeyDown(raiseLowerSail))
         {
-            if (bController.sailUp)
+            if (bController.sailStowed)
             {
-                bController.LowerSail();
+                bController.ReleaseSail();
             }
             else
             {
-                bController.RaiseSail();
+                bController.StowSail();
             }
         }
         if (Input.GetKey(rudderNegative))

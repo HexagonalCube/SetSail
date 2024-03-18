@@ -71,6 +71,43 @@ MonoBehaviour:
   bladeRotation:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-4518904143398000677
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1f1c903230d0824f8f1fef6f51e54bf, type: 3}
+  m_Name: PRISMSunshafts
+  m_EditorClassIdentifier: 
+  active: 1
+  rayIntensity:
+    m_OverrideState: 1
+    m_Value: 0.503
+  rayDecay:
+    m_OverrideState: 1
+    m_Value: 0.903
+  rayDensity:
+    m_OverrideState: 1
+    m_Value: 0.5
+  sunTransformPosition:
+    m_OverrideState: 0
+    m_Value: {x: 0, y: 0, z: 0}
+  sunColor:
+    m_OverrideState: 1
+    m_Value: {r: 1, g: 0.92941177, b: 0.7411765, a: 1}
+  useUltraQuality:
+    m_OverrideState: 1
+    m_Value: 1
+  useMobileDownsampling:
+    m_OverrideState: 1
+    m_Value: 0
+  sunTransform:
+    m_OverrideState: 1
+    m_Value: {fileID: 0}
 --- !u!114 &-4313024951099922072
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -137,6 +174,7 @@ MonoBehaviour:
   - {fileID: 8446281823634268314}
   - {fileID: 6782011754147161024}
   - {fileID: 7261377901600899641}
+  - {fileID: -4518904143398000677}
 --- !u!114 &6782011754147161024
 MonoBehaviour:
   m_ObjectHideFlags: 3

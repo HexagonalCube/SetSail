@@ -14,20 +14,26 @@ public class BoatController : MonoBehaviour
     [SerializeField] bool startEnabled = false;
     [SerializeField] bool nearDock;
     [SerializeField] DockScript dock;
+    [SerializeField] Animator sailAnim;
     [SerializeField] GameObject sailGeo;
     [SerializeField] SFXController boatSFX;
     [SerializeField] bool basicEnabled = true;
-    public bool sailUp = false;
+    [SerializeField] GameUI_Controller gameUI;
+    public bool sailStowed = false;
     // Start is called before the first frame update
     void Start()
     {
         GetVariables();
         if (startEnabled)
         {
+            sailStowed = false;
+            sailAnim.Play("RaisedSail");
             EnableBoat();
         }
         else
         {
+            sailStowed = true;
+            sailAnim.Play("LoweredSail");
             DisableBoat();
         }
     }
@@ -44,15 +50,16 @@ public class BoatController : MonoBehaviour
     }
     public void EnableBoat()
     {
+        gameUI.Interact(false);
+        gameUI.scheduleFadeOut = true;
         wind.enabled = true;
         rotateBoat.rotEnabled = true;
         rotateSail.rotEnabled = true;
         mainCamera.SwitchCamera(true);
         basicEnabled = true;
-        sailGeo.SetActive(true);
-        sailUp = false;
+        //sailStowed = false;
         boatSFX.EnterBoat();
-        LowerSail();
+        ReleaseSail();
         boatSFX.sailRaised = false;
     }
     public void DisableBoat()
@@ -63,29 +70,29 @@ public class BoatController : MonoBehaviour
         rotateSail.rotEnabled = false;
         mainCamera.SwitchCamera(false);
         basicEnabled = false;
-        sailGeo.SetActive(false);
         boatSFX.ExitBoat();
-        sailUp = true;
+        //sailStowed = true;
+        StowSail();
         boatSFX.sailRaised = true;
     }
-    public void RaiseSail()
+    public void StowSail()
     {
-        if (!sailUp & basicEnabled)
+        if (!sailStowed & basicEnabled)
         {
-            sailUp = true;
-            wind.SwitchBoatStopped(sailUp);
-            sailGeo.SetActive(false);
+            sailStowed = true;
+            wind.SwitchBoatStopped(sailStowed);
             boatSFX.sailRaised = true;
+            sailAnim.Play("LoweredSail");
         }
     }
-    public void LowerSail()
+    public void ReleaseSail()
     {
-        if (sailUp & basicEnabled)
+        if (sailStowed & basicEnabled)
         {
-            sailUp = false;
-            wind.SwitchBoatStopped(sailUp);
-            sailGeo.SetActive(true);
+            sailStowed = false;
+            wind.SwitchBoatStopped(sailStowed);
             boatSFX.sailRaised = false;
+            sailAnim.Play("RaisedSail");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -93,7 +100,7 @@ public class BoatController : MonoBehaviour
         if (other.CompareTag("DockEnter"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
-            //
+            if (basicEnabled) { gameUI.Interact(true); }
             //
             dock = other.GetComponentInParent<DockScript>();
             nearDock = true;
@@ -104,7 +111,7 @@ public class BoatController : MonoBehaviour
         if (other.CompareTag("DockEnter"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
-            //
+            gameUI.Interact(false);
             //
             dock = null;
             nearDock = false;
@@ -114,6 +121,7 @@ public class BoatController : MonoBehaviour
     {
         if (nearDock && dock!=null)
         {
+            gameUI.Interact(false);
             dock.DockEnter(transform);
             dock = null;
         }
