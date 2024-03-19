@@ -85,6 +85,7 @@ public class ItemScript : MonoBehaviour
     IEnumerator DestroyAfterSeconds(float seconds)
     {
         ui.Interact(false);
+        ui.CursorUpdate(true, false);
         ui.scheduleFadeOut = true;
         yield return new WaitForSeconds(seconds);
         Destroy(gameObject);
