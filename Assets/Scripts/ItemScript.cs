@@ -60,6 +60,13 @@ public class ItemScript : MonoBehaviour
             }
         }
     }
+    public void CursorActivate(bool active)
+    {
+        if (CheckIfVisible())
+        {
+            ui.CursorUpdate(false, active);
+        }
+    }
     public void HiglightObjectNear(bool highlight)
     {
         if (highlight && CheckIfVisible() && canOutline)
@@ -69,7 +76,6 @@ public class ItemScript : MonoBehaviour
         }
         else 
         {
-            ui.CursorUpdate(false, true);
             ui.Interact(false); 
         }
     }
@@ -77,7 +83,6 @@ public class ItemScript : MonoBehaviour
     {
         if (highlight && canOutline)
         {
-            ui.CursorUpdate(false, true);
             outline.enabled = true;
         }
         else { outline.enabled = false; ui.Interact(false); ui.CursorUpdate(false, false); }

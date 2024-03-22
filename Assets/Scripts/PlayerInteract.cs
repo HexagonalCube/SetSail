@@ -13,7 +13,9 @@ public class PlayerInteract : MonoBehaviour
     public Transform curItem;
     [SerializeField] float maxDist;
     [SerializeField] float minAngle;
+    [SerializeField] float maxAngle;
     [SerializeField] bool isInView;
+    public bool isInViewNear;
 
     public void Interact() //Get item interaction
     {
@@ -26,7 +28,7 @@ public class PlayerInteract : MonoBehaviour
             //curItem = null;
         }
     }
-    bool inview(Vector3 campos, Vector3 camdir, Vector3 bodypos ) //Checks if in view
+    bool inview(Vector3 campos, Vector3 camdir, Vector3 bodypos, bool viewNear) //Checks if in view
     {
         //Get the vector to body
         Vector3 tobody = bodypos - campos;
@@ -46,7 +48,12 @@ public class PlayerInteract : MonoBehaviour
         //Get total difference
         float angleDiff = Mathf.Abs(tilttobody - tiltcam);
         //If whitin diff, then return true
-        if (angleDiff > minAngle)
+        if (angleDiff > minAngle && !viewNear)
+        {
+            return false;
+        }
+        else if (angleDiff < minAngle && !viewNear) { return true; }
+        if (angleDiff > maxAngle && viewNear)
         {
             return false;
         }
@@ -64,8 +71,10 @@ public class PlayerInteract : MonoBehaviour
     {
         if (curItem != null) 
         {
-            isInView = inview(transform.position ,transform.forward ,curItem.position );
+            isInView = inview(transform.position ,transform.forward ,curItem.position, false);
+            isInViewNear = inview(transform.position, transform.forward, curItem.position, true);
             curItem.GetComponent<ItemScript>().HiglightObjectNear(isInView);
+            curItem.GetComponent<ItemScript>().CursorActivate(isInViewNear);
         }
     }
 }

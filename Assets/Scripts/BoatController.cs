@@ -53,27 +53,29 @@ public class BoatController : MonoBehaviour
         gameUI.Interact(false);
         gameUI.scheduleFadeOut = true;
         wind.enabled = true;
+        wind.SwitchBoatStopped(true);
         rotateBoat.rotEnabled = true;
         rotateSail.rotEnabled = true;
         mainCamera.SwitchCamera(true);
         basicEnabled = true;
         //sailStowed = false;
         boatSFX.EnterBoat();
-        ReleaseSail();
-        boatSFX.sailRaised = false;
+        StowSail();
+        boatSFX.sailRaised = true;
     }
     public void DisableBoat()
     {
         rb.velocity = Vector3.zero;
         wind.enabled = false;
+        wind.SwitchBoatStopped(true);
         rotateBoat.rotEnabled = false;
         rotateSail.rotEnabled = false;
         mainCamera.SwitchCamera(false);
-        basicEnabled = false;
         boatSFX.ExitBoat();
         //sailStowed = true;
         StowSail();
         boatSFX.sailRaised = true;
+        basicEnabled = false;
     }
     public void StowSail()
     {

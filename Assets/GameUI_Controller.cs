@@ -22,6 +22,14 @@ public class GameUI_Controller : MonoBehaviour
         interactionText.color = new Color(1, 1, 1, 0);
         cursor.color = new Color(1, 1, 1, 0);
     }
+    void InitialSetup()
+    {
+        StartCoroutine(TutorialTimer());
+    }
+    private IEnumerator TutorialTimer()
+    {
+        yield return new WaitForSeconds(10f);
+    }
     public void Interact(bool on)
     {
         if (on && !textFading)

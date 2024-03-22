@@ -7,6 +7,7 @@ public class WindObject : MonoBehaviour
 {
     public bool inWindZone = false; //If in windzone
     public bool inEndZone = false; //If at edge of map
+    public bool inLowZone = false; //If close to a dock
     public bool boatStopped = false;
     public GameObject windZone; //AOE
 
@@ -88,7 +89,7 @@ public class WindObject : MonoBehaviour
                     flagMat.color = Color.cyan;
                 }
             }
-            else
+            else if (!inLowZone)
             {
                 //Normal Force
                 windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
@@ -99,6 +100,18 @@ public class WindObject : MonoBehaviour
                 if (diff < 10f) { flagMat.color = Color.magenta; }
                 else if (diff < 25f) { flagMat.color = Color.green; }
                 else {  flagMat.color = Color.yellow; }
+            }
+            else
+            {
+                //In Low wind zones
+                windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
+                windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
+                if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed/2 + Mathf.Pow(diff, -1) * 400, 0, 100))); timeSliding = maxSlideTime; }
+                else { StartCoroutine(BoatSlide(baseSpeed/2)); }
+                if (diff < 10f) { flagMat.color = Color.magenta; }
+                else if (diff < 25f) { flagMat.color = Color.green; }
+                else { flagMat.color = Color.yellow; }
             }
         }
         else //When at edge of map
@@ -168,6 +181,10 @@ public class WindObject : MonoBehaviour
             inEndZone = true;
             windCurrent = windZone.GetComponent<WindArea>().direction;
         }
+        if(col.gameObject.tag == "windLow")
+        {
+            inLowZone = true;
+        }
     }
     private void OnTriggerStay(Collider col)//In Wind
     {
@@ -184,6 +201,10 @@ public class WindObject : MonoBehaviour
             inEndZone = true;
             windCurrent = windZone.GetComponent<WindArea>().direction;
         }
+        if (col.gameObject.tag == "windLow")
+        {
+            inLowZone = true;
+        }
     }
     private void OnTriggerExit(Collider col)//Exit Wind
     {
@@ -195,6 +216,10 @@ public class WindObject : MonoBehaviour
         {
             inWindZone = false;
             inEndZone = false;
+        }
+        if (col.gameObject.tag == "windLow")
+        {
+            inLowZone = false;
         }
     }
     private void OnDrawGizmos()

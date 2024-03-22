@@ -25,13 +25,29 @@ public class PlayerItemDistance : MonoBehaviour
             pInt.curItem = other.transform;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Item"))
+        {
+            item = other.GetComponent<ItemScript>();
+            near = true;
+            pInt.closeToItem = true;
+            pInt.distanceToItem = Vector3.Distance(transform.position, other.transform.position);
+            pInt.curItem = other.transform;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Item"))
         {
             near = false;
-            pInt.closeToItem = false;
-            pInt.curItem = null;
+            StartCoroutine(SetNullAfterSeconds(0.2f));
         }
+    }
+    private IEnumerator SetNullAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        pInt.closeToItem = false;
+        pInt.curItem = null;
     }
 }

@@ -24,6 +24,8 @@ public class CameraScript : MonoBehaviour
     {
         rotation = transform.localEulerAngles;
         cameraMask.gameObject.SetActive(inBoat);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Update()
