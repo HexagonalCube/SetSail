@@ -16,6 +16,18 @@ public class InputController : MonoBehaviour
     [SerializeField] KeyCode raiseLowerSail = KeyCode.Space;
     [SerializeField] KeyCode rudderPositive = KeyCode.A;
     [SerializeField] KeyCode rudderNegative = KeyCode.D;
+    [SerializeField] KeyCode diaryKey = KeyCode.Tab;
+    [SerializeField] KeyCode pauseKey = KeyCode.Escape;
+    #region External
+    public KeyCode PInt { get { return interact; } }
+    public KeyCode SailP { get { return sailPositive;} }
+    public KeyCode SailN { get { return sailNegative; } }
+    public KeyCode RudderP {  get { return rudderPositive; } }
+    public KeyCode RudderN { get { return rudderNegative; } }
+    public KeyCode SailRL { get { return raiseLowerSail; } }
+    public KeyCode Pause { get { return pauseKey; } }
+    public KeyCode Diary { get { return diaryKey; } }
+    #endregion
 
     void Update()
     {
