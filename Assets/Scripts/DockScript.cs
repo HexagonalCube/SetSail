@@ -13,6 +13,7 @@ public class DockScript : MonoBehaviour
     [SerializeField] Transform player; //PlayerObj
     [SerializeField] BoatController boat; //BoatObj
     [SerializeField] CloudFollower clouds;
+    [SerializeField] GameUI_Controller gameUI;
     [SerializeField] bool inDock; //If in dock
     [SerializeField] bool canSwitch = true;
     private void Start()
@@ -26,26 +27,18 @@ public class DockScript : MonoBehaviour
     {
         if (/*inDock && */canSwitch) //WILL AUTOMATE PLAYER SETUP LATER
         {
-            player.position = playerPoint.position;
-            player.gameObject.SetActive(false);
-            boat.EnableBoat();
-            inDock = false;
-            clouds.isInBoat = true;
-            StartCoroutine(SwitchTimer());
+            gameUI.UI_Fade(2f);
+            canSwitch = false;
+            StartCoroutine(DockExitTimer());
         }
     }
     public void DockEnter(Transform aBoat) //When Entering Dock
     {
         if (!inDock && canSwitch)
         {
-            player.position = playerPoint.position;
-            player.gameObject.SetActive(true);
-            aBoat.position = boatPoint.position;
-            aBoat.rotation = boatPoint.rotation;
-            boat.DisableBoat();
-            inDock = true;
-            clouds.isInBoat = true;
-            StartCoroutine(SwitchTimer());
+            gameUI.UI_Fade(2f);
+            canSwitch = false;
+            StartCoroutine(DockEnterTimer(aBoat));
         }
     }
     IEnumerator SwitchTimer()
@@ -53,6 +46,28 @@ public class DockScript : MonoBehaviour
         canSwitch = false;
         yield return new WaitForSeconds(1);
         canSwitch = true;
+    }
+    IEnumerator DockEnterTimer(Transform aBoat)
+    {
+        yield return new WaitForSeconds(1);
+        player.position = playerPoint.position;
+        player.gameObject.SetActive(true);
+        aBoat.position = boatPoint.position;
+        aBoat.rotation = boatPoint.rotation;
+        boat.DisableBoat();
+        inDock = true;
+        clouds.isInBoat = true;
+        StartCoroutine(SwitchTimer());
+    }
+    IEnumerator DockExitTimer()
+    {
+        yield return new WaitForSeconds(1);
+        player.position = playerPoint.position;
+        player.gameObject.SetActive(false);
+        boat.EnableBoat();
+        inDock = false;
+        clouds.isInBoat = true;
+        StartCoroutine(SwitchTimer());
     }
     private void OnDrawGizmos()
     {

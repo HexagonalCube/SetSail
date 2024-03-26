@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class GameUI_Controller : MonoBehaviour
     [SerializeField] GameObject controlsHud;
     [SerializeField] Image cursor;
     [SerializeField] Animator cursorAnim;
+    [SerializeField] Animator gameFade;
     float textFade = 0f;
     float cursorFade = 0f;
     bool textFading = false;
@@ -73,11 +75,18 @@ public class GameUI_Controller : MonoBehaviour
             StartCoroutine(CursorColorFadeOut());
         }
     }
+    public void UI_Fade(float seconds)
+    {
+        StartCoroutine(GameFadeInOut(seconds));
+    }
     private void Update()
     {
         if(scheduleFadeOut)
         {
-            StopAllCoroutines();
+            StopCoroutine(TextColorFadeOut());
+            StopCoroutine(TextColorFadeIn());
+            StopCoroutine(CursorColorFadeOut());
+            StopCoroutine(CursorColorFadeIn());
             scheduleFadeOut = false;
             StartCoroutine(TextColorFadeOut());
             StartCoroutine(CursorColorFadeOut());
@@ -146,5 +155,11 @@ public class GameUI_Controller : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
             cursorFading = false;
         }
+    }
+    private IEnumerator GameFadeInOut(float seconds)
+    {
+        gameFade.SetTrigger("Close");
+        yield return new WaitForSeconds(seconds);
+        gameFade.SetTrigger("Open");
     }
 }
