@@ -8,6 +8,7 @@ public class InputController : MonoBehaviour
     [SerializeField] PlayerController pController;
     [SerializeField] PlayerInteract pInteract;
     [SerializeField] InstrumentsController pInstruments;
+    [SerializeField] GameUI_Controller gameUI;
 
     [SerializeField] KeyCode interact = KeyCode.E;
     [SerializeField] KeyCode raiseLowerCompass = KeyCode.C;
@@ -69,6 +70,28 @@ public class InputController : MonoBehaviour
         if (Input.GetKey(rudderPositive))
         {
             bController.rotateBoat.TurnRudderLeft();
+        }
+        if (Input.GetKeyDown(diaryKey))
+        {
+            if (gameUI.IsPaused)
+            {
+                gameUI.ClosePause();
+            }
+            else
+            {
+                gameUI.OpenStory();
+            }
+        }
+        if (Input.GetKeyDown(pauseKey))
+        {
+            if (gameUI.IsPaused)
+            {
+                gameUI.ClosePause();
+            }
+            else
+            {
+                gameUI.OpenPause();
+            }
         }
     }
 }

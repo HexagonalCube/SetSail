@@ -12,6 +12,7 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] string[] text;
     [SerializeField] protected int selected = 0;
     [SerializeField] bool canProgress = true;
+    [SerializeField] protected bool isInTutorial = true;
 
     private void Start()
     {
@@ -19,7 +20,7 @@ public class TutorialScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && isInTutorial)
         {
             SwitchTutorialStage();
         }
@@ -46,6 +47,8 @@ public class TutorialScript : MonoBehaviour
     {
         switch (selected)
         {
+            default:
+                break;
             case 0:
                 if (Input.GetKeyDown(input.Pause) || Input.GetKeyDown(input.Diary)) { TutorialStep(); }
                 break;
@@ -60,8 +63,10 @@ public class TutorialScript : MonoBehaviour
                 break;
             case 4:
                 if (Input.GetKeyDown(input.PInt)) { tutorialText.GetComponentInParent<Image>().gameObject.SetActive(false); }
+                isInTutorial = false;
                 break;
-            default: break;
+            case 5:
+                break;
         }
     }
 }

@@ -12,11 +12,15 @@ public class GameUI_Controller : MonoBehaviour
     [SerializeField] Image cursor;
     [SerializeField] Animator cursorAnim;
     [SerializeField] Animator gameFade;
+    [SerializeField] GameObject book;
+    [SerializeField] GamePause pause;
     float textFade = 0f;
     float cursorFade = 0f;
     bool textFading = false;
     bool cursorFading = false;
     bool cursorSwitch;
+    bool paused;
+    public bool IsPaused { get { return paused; } } 
     public bool scheduleFadeOut;
     private void Start()
     {
@@ -78,6 +82,24 @@ public class GameUI_Controller : MonoBehaviour
     public void UI_Fade(float seconds)
     {
         StartCoroutine(GameFadeInOut(seconds));
+    }
+    public void OpenPause()
+    {
+        book.SetActive(true);
+        paused = true;
+        pause.PauseGame();
+    }
+    public void OpenStory()
+    {
+        book.SetActive(true);
+        paused = true;
+        pause.PauseGame();
+    }
+    public void ClosePause()
+    {
+        book.SetActive(false);
+        paused = false;
+        pause.ResumeGame();
     }
     private void Update()
     {
