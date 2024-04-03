@@ -30,6 +30,7 @@ public class PauseMenuScript : MonoBehaviour
         configPanel.SetActive(false);
         storyPanel.SetActive(false);
     }
+    //NEED PAGES SWITCHER
     void PanelSwitcher(Panel page)
     {
         DisableAllPanels();

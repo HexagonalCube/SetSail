@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] CharacterController cc;
+    [SerializeField] GameProgression gameProg;
 
     public float speed = 10;
     public float jmpHeight;
@@ -57,9 +58,17 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("DockExit"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
-            gameUIController.Interact(true);
             //
             dock = other.GetComponentInParent<DockScript>();
+            if (gameProg.CheckBarrier(dock.Password))
+            {
+                gameUIController.Interact(true,"Entrar no Barco (E)");
+            }
+            else
+            {
+                gameUIController.Interact(true, "Entrar no Barco (E)");
+                gameUIController.Comment("Acho que tem algo a mais para encontrar...");
+            }
             nearDock = true;
         }
     }
@@ -78,9 +87,16 @@ public class PlayerController : MonoBehaviour
     {
         if (nearDock && dock != null)
         {
-            gameUIController.Interact(false);
-            dock.DockExit();
-            dock = null;
+            if (gameProg.CheckBarrier(dock.Password))
+            {
+                gameUIController.Interact(false);
+                dock.DockExit();
+                dock = null;
+            }
+            else
+            {
+                gameUIController.Comment("Acho que tem algo a mais para encontrar...");
+            }
         }
     }
 }

@@ -9,9 +9,11 @@ public class ItemScript : MonoBehaviour
     [SerializeField] content type;
     [SerializeField] Outline outline;
     [SerializeField] GameUI_Controller ui;
+    [SerializeField] GameProgression gameProg;
     bool canOutline = true;
     private void Start()
     {
+        gameProg = FindFirstObjectByType<GameProgression>();
         outline = GetComponent<Outline>();
         outline.enabled = false;
     }
@@ -37,21 +39,29 @@ public class ItemScript : MonoBehaviour
                 case content.Type_1:
                     canOutline = false;
                     ui.Interact(false);
+                    gameProg.Items++;
+                    ui.OpenStory();
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Type_2:
                     canOutline = false;
                     ui.Interact(false);
+                    gameProg.Items++;
+                    ui.OpenStory();
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Type_3:
                     canOutline = false;
                     ui.Interact(false);
+                    gameProg.Items++;
+                    ui.OpenStory();
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Type_4:
                     canOutline = false;
                     ui.Interact(false);
+                    gameProg.Items++;
+                    ui.OpenStory();
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Type_test:
@@ -72,7 +82,23 @@ public class ItemScript : MonoBehaviour
         if (highlight && CheckIfVisible() && canOutline)
         {
             ui.CursorUpdate(true, true);
-            ui.Interact(true);
+            //ui.Interact(true);
+            switch (type)
+            {
+                case content.Type_1:
+                    ui.Interact(true, "Pegar Esmeralda (E)");
+                    break;
+                case content.Type_2:
+                    ui.Interact(true, "Pegar Balde (E)");
+                    break;
+                case content.Type_3:
+                    ui.Interact(true, "Pegar [ITEM] (E)");
+                    break;
+                case content.Type_4:
+                    ui.Interact(true, "Pegar [ITEM] (E)");
+                    break;
+                default: break;
+            }
         }
         else 
         {
@@ -93,6 +119,7 @@ public class ItemScript : MonoBehaviour
         ui.CursorUpdate(true, false);
         ui.scheduleFadeOut = true;
         yield return new WaitForSeconds(seconds);
+        ui.scheduleFadeOut = true;
         Destroy(gameObject);
     }
 }

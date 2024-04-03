@@ -54,8 +54,11 @@ public class WeatherController : MonoBehaviour
     }
     void UpdateSun() //Updates the skybox & sun to reflect the weather
     {
-        sun.intensity = 2 - weather;
-        skybox.SetFloat("_Exposure", 1.3f * 1/(weather*2+1));
+        if (weather > 0.1f)
+        {
+            sun.intensity = 2 - weather;
+            skybox.SetFloat("_Exposure", 1.3f * 1 / (weather * 2 + 1));
+        }
         
     }
 }

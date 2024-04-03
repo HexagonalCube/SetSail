@@ -16,6 +16,10 @@ public class DockScript : MonoBehaviour
     [SerializeField] GameUI_Controller gameUI;
     [SerializeField] bool inDock; //If in dock
     [SerializeField] bool canSwitch = true;
+    [SerializeField] int requiredItems;
+    [SerializeField] GameProgression gameState;
+
+    public int Password { get { return requiredItems; } }
     private void Start()
     {
         if (inDock)
@@ -25,7 +29,7 @@ public class DockScript : MonoBehaviour
     }
     public void DockExit() //When Exiting Dock
     {
-        if (/*inDock && */canSwitch) //WILL AUTOMATE PLAYER SETUP LATER
+        if (gameState.CheckBarrier(requiredItems) && canSwitch) //WILL AUTOMATE PLAYER SETUP LATER
         {
             gameUI.UI_Fade(2f);
             canSwitch = false;

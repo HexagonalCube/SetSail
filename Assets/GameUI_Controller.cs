@@ -13,7 +13,10 @@ public class GameUI_Controller : MonoBehaviour
     [SerializeField] Animator cursorAnim;
     [SerializeField] Animator gameFade;
     [SerializeField] GameObject book;
+    [SerializeField] PauseMenuScript bookP;
     [SerializeField] GamePause pause;
+    //[SerializeField] TextUpdater interactText;
+    [SerializeField] TextUpdater commentText;
     float textFade = 0f;
     float cursorFade = 0f;
     bool textFading = false;
@@ -36,8 +39,13 @@ public class GameUI_Controller : MonoBehaviour
     {
         yield return new WaitForSeconds(10f);
     }
-    public void Interact(bool on)
+    public void Comment(string text)
     {
+        commentText.VisibleText = text;
+    }
+    public void Interact(bool on, string text = "")
+    {
+        interactionText.text = text;
         if (on && !textFading)
         {
             textFading = true;
@@ -86,12 +94,14 @@ public class GameUI_Controller : MonoBehaviour
     public void OpenPause()
     {
         book.SetActive(true);
+        bookP.OnConfigButtonClick();
         paused = true;
         pause.PauseGame();
     }
-    public void OpenStory()
+    public void OpenStory(int page = 0)
     {
         book.SetActive(true);
+        bookP.OnStoryButtonClick();
         paused = true;
         pause.PauseGame();
     }
@@ -99,6 +109,7 @@ public class GameUI_Controller : MonoBehaviour
     {
         book.SetActive(false);
         paused = false;
+        //scheduleFadeOut = true;
         pause.ResumeGame();
     }
     private void Update()
@@ -124,12 +135,12 @@ public class GameUI_Controller : MonoBehaviour
         {
             TextFadeAdd(0.1f);
             interactionText.color = new Color(1, 1, 1, textFade);
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
             StartCoroutine(TextColorFadeIn());
         }
         else
         {
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
             textFading = false;
         }
     }
@@ -139,12 +150,12 @@ public class GameUI_Controller : MonoBehaviour
         {
             TextFadeSub(0.1f);
             interactionText.color = new Color(1, 1, 1, textFade);
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
             StartCoroutine(TextColorFadeOut());
         }
         else
         {
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
             textFading = false;
         }
     }
@@ -154,12 +165,12 @@ public class GameUI_Controller : MonoBehaviour
         {
             CursorFadeAdd(0.1f);
             cursor.color = new Color(1, 1, 1, cursorFade);
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
             StartCoroutine(CursorColorFadeIn());
         }
         else
         {
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
             cursorFading = false;
         }
     }
@@ -169,19 +180,19 @@ public class GameUI_Controller : MonoBehaviour
         {
             CursorFadeSub(0.1f);
             cursor.color = new Color(1, 1, 1, cursorFade);
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
             StartCoroutine(CursorColorFadeOut());
         }
         else
         {
-            yield return new WaitForSeconds(0.02f);
+            yield return new WaitForSecondsRealtime(0.02f);
             cursorFading = false;
         }
     }
     private IEnumerator GameFadeInOut(float seconds)
     {
         gameFade.SetTrigger("Close");
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSecondsRealtime(seconds);
         gameFade.SetTrigger("Open");
     }
 }

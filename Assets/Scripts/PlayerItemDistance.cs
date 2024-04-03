@@ -41,12 +41,13 @@ public class PlayerItemDistance : MonoBehaviour
         if (other.CompareTag("Item"))
         {
             near = false;
+            item.CursorActivate(false);
             StartCoroutine(SetNullAfterSeconds(0.2f));
         }
     }
     private IEnumerator SetNullAfterSeconds(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
+        yield return new WaitForSecondsRealtime(seconds);
         pInt.closeToItem = false;
         pInt.curItem = null;
     }
