@@ -62,8 +62,7 @@ public class TutorialScript : MonoBehaviour
                 if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN)) { TutorialStep(); }
                 break;
             case 4:
-                if (Input.GetKeyDown(input.PInt)) { tutorialText.GetComponentInParent<Image>().gameObject.SetActive(false); }
-                isInTutorial = false;
+                if (Input.GetKeyDown(input.PInt)) { tutorialText.GetComponentInParent<Image>().gameObject.SetActive(false); isInTutorial = false; }
                 break;
             case 5:
                 break;

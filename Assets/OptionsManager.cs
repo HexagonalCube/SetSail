@@ -23,7 +23,7 @@ public class OptionsManager : MonoBehaviour
         GetResolutions();
         fullScreen = SaveGame.LoadFullscreen();
         selectedResolution = fullScreenResolutionsAvailable[SaveGame.LoadResolutionIndex()];
-        Debug.Log($"Previously set resolution {SaveGame.LoadResolutionIndex()}");
+        //Debug.Log($"Previously set resolution {SaveGame.LoadResolutionIndex()}");
         UpdateResolution();
         LoadVolume();
     }
@@ -54,7 +54,7 @@ public class OptionsManager : MonoBehaviour
         selectedResolution = fullScreenResolutionsAvailable[res];
         SaveGame.SaveResolutionIndex(res);
         PlayerPrefs.SetInt("FRESH",1);
-        Debug.Log($"Resolution Index Set {res}");
+        //Debug.Log($"Resolution Index Set {res}");
         UpdateResolution();
     }
     void UpdateResolution() //Updates screen resolution
@@ -80,6 +80,6 @@ public class OptionsManager : MonoBehaviour
         volumeSlider.SetValueWithoutNotify(SaveGame.LoadVolume());
         float convertedVolume = Mathf.Log10(SaveGame.LoadVolume()) * 20;
         masterVolume.SetFloat("MasterVolume",convertedVolume);
-        Debug.Log($"VolumeLoaded {SaveGame.LoadVolume()}");
+        //Debug.Log($"VolumeLoaded {SaveGame.LoadVolume()}");
     }
 }
