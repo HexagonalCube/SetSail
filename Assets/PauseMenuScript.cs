@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class PauseMenuScript : MonoBehaviour
 {
+    public static PauseMenuScript Instance;
     enum Panel { Config, Story, Tips }
     [SerializeField] GameUI_Controller ui;
     [SerializeField] GameObject configPanel;
     [SerializeField] GameObject storyPanel;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else { Instance = this; }
+    }
     public void OnCloseButtonClick()
     {
         ui.ClosePause();
@@ -24,6 +33,10 @@ public class PauseMenuScript : MonoBehaviour
     public void OnStoryButtonClick()
     {
         PanelSwitcher(Panel.Story);
+    }
+    public void OnControlsButtonClick()
+    {
+
     }
     void DisableAllPanels() //Disables all panels prior to activation
     {

@@ -7,13 +7,21 @@ using UnityEngine.UI;
 
 public class TutorialScript : MonoBehaviour
 {
+    public static TutorialScript Instance;
     [SerializeField] InputController input;
     [SerializeField] TMP_Text tutorialText;
     [SerializeField] string[] text;
     [SerializeField] protected int selected = 0;
     [SerializeField] bool canProgress = true;
     [SerializeField] protected bool isInTutorial = true;
-
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else { Instance = this; }
+    }
     private void Start()
     {
         tutorialText.SetText(text[0]);
@@ -25,7 +33,7 @@ public class TutorialScript : MonoBehaviour
             SwitchTutorialStage();
         }
     }
-    public void TutorialStep()
+    void TutorialStep()
     {
         if (canProgress)
         {
@@ -42,6 +50,14 @@ public class TutorialScript : MonoBehaviour
             tutorialText.SetText(text[selected]);
             canProgress = true;
         }
+    }
+    public void CloseTutorial()
+    {
+        isInTutorial = false;
+    }
+    public void OpenTutorial()
+    {
+        isInTutorial = true;
     }
     void SwitchTutorialStage()
     {

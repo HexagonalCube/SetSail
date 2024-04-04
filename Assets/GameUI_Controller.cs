@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameUI_Controller : MonoBehaviour
 {
+    public static GameUI_Controller Instance;
     [SerializeField] TMP_Text interactionText;
     [SerializeField] GameObject controlsHud;
     [SerializeField] Image cursor;
@@ -25,6 +26,14 @@ public class GameUI_Controller : MonoBehaviour
     bool paused;
     public bool IsPaused { get { return paused; } } 
     public bool scheduleFadeOut;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else { Instance = this; }
+    }
     private void Start()
     {
         cursorAnim = cursor.GetComponent<Animator>();
@@ -98,12 +107,14 @@ public class GameUI_Controller : MonoBehaviour
         paused = true;
         pause.PauseGame();
     }
-    public void OpenStory(int page = 0)
+    public void OpenStory(int page = 1)
     {
         book.SetActive(true);
         bookP.OnStoryButtonClick();
         paused = true;
         pause.PauseGame();
+        PageStoryController.Instance.DiscorverPages(page);
+        PageSwitcher.Instance.SelectPage = page-1;
     }
     public void ClosePause()
     {

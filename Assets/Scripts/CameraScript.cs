@@ -1,6 +1,7 @@
 using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
+    public static CameraScript Instance;
     [Header("Pontos de Referencia")]
     public Transform cameraBoatPoint;
     public Transform cameraLandPoint;
@@ -22,6 +23,14 @@ public class CameraScript : MonoBehaviour
 
     [SerializeField] bool inBoat = false;
     [SerializeField] Camera cameraMask;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else { Instance = this; }
+    }
     private void Start()
     {
         active = true;

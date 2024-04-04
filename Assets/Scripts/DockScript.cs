@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class DockScript : MonoBehaviour
 {
+    [SerializeField] GameObject DemoEndScreen;
     [SerializeField] Collider dockPArea; //Where player interacts with dock
     [SerializeField] Collider dockBArea; //Where boat interacts with dock
     [SerializeField] Transform playerPoint; //Player Spawn
@@ -33,7 +34,8 @@ public class DockScript : MonoBehaviour
         {
             gameUI.UI_Fade(2f);
             canSwitch = false;
-            StartCoroutine(DockExitTimer());
+            //StartCoroutine(DockExitTimer());
+            DemoEndScreen.SetActive(true);
         }
     }
     public void DockEnter(Transform aBoat) //When Entering Dock

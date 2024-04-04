@@ -44,11 +44,11 @@ public class PlayerController : MonoBehaviour
         //    gameObject.transform.forward = move;
         //}
 
-        // Changes the height position of the player..
-        if (Input.GetKey(KeyCode.Space) && grounded)
-        {
-            pVelocity.y += Mathf.Sqrt(jmpHeight * -3.0f * gravity);
-        }
+        // Changes the height position of the player.. UNUSED
+        //if (Input.GetKey(KeyCode.Space) && grounded)
+        //{
+        //    pVelocity.y += Mathf.Sqrt(jmpHeight * -3.0f * gravity);
+        //}
 
         pVelocity.y += gravity * Time.deltaTime;
         cc.Move(pVelocity * Time.deltaTime);

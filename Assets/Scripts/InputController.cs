@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+    public static InputController Instance;
     [SerializeField] BoatController bController;
     [SerializeField] PlayerController pController;
     [SerializeField] PlayerInteract pInteract;
@@ -30,6 +31,14 @@ public class InputController : MonoBehaviour
     public KeyCode Diary { get { return diaryKey; } }
     #endregion
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else { Instance = this; }
+    }
     void Update()
     {
         //Interactions
