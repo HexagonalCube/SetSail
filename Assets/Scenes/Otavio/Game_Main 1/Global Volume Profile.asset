@@ -84,22 +84,22 @@ MonoBehaviour:
   active: 1
   rayIntensity:
     m_OverrideState: 1
-    m_Value: 0.49
+    m_Value: 0.85
   rayDecay:
     m_OverrideState: 1
-    m_Value: 0.65
+    m_Value: 0.84
   rayDensity:
     m_OverrideState: 1
-    m_Value: 0.22
+    m_Value: 0.303
   sunTransformPosition:
     m_OverrideState: 0
-    m_Value: {x: 0, y: 0, z: 0}
+    m_Value: {x: 1848, y: 3943, z: -3586}
   sunColor:
     m_OverrideState: 1
-    m_Value: {r: 0.8207547, g: 0.7359772, b: 0.58459413, a: 1}
+    m_Value: {r: 0.8679245, g: 0.72320217, b: 0.45443216, a: 1}
   useUltraQuality:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 1
   useMobileDownsampling:
     m_OverrideState: 1
     m_Value: 1
