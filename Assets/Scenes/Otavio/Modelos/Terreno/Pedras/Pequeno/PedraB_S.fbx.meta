@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert1
-    second: {fileID: 2100000, guid: 1d95e37455c66d840a285736ad7809dc, type: 2}
+    second: {fileID: 2100000, guid: 02a5e91eeac2ac744b7ba2442a1d5b95, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -53,7 +53,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1

@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Caixa1
-    second: {fileID: 2100000, guid: 30456a4ee4eab1e4cb1833997c5a8474, type: 2}
+    second: {fileID: 2100000, guid: e3c46988796cfb8458c0b1694fd88e17, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -58,7 +58,7 @@ ModelImporter:
     nodeNameCollisionStrategy: 1
     fileIdsGeneration: 2
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -78,7 +78,7 @@ ModelImporter:
     secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    strictVertexDataChecks: 0
+    strictVertexDataChecks: 1
   tangentSpace:
     normalSmoothAngle: 0
     normalImportMode: 0
