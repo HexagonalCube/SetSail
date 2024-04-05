@@ -764,12 +764,12 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 17.137774
+  m_FocalLength: 15.638705
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
   m_Anamorphism: 0
-  m_SensorSize: {x: 36, y: 24}
+  m_SensorSize: {x: 42.5, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -777,8 +777,8 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1500
+  near clip plane: 0.01
+  far clip plane: 900
   field of view: 75
   orthographic: 0
   orthographic size: 5
@@ -892,5 +892,7 @@ MonoBehaviour:
   distanceToItem: 0
   curItem: {fileID: 0}
   maxDist: 20
-  minAngle: 0.3
+  minAngle: 0.2
+  maxAngle: 0.35
   isInView: 0
+  isInViewNear: 0

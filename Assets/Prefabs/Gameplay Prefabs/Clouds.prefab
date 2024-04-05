@@ -21,7 +21,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a09e41071b4fdd34b9248e515dbb5bf2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 97
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a09e41071b4fdd34b9248e515dbb5bf2,
         type: 3}
@@ -31,7 +31,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a09e41071b4fdd34b9248e515dbb5bf2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -765.5
+      value: -1118
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a09e41071b4fdd34b9248e515dbb5bf2,
         type: 3}
@@ -70,6 +70,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: a09e41071b4fdd34b9248e515dbb5bf2,
         type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: a09e41071b4fdd34b9248e515dbb5bf2,
+        type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9ed6bc9b95bab194891a65d01ec1f96d, type: 2}
@@ -77,6 +82,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Clouds
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a09e41071b4fdd34b9248e515dbb5bf2,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a09e41071b4fdd34b9248e515dbb5bf2,
         type: 3}
@@ -139,12 +149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a058b7c167f90f45a38bfc347436f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloudColor: {r: 0.404, g: 0.404, b: 0.404, a: 0}
+  cloudColor: {r: 0.26031604, g: 0.27479962, b: 0.319, a: 0}
   colorIntensity: 4
   cloudScale: 230
   cloudSpeed: {x: 1, y: 1}
   cloudHeight: 60
   cloudPower: 90
+  cloudSmooth: 0.4
   clouds: {fileID: 3928147502624938388}
   cloudMat: {fileID: 2100000, guid: 9ed6bc9b95bab194891a65d01ec1f96d, type: 2}
 --- !u!1001 &8389130870204942407
@@ -159,6 +170,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Rain
+      objectReference: {fileID: 0}
+    - target: {fileID: 1409191959416643579, guid: 903d86d2c77c536418d1d446337c2574,
+        type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3249586258563250531, guid: 903d86d2c77c536418d1d446337c2574,
         type: 3}
