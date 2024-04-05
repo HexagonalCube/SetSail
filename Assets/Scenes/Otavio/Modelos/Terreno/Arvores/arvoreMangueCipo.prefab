@@ -130,11 +130,11 @@ LODGroup:
   serializedVersion: 2
   m_LocalReferencePoint: {x: -15.724609, y: 210.51591, z: 2.8515625}
   m_Size: 421.07095
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.019571103
+  - screenRelativeHeight: 0.11799824
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 717893772661592809}
@@ -219,12 +219,6 @@ LODGroup:
     - renderer: {fileID: 4446092791538646965}
     - renderer: {fileID: 3693037602658536140}
     - renderer: {fileID: 5785549144089039709}
-  - screenRelativeHeight: 0.019571103
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.019571103
-    fadeTransitionWidth: 0
-    renderers: []
   m_Enabled: 1
 --- !u!23 &1090147076701739198 stripped
 MeshRenderer:
