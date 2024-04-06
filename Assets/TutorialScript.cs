@@ -14,6 +14,7 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] protected int selected = 0;
     [SerializeField] bool canProgress = true;
     [SerializeField] protected bool isInTutorial = true;
+    public int TutProgress { get { return selected; } }
     private void Awake()
     {
         if (Instance != null)
