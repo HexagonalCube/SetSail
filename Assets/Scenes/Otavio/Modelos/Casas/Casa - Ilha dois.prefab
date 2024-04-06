@@ -608,8 +608,8 @@ Transform:
   m_GameObject: {fileID: 2218502718210990342}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0.008, y: 0.0581, z: 0.0014}
-  m_LocalScale: {x: 2.6549616, y: 2.806511, z: 2.7604773}
+  m_LocalPosition: {x: 0.008, y: 0.0581, z: 0.001354}
+  m_LocalScale: {x: 2.6549616, y: 2.733682, z: 2.7604773}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7031665534531684093}
@@ -2178,6 +2178,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7031665534531684093}
+  - component: {fileID: 1716086855829339498}
+  - component: {fileID: 7708953192702984133}
   m_Layer: 0
   m_Name: Casa - Ilha dois
   m_TagString: Untagged
@@ -2221,6 +2223,48 @@ Transform:
   - {fileID: 7902979527552596265}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 123.014, z: 0}
+--- !u!65 &1716086855829339498
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7700783868662389831}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.053296186, y: 0.027899249, z: 0.06126912}
+  m_Center: {x: 0.0069978647, y: 0.017056718, z: 0.0024633734}
+--- !u!65 &7708953192702984133
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7700783868662389831}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.05329619, y: 0.0555289, z: 0.035979625}
+  m_Center: {x: 0.006997857, y: 0.030871568, z: 0.011405921}
 --- !u!1 &7895835429128180594
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,8 +2707,8 @@ Transform:
   m_GameObject: {fileID: 8848926016921046375}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0.008, y: 0.059, z: 0.0078}
-  m_LocalScale: {x: 2.5861695, y: 2.8225455, z: 2.5861695}
+  m_LocalPosition: {x: 0.0080001, y: 0.059, z: 0.0074233}
+  m_LocalScale: {x: 2.5861695, y: 2.6831682, z: 2.5861695}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7031665534531684093}
