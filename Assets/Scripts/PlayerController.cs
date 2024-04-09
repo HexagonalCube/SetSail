@@ -38,7 +38,6 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transform.forward * Input.GetAxis("Vertical") * speed + transform.right * Input.GetAxis("Horizontal") * speed;
         cc.Move(move * Time.deltaTime * speed);
-
         //if (move != Vector3.zero)
         //{
         //    gameObject.transform.forward = move;
