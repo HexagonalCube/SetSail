@@ -13,7 +13,7 @@ public class CheckTerrainTexture : MonoBehaviour
     public float[] TextureValues { get { return textureValues; } }
     void Start()
     {
-        t = Terrain.activeTerrain;
+        //t = Terrain.activeTerrain;
         playerTransform = gameObject.transform;
     }
     public void GetTerrainTexture()

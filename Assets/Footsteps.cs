@@ -4,7 +4,7 @@ using UnityEngine;
 public class Footsteps : GameStage
 {
     public static Footsteps Instance;
-    CheckTerrainTexture t;
+    [SerializeField] CheckTerrainTexture t;
     [SerializeField] AudioSource speaker;
     [Space]
     [SerializeField] AudioClip[] stoneClips;
@@ -12,10 +12,12 @@ public class Footsteps : GameStage
     [SerializeField] AudioClip[] sandClips;
     [SerializeField] AudioClip[] grassClips;
     [SerializeField] AudioClip[] gravelClips;
+    [SerializeField] AudioClip[] woodClips;
     [Space]
     [SerializeField] float stepTimer;
     AudioClip previousClip;
     bool playing = false;
+    bool wood;
     public Terrain Terrain { get { return t.Terrain; } set { t.Terrain = value; } }
     private void Awake()
     {
@@ -29,7 +31,6 @@ public class Footsteps : GameStage
     {
         speaker = GetComponent<AudioSource>();
         t = GetComponent<CheckTerrainTexture>();
-        GameProgression.Instance.Stage = WorldStage.Island2;
     }
     private void Update()
     {
@@ -48,42 +49,49 @@ public class Footsteps : GameStage
         speaker.pitch = Random.Range(0.8f, 1f);
         t.GetTerrainTexture();
         float[] textureValues = t.TextureValues;
-        if (GameProgression.Instance.Stage == WorldStage.Island1)
+        if (wood)
         {
-            if (textureValues[0] > 0)
-            {
-                speaker.PlayOneShot(GetClip(stoneClips), textureValues[0]);
-            }
-            if (textureValues[1] > 0)
-            {
-                speaker.PlayOneShot(GetClip(grassClips), textureValues[1]);
-            }
-            if (textureValues[2] > 0)
-            {
-                speaker.PlayOneShot(GetClip(dirtClips), textureValues[2]);
-            }
-            if (textureValues[3] > 0)
-            {
-                speaker.PlayOneShot(GetClip(sandClips), textureValues[3]);
-            }
+            speaker.PlayOneShot(GetClip(woodClips));
         }
-        if (GameProgression.Instance.Stage == WorldStage.Island2)
+        else
         {
-            if (textureValues[0] > 0)
+            if (GameProgression.Instance.Stage == WorldStage.Island1)
             {
-                speaker.PlayOneShot(GetClip(sandClips), textureValues[0]);
+                if (textureValues[0] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(stoneClips), textureValues[0]);
+                }
+                if (textureValues[1] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(grassClips), textureValues[1]);
+                }
+                if (textureValues[2] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(dirtClips), textureValues[2]);
+                }
+                if (textureValues[3] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(sandClips), textureValues[3]);
+                }
             }
-            if (textureValues[1] > 0)
+            if (GameProgression.Instance.Stage == WorldStage.Island2)
             {
-                speaker.PlayOneShot(GetClip(grassClips), textureValues[1]);
-            }
-            if (textureValues[2] > 0)
-            {
-                speaker.PlayOneShot(GetClip(dirtClips), textureValues[2]);
-            }
-            if (textureValues[3] > 0)
-            {
-                speaker.PlayOneShot(GetClip(stoneClips), textureValues[3]);
+                if (textureValues[0] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(sandClips), textureValues[0]);
+                }
+                if (textureValues[1] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(grassClips), textureValues[1]);
+                }
+                if (textureValues[2] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(dirtClips), textureValues[2]);
+                }
+                if (textureValues[3] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(stoneClips), textureValues[3]);
+                }
             }
         }
     }
@@ -101,5 +109,19 @@ public class Footsteps : GameStage
         }
         previousClip = selectedClip;
         return selectedClip;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Wood"))
+        {
+            wood = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Wood"))
+        {
+            wood = false;
+        }
     }
 }

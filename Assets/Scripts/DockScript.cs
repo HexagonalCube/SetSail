@@ -36,7 +36,6 @@ public class DockScript : GameStage
         {
             gameUI.UI_Fade(2f);
             canSwitch = false;
-            SwitchGamestate(false);
             //StartCoroutine(DockExitTimer());
             DemoEndScreen.SetActive(true);
         }
@@ -47,7 +46,6 @@ public class DockScript : GameStage
         {
             gameUI.UI_Fade(2f);
             canSwitch = false;
-            SwitchGamestate(true);
             StartCoroutine(DockEnterTimer(aBoat));
         }
     }
@@ -75,6 +73,7 @@ public class DockScript : GameStage
         boat.DisableBoat();
         inDock = true;
         clouds.isInBoat = true;
+        SwitchGamestate(true);
         StartCoroutine(SwitchTimer());
     }
     IEnumerator DockExitTimer()
@@ -85,6 +84,7 @@ public class DockScript : GameStage
         boat.EnableBoat();
         inDock = false;
         clouds.isInBoat = true;
+        SwitchGamestate(false);
         StartCoroutine(SwitchTimer());
     }
     private void OnDrawGizmos()
