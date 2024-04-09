@@ -42,7 +42,7 @@ public class InputController : MonoBehaviour
     }
     void Update()
     {
-        tutorialStage = TutorialScript.Instance.TutProgress;
+        //tutorialStage = TutorialScript.Instance.TutProgress;
 
         //Interactions
         if (Input.GetKeyDown(interact))

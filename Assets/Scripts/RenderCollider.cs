@@ -12,6 +12,6 @@ public class RenderCollider : MonoBehaviour
         if (col == null) col = GetComponent<MeshCollider>();
         if (mesh == null) mesh = GetComponent<MeshFilter>().sharedMesh;
         Gizmos.color = Color.magenta;
-        Gizmos.DrawWireMesh(mesh,0,col.transform.position,col.transform.rotation,col.transform.lossyScale);
+        Gizmos.DrawWireMesh(mesh,0,transform.position,transform.rotation,transform.lossyScale);
     }
 }

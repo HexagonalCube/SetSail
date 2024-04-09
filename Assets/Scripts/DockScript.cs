@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Switches between Land & Sea Modes
 /// </summary>
-public class DockScript : MonoBehaviour
+public class DockScript : GameStage
 {
     [SerializeField] GameObject DemoEndScreen;
     [SerializeField] Collider dockPArea; //Where player interacts with dock
@@ -18,6 +18,8 @@ public class DockScript : MonoBehaviour
     [SerializeField] bool inDock; //If in dock
     [SerializeField] bool canSwitch = true;
     [SerializeField] int requiredItems;
+    [SerializeField] WorldStage dockStage;
+    [SerializeField] WorldStage seaStage;
     [SerializeField] GameProgression gameState;
 
     public int Password { get { return requiredItems; } }
@@ -34,6 +36,7 @@ public class DockScript : MonoBehaviour
         {
             gameUI.UI_Fade(2f);
             canSwitch = false;
+            SwitchGamestate(false);
             //StartCoroutine(DockExitTimer());
             DemoEndScreen.SetActive(true);
         }
@@ -44,8 +47,17 @@ public class DockScript : MonoBehaviour
         {
             gameUI.UI_Fade(2f);
             canSwitch = false;
+            SwitchGamestate(true);
             StartCoroutine(DockEnterTimer(aBoat));
         }
+    }
+    void SwitchGamestate(bool toLand)
+    {
+        if (toLand)
+        {
+            gameState.Stage = dockStage;
+        }
+        else { gameState.Stage = seaStage; }
     }
     IEnumerator SwitchTimer()
     {
