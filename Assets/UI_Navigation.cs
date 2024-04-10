@@ -31,6 +31,6 @@ public class UI_Navigation : MonoBehaviour
     }
     public void QuitButtonClick()
     {
-        PauseMenuScript.Instance.OnMenuButtonClick();
+        PauseMenuScript.Instance.OnQuitButtonClick();
     }
 }
