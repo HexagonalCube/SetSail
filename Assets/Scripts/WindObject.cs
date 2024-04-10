@@ -61,6 +61,7 @@ public class WindObject : MonoBehaviour
     }
     void FixedUpdate()
     {
+        SFXController.Instance.Moving(!boatStopped, speedCur);
         RollForWindChange();
         if (!inEndZone)//When not at edge of map
         {

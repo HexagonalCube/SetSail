@@ -21,6 +21,9 @@ public class DockScript : GameStage
     [SerializeField] WorldStage dockStage;
     [SerializeField] WorldStage seaStage;
     [SerializeField] GameProgression gameState;
+    [SerializeField] AudioClip dockEnter;
+    [SerializeField] AudioClip dockExit;
+    [SerializeField] AudioSource dockSfx;
 
     public int Password { get { return requiredItems; } }
     private void Start()
@@ -34,7 +37,8 @@ public class DockScript : GameStage
     {
         if (gameState.CheckBarrier(requiredItems) && canSwitch) //WILL AUTOMATE PLAYER SETUP LATER
         {
-            gameUI.UI_Fade(2f);
+            dockSfx.PlayOneShot(dockExit);
+            gameUI.UI_Fade(dockExit.length);
             canSwitch = false;
             //StartCoroutine(DockExitTimer());
             DemoEndScreen.SetActive(true);
@@ -44,7 +48,8 @@ public class DockScript : GameStage
     {
         if (!inDock && canSwitch)
         {
-            gameUI.UI_Fade(2f);
+            dockSfx.PlayOneShot(dockEnter);
+            gameUI.UI_Fade(dockEnter.length);
             canSwitch = false;
             StartCoroutine(DockEnterTimer(aBoat));
         }
