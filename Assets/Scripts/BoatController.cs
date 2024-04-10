@@ -106,6 +106,7 @@ public class BoatController : MonoBehaviour
             //
             dock = other.GetComponentInParent<DockScript>();
             nearDock = true;
+            TutorialScript.Instance.HideShowTutorial(true);
         }
     }
     private void OnTriggerExit(Collider other)
@@ -123,6 +124,7 @@ public class BoatController : MonoBehaviour
     {
         if (nearDock && dock!=null)
         {
+            gameUI.CanInteract = true;
             gameUI.Interact(false);
             dock.DockEnter(transform);
             dock = null;
