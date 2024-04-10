@@ -9,11 +9,13 @@ public class TutorialScript : MonoBehaviour
 {
     public static TutorialScript Instance;
     [SerializeField] InputController input;
+    [SerializeField] Image panel;
     [SerializeField] TMP_Text tutorialText;
     [SerializeField] string[] text;
     [SerializeField] protected int selected = 0;
     [SerializeField] bool canProgress = true;
     [SerializeField] protected bool isInTutorial = true;
+    [SerializeField] bool hidden;
     public int TutProgress { get { return selected; } }
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class TutorialScript : MonoBehaviour
     private void Start()
     {
         tutorialText.SetText(text[0]);
+        GameUI_Controller.Instance.CanInteract = !isInTutorial;
     }
     private void Update()
     {
@@ -48,7 +51,7 @@ public class TutorialScript : MonoBehaviour
         if (selected < text.Length - 1)
         {
             selected++;
-            tutorialText.SetText(text[selected]);
+            tutorialText.SetText(hidden == false ? text[selected] : "");
             canProgress = true;
         }
     }
@@ -59,6 +62,12 @@ public class TutorialScript : MonoBehaviour
     public void OpenTutorial()
     {
         isInTutorial = true;
+    }
+    public void HideShowTutorial(bool show)
+    {
+        hidden = !show;
+        panel.enabled = show;
+        tutorialText.SetText(show == true ? text[selected] : "");
     }
     void SwitchTutorialStage()
     {
@@ -76,10 +85,10 @@ public class TutorialScript : MonoBehaviour
                 if (Input.GetKeyDown(input.RudderP) || Input.GetKeyDown(input.RudderN)) { TutorialStep(); }
                 break;
             case 3:
-                if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN)) { TutorialStep(); }
+                if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN)) { TutorialStep(); HideShowTutorial(false); }
                 break;
             case 4:
-                if (Input.GetKeyDown(input.PInt)) { tutorialText.GetComponentInParent<Image>().gameObject.SetActive(false); isInTutorial = false; }
+                if (Input.GetKeyDown(input.PInt) && !hidden) { tutorialText.GetComponentInParent<Image>().gameObject.SetActive(false); isInTutorial = false; }
                 break;
             case 5:
                 break;
