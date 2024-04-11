@@ -84,10 +84,10 @@ MonoBehaviour:
   active: 1
   rayIntensity:
     m_OverrideState: 1
-    m_Value: 0.85
+    m_Value: 0.53
   rayDecay:
     m_OverrideState: 1
-    m_Value: 0.84
+    m_Value: 0.7
   rayDensity:
     m_OverrideState: 1
     m_Value: 0.303
@@ -96,7 +96,7 @@ MonoBehaviour:
     m_Value: {x: 1848, y: 3943, z: -3586}
   sunColor:
     m_OverrideState: 1
-    m_Value: {r: 0.8679245, g: 0.72320217, b: 0.45443216, a: 1}
+    m_Value: {r: 0.8113208, g: 0.7452415, b: 0.62379855, a: 1}
   useUltraQuality:
     m_OverrideState: 1
     m_Value: 1
