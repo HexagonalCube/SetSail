@@ -71,6 +71,7 @@ public class DockScript : GameStage
     IEnumerator DockEnterTimer(Transform aBoat)
     {
         yield return new WaitForSeconds(1);
+        Debug.Log("A");
         player.position = playerPoint.position;
         player.gameObject.SetActive(true);
         aBoat.position = boatPoint.position;
@@ -80,6 +81,8 @@ public class DockScript : GameStage
         clouds.isInBoat = true;
         SwitchGamestate(true);
         StartCoroutine(SwitchTimer());
+        yield return new WaitForSeconds(0.5f);
+        CameraScript.Instance.RotateCamera(playerPoint.localEulerAngles);
     }
     IEnumerator DockExitTimer()
     {
@@ -97,5 +100,7 @@ public class DockScript : GameStage
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(dockPArea.transform.position, dockPArea.GetComponent<BoxCollider>().size);
         Gizmos.DrawWireSphere(dockBArea.transform.position, dockBArea.GetComponent<SphereCollider>().radius);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawRay(playerPoint.position, playerPoint.forward);
     }
 }
