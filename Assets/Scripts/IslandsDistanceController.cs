@@ -16,7 +16,7 @@ public class IslandsDistanceController : MonoBehaviour
         }
         dist = Mathf.Min(distances);
         dist = Mathf.Pow(dist / 500, 8);
-        weather.weather = Mathf.Clamp(dist / 1000, 0, 2);
+        weather.weather = Mathf.Clamp(dist / 1500, 0, 2);
         if (dist > 750) { weather.isRain = true; } else { weather.isRain = false; }
         weather.UpdateWeather();
     }
@@ -25,7 +25,7 @@ public class IslandsDistanceController : MonoBehaviour
         foreach (Transform t in islands)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(t.position, 1000);
+            Gizmos.DrawWireSphere(t.position, 1500);
         }
     }
 }

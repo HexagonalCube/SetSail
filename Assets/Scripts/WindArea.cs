@@ -6,6 +6,7 @@ using UnityEngine;
 /// </summary>
 public class WindArea : MonoBehaviour
 {
+    [SerializeField] Mesh mesh;
     public float Rotation; //WindDirection Rotation
     public Transform trDirection; //WindDirection transform
     public Vector3 direction; //Effective Wind pointer
@@ -27,8 +28,16 @@ public class WindArea : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(transform.position, box.size);
+        if (mesh == null)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireCube(transform.position, box.size);
+        }
+        else
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireMesh(mesh, transform.position,transform.rotation,box.size);
+        }
         Gizmos.DrawWireSphere(particles[0].transform.position, 1f);
         Gizmos.color = Color.magenta;
         Gizmos.DrawLine(transform.position, transform.position + direction * 20);
