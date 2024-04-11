@@ -4,7 +4,7 @@ using UnityEngine;
 /// <summary>
 /// Switches between Land & Sea Modes
 /// </summary>
-public class DockScript : MonoBehaviour
+public class DockScript : GameStage
 {
     [SerializeField] GameObject DemoEndScreen;
     [SerializeField] Collider dockPArea; //Where player interacts with dock
@@ -18,7 +18,12 @@ public class DockScript : MonoBehaviour
     [SerializeField] bool inDock; //If in dock
     [SerializeField] bool canSwitch = true;
     [SerializeField] int requiredItems;
+    [SerializeField] WorldStage dockStage;
+    [SerializeField] WorldStage seaStage;
     [SerializeField] GameProgression gameState;
+    [SerializeField] AudioClip dockEnter;
+    [SerializeField] AudioClip dockExit;
+    [SerializeField] AudioSource dockSfx;
 
     public int Password { get { return requiredItems; } }
     private void Start()
@@ -32,7 +37,8 @@ public class DockScript : MonoBehaviour
     {
         if (gameState.CheckBarrier(requiredItems) && canSwitch) //WILL AUTOMATE PLAYER SETUP LATER
         {
-            gameUI.UI_Fade(2f);
+            dockSfx.PlayOneShot(dockExit);
+            gameUI.UI_Fade(dockExit.length);
             canSwitch = false;
             //StartCoroutine(DockExitTimer());
             DemoEndScreen.SetActive(true);
@@ -42,10 +48,19 @@ public class DockScript : MonoBehaviour
     {
         if (!inDock && canSwitch)
         {
-            gameUI.UI_Fade(2f);
+            dockSfx.PlayOneShot(dockEnter);
+            gameUI.UI_Fade(dockEnter.length);
             canSwitch = false;
             StartCoroutine(DockEnterTimer(aBoat));
         }
+    }
+    void SwitchGamestate(bool toLand)
+    {
+        if (toLand)
+        {
+            gameState.Stage = dockStage;
+        }
+        else { gameState.Stage = seaStage; }
     }
     IEnumerator SwitchTimer()
     {
@@ -63,6 +78,7 @@ public class DockScript : MonoBehaviour
         boat.DisableBoat();
         inDock = true;
         clouds.isInBoat = true;
+        SwitchGamestate(true);
         StartCoroutine(SwitchTimer());
     }
     IEnumerator DockExitTimer()
@@ -73,6 +89,7 @@ public class DockScript : MonoBehaviour
         boat.EnableBoat();
         inDock = false;
         clouds.isInBoat = true;
+        SwitchGamestate(false);
         StartCoroutine(SwitchTimer());
     }
     private void OnDrawGizmos()

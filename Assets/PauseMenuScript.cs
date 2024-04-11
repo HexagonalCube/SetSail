@@ -24,7 +24,7 @@ public class PauseMenuScript : MonoBehaviour
     }
     public void OnMenuButtonClick()
     {
-        Application.Quit();
+
     }
     public void OnConfigButtonClick()
     {
@@ -37,6 +37,10 @@ public class PauseMenuScript : MonoBehaviour
     public void OnControlsButtonClick()
     {
 
+    }
+    public void OnQuitButtonClick()
+    {
+        Application.Quit();
     }
     void DisableAllPanels() //Disables all panels prior to activation
     {

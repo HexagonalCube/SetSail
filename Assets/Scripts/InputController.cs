@@ -10,7 +10,7 @@ public class InputController : MonoBehaviour
     [SerializeField] PlayerInteract pInteract;
     [SerializeField] InstrumentsController pInstruments;
     [SerializeField] GameUI_Controller gameUI;
-
+    [Space]
     [SerializeField] KeyCode interact = KeyCode.E;
     [SerializeField] KeyCode raiseLowerCompass = KeyCode.C;
     [SerializeField] KeyCode sailPositive = KeyCode.W;
@@ -20,7 +20,11 @@ public class InputController : MonoBehaviour
     [SerializeField] KeyCode rudderNegative = KeyCode.D;
     [SerializeField] KeyCode diaryKey = KeyCode.Tab;
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
+    [Space]
+    [SerializeField] bool inputEnabled = true;
+    int tutorialStage;
     #region External
+    public bool EnableInput { get { return inputEnabled; } set { inputEnabled = value; } }
     public KeyCode PInt { get { return interact; } }
     public KeyCode SailP { get { return sailPositive;} }
     public KeyCode SailN { get { return sailNegative; } }
@@ -39,7 +43,15 @@ public class InputController : MonoBehaviour
         }
         else { Instance = this; }
     }
-    void Update()
+    private void Update()
+    {
+        tutorialStage = TutorialScript.Instance.TutProgress;
+        if (inputEnabled)
+        {
+            InputUpdate();
+        }
+    }
+    void InputUpdate()
     {
         //Interactions
         if (Input.GetKeyDown(interact))
@@ -53,15 +65,15 @@ public class InputController : MonoBehaviour
             pInstruments.RaiseLowerCompass();
         }
         //BoatControls
-        if (Input.GetKey(sailNegative))
+        if (Input.GetKey(sailNegative) && tutorialStage > 2)
         {
             bController.rotateSail.TurnSailRight();
         }
-        if (Input.GetKey(sailPositive))
+        if (Input.GetKey(sailPositive) && tutorialStage > 2)
         {
             bController.rotateSail.TurnSailLeft();
         }
-        if (Input.GetKeyDown(raiseLowerSail))
+        if (Input.GetKeyDown(raiseLowerSail) && tutorialStage > 0)
         {
             if (bController.sailStowed)
             {
@@ -72,11 +84,11 @@ public class InputController : MonoBehaviour
                 bController.StowSail();
             }
         }
-        if (Input.GetKey(rudderNegative))
+        if (Input.GetKey(rudderNegative) && tutorialStage > 1)
         {
             bController.rotateBoat.TurnRudderRight();
         }
-        if (Input.GetKey(rudderPositive))
+        if (Input.GetKey(rudderPositive) && tutorialStage > 1)
         {
             bController.rotateBoat.TurnRudderLeft();
         }
@@ -93,6 +105,7 @@ public class InputController : MonoBehaviour
         }
         if (Input.GetKeyDown(pauseKey))
         {
+
             if (gameUI.IsPaused)
             {
                 gameUI.ClosePause();

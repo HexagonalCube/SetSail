@@ -4,19 +4,35 @@ using UnityEngine;
 
 public class SFXController : MonoBehaviour
 {
+    public static SFXController Instance;
+    [Header("GeneralSources")]
     [SerializeField] AudioSource sourceWaterSFX;
     [SerializeField] AudioSource sourceMiscSFX;
     [SerializeField] AudioSource sourceWindSFX;
     [Space]
+    [Header("SFX clips")]
     [SerializeField] AudioClip wavesSoftSFX;
     [SerializeField] AudioClip wavesHardSFX;
     [SerializeField] AudioClip wavesSplashSFX;
     [SerializeField] AudioClip woodCreakSFX;
     [SerializeField] AudioClip windsSoftSFX;
     [Space]
+    [Header("Special Loops")]
+    [SerializeField] AudioSource WaterMoving;
+    [SerializeField] AudioSource WindMoving;
+
     public bool inBoat = false;
     public bool sailRaised = false;
     public bool inStorm = false;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else { Instance = this; }
+    }
     private void Start()
     {
         StartCoroutine(RepeatInSeconds(windsSoftSFX.length, windsSoftSFX, 0.6f, 100));
@@ -69,5 +85,31 @@ public class SFXController : MonoBehaviour
     public void StopStorm()
     {
         inStorm = false;
+    }
+    public void Moving(bool yes, float speed)
+    {
+        //Set Volume to speed
+        float i = Mathf.Clamp01(speed/75);
+        WindMoving.volume = i;
+        WaterMoving.volume = i;
+
+        if (yes && inBoat)//If Propulsion Active
+        {
+            if (!WindMoving.isPlaying)
+            {
+                WindMoving.Play();
+                WindMoving.loop = true;
+            }
+            if (!WaterMoving.isPlaying)
+            {
+                WaterMoving.Play();
+                WaterMoving.loop = true;
+            }
+        }
+        else
+        {
+            WindMoving.loop = false;
+            WaterMoving.loop = false;
+        }
     }
 }

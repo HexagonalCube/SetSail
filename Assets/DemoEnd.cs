@@ -6,7 +6,7 @@ public class DemoEnd : MonoBehaviour
 {
     private void OnDisable()
     {
-        Debug.Log("A");
+        Debug.Log("QUIT");
         Application.Quit();
     }
 }

@@ -24,6 +24,8 @@ public class GameUI_Controller : MonoBehaviour
     bool cursorFading = false;
     bool cursorSwitch;
     bool paused;
+    bool stopInteractions = true;
+    public bool CanInteract { get { return stopInteractions; } set { stopInteractions = !value; } }
     public bool IsPaused { get { return paused; } } 
     public bool scheduleFadeOut;
     private void Awake()
@@ -55,15 +57,14 @@ public class GameUI_Controller : MonoBehaviour
     public void Interact(bool on, string text = "")
     {
         interactionText.text = text;
-        if (on && !textFading)
+        if (on && !textFading && !stopInteractions)
         {
             textFading = true;
             StopCoroutine(TextColorFadeOut());
             //Debug.Log("ACTIVE");
             StartCoroutine(TextColorFadeIn());
         }
-        
-        if (!on && !textFading) 
+        if (!on && !textFading && !stopInteractions)
         {
             textFading = true;
             StopCoroutine(TextColorFadeIn());
