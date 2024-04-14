@@ -16,7 +16,7 @@ public class PlayerItemDistance : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if (other.CompareTag("Item") && other.GetComponent<ItemScript>())
         {
             item = other.GetComponent<ItemScript>();
             near = true;
@@ -27,7 +27,7 @@ public class PlayerItemDistance : MonoBehaviour
     }
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if (other.CompareTag("Item") && other.GetComponent<ItemScript>())
         {
             item = other.GetComponent<ItemScript>();
             near = true;
@@ -38,7 +38,7 @@ public class PlayerItemDistance : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Item"))
+        if (other.CompareTag("Item") && other.GetComponent<ItemScript>())
         {
             near = false;
             item.CursorActivate(false);

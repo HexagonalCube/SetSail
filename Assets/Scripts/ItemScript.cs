@@ -19,8 +19,8 @@ public class ItemScript : MonoBehaviour
     }
     enum content
     {
-        Type_1,
-        Type_2,
+        Emerald,
+        Bucket,
         Type_3,
         Type_4,
         Type_test
@@ -36,14 +36,14 @@ public class ItemScript : MonoBehaviour
         {
             switch (type)
             {
-                case content.Type_1:
+                case content.Emerald:
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
                     ui.OpenStory(3);
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
-                case content.Type_2:
+                case content.Bucket:
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
@@ -85,10 +85,10 @@ public class ItemScript : MonoBehaviour
             //ui.Interact(true);
             switch (type)
             {
-                case content.Type_1:
+                case content.Emerald:
                     ui.Interact(true, "Pegar Esmeralda (E)");
                     break;
-                case content.Type_2:
+                case content.Bucket:
                     ui.Interact(true, "Pegar Balde (E)");
                     break;
                 case content.Type_3:
@@ -113,13 +113,15 @@ public class ItemScript : MonoBehaviour
         }
         else { outline.enabled = false; ui.Interact(false); ui.CursorUpdate(false, false); }
     }
-    IEnumerator DestroyAfterSeconds(float seconds)
+    IEnumerator DestroyAfterSeconds(float seconds, bool item = false)
     {
         ui.Interact(false);
         ui.CursorUpdate(true, false);
         ui.scheduleFadeOut = true;
         yield return new WaitForSeconds(seconds);
         ui.scheduleFadeOut = true;
-        Destroy(gameObject);
+        PlayerInteract.Instance.curItem = null;
+        if (item) { Destroy(gameObject); }
+        else { Destroy(this); }
     }
 }

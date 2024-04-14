@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerInteract : MonoBehaviour
 {
+    public static PlayerInteract Instance;
     public bool closeToItem;
     public float distanceToItem;
     public Transform curItem;
@@ -17,6 +18,14 @@ public class PlayerInteract : MonoBehaviour
     [SerializeField] bool isInView;
     public bool isInViewNear;
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else { Instance = this; }
+    }
     public void Interact() //Get item interaction
     {
         if (isInView)
