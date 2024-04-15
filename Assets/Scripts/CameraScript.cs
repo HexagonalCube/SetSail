@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class CameraScript : MonoBehaviour
 {
@@ -85,5 +86,9 @@ public class CameraScript : MonoBehaviour
     public void SwitchCamera(bool toBoat)
     {
         inBoat = toBoat;
+    }
+    public void RotateCamera(Vector2 foward)
+    {
+        rotation = foward;
     }
 }
