@@ -21,8 +21,8 @@ public class ItemScript : MonoBehaviour
     {
         Emerald,
         Bucket,
-        Type_3,
-        Type_4,
+        Photo,
+        Letter,
         Type_test
     }
     bool CheckIfVisible()
@@ -50,19 +50,19 @@ public class ItemScript : MonoBehaviour
                     ui.OpenStory(4);
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
-                case content.Type_3:
+                case content.Photo:
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
                     ui.OpenStory();
-                    StartCoroutine(DestroyAfterSeconds(0.01f));
+                    StartCoroutine(DestroyAfterSeconds(0.01f, true));
                     break;
-                case content.Type_4:
+                case content.Letter:
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
                     ui.OpenStory();
-                    StartCoroutine(DestroyAfterSeconds(0.01f));
+                    StartCoroutine(DestroyAfterSeconds(0.01f, true));
                     break;
                 case content.Type_test:
                     GetComponentInParent<TestObjectives>().SelectObjective();
@@ -91,10 +91,10 @@ public class ItemScript : MonoBehaviour
                 case content.Bucket:
                     ui.Interact(true, "Pegar Balde (E)");
                     break;
-                case content.Type_3:
+                case content.Photo:
                     ui.Interact(true, "Pegar [ITEM] (E)");
                     break;
-                case content.Type_4:
+                case content.Letter:
                     ui.Interact(true, "Pegar [ITEM] (E)");
                     break;
                 default: break;
@@ -113,7 +113,7 @@ public class ItemScript : MonoBehaviour
         }
         else { outline.enabled = false; ui.Interact(false); ui.CursorUpdate(false, false); }
     }
-    IEnumerator DestroyAfterSeconds(float seconds, bool item = false)
+    IEnumerator DestroyAfterSeconds(float seconds, bool destroyItem = false)
     {
         ui.Interact(false);
         ui.CursorUpdate(true, false);
@@ -121,7 +121,7 @@ public class ItemScript : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         ui.scheduleFadeOut = true;
         PlayerInteract.Instance.curItem = null;
-        if (item) { Destroy(gameObject); }
+        if (destroyItem) { Destroy(gameObject); }
         else { Destroy(this); }
     }
 }
