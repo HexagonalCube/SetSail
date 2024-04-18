@@ -7,7 +7,8 @@ public class GameProgression : GameStage
     [SerializeField] Terrain[] playableTerrains;
     public static GameProgression Instance;
     [SerializeField] private WorldStage curStage = WorldStage.Intro;
-    public WorldStage Stage { get { return curStage; } set { curStage = value; StageChange(); } }
+    public WorldStage Stage { get { return curStage; } set { previousStage = curStage; curStage = value; StageChange(); } }
+    private WorldStage previousStage = WorldStage.Intro;
     [SerializeField] private int itemsCollected;
     public int Items { get {  return itemsCollected; } set {  itemsCollected = value; } }
     private void Awake()
@@ -30,6 +31,18 @@ public class GameProgression : GameStage
                 break;
             case WorldStage.Island3:
                 Footsteps.Instance.Terrain = playableTerrains[2];
+                break;
+        }
+        switch (itemsCollected)
+        {
+            case >=6:
+                WindLevelController.Instance.setLevel = 3;
+                break;
+            case >=4:
+                WindLevelController.Instance.setLevel = 2;
+                break;
+            case >=2:
+                WindLevelController.Instance.setLevel = 1;
                 break;
         }
     }

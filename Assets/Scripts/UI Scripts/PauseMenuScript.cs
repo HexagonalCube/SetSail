@@ -18,25 +18,32 @@ public class PauseMenuScript : MonoBehaviour
         }
         else { Instance = this; }
     }
+    public void CursorHover()
+    {
+        BookNoises.Instance.PlayNoise(BookNoises.Noises.SnapPage);
+    }
     public void OnCloseButtonClick()
     {
+        BookNoises.Instance.PlayNoise(BookNoises.Noises.CloseBook);
         ui.ClosePause();
     }
     public void OnMenuButtonClick()
     {
-
+        BookNoises.Instance.PlayNoise(BookNoises.Noises.IndentPage);
     }
     public void OnConfigButtonClick()
     {
+        BookNoises.Instance.PlayNoise(BookNoises.Noises.IndentPage);
         PanelSwitcher(Panel.Config);
     }
     public void OnStoryButtonClick()
     {
+        BookNoises.Instance.PlayNoise(BookNoises.Noises.IndentPage);
         PanelSwitcher(Panel.Story);
     }
     public void OnControlsButtonClick()
     {
-
+        BookNoises.Instance.PlayNoise(BookNoises.Noises.IndentPage);
     }
     public void OnQuitButtonClick()
     {

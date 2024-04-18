@@ -18,6 +18,7 @@ public class PageSwitcher : MonoBehaviour
     }
     public void SwitchPage(int page)
     {
+        BookNoises.Instance.PlayNoise(BookNoises.Noises.FlipPage);
         curPage = page;
         DisableEnablePages(page);
     }
