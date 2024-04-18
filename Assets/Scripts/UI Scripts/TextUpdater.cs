@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class TextUpdater : MonoBehaviour
 {
-    TMP_Text text;
-    Animator anim;
+    [SerializeField] TMP_Text text;
+    [SerializeField] Animator anim;
     public string VisibleText { private get { return text.text; } set { text.text = value; anim.Play("TextCommentPopup"); } }
     private void Start()
     {
-        text = GetComponent<TMP_Text>();
-        anim = GetComponent<Animator>();
         VisibleText = "";
     }
 }

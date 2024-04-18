@@ -20,6 +20,7 @@ public class InputController : MonoBehaviour
     [SerializeField] KeyCode rudderNegative = KeyCode.D;
     [SerializeField] KeyCode diaryKey = KeyCode.Tab;
     [SerializeField] KeyCode pauseKey = KeyCode.Escape;
+    [SerializeField] KeyCode navigationKey = KeyCode.C;
     [Space]
     [SerializeField] bool inputEnabled = true;
     int tutorialStage;
@@ -33,6 +34,7 @@ public class InputController : MonoBehaviour
     public KeyCode SailRL { get { return raiseLowerSail; } }
     public KeyCode Pause { get { return pauseKey; } }
     public KeyCode Diary { get { return diaryKey; } }
+    public KeyCode Navigation { get { return navigationKey; } }
     #endregion
 
     private void Awake()

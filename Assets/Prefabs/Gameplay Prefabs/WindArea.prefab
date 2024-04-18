@@ -70,9 +70,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mesh: {fileID: 0}
-  Rotation: -45
+  Rotation: -296.6
   trDirection: {fileID: 2848000970752145724}
-  direction: {x: 0.7071067, y: 0, z: 0.7071068}
+  direction: {x: 0.44775915, y: 0, z: -0.89415425}
   particles:
   - {fileID: 4844753091691064592}
   - {fileID: 1048288571900261759}
@@ -99,7 +99,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 15.343185
-  MaxDistance: 500
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -196,7 +196,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 15.363987
-  MaxDistance: 500
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -295,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 332501687501370214}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.38268346, z: -0, w: 0.9238795}
+  m_LocalRotation: {x: -0, y: -0.5254716, z: -0, w: -0.8508112}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
