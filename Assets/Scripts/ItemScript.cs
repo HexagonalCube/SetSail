@@ -54,14 +54,16 @@ public class ItemScript : MonoBehaviour
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
-                    ui.OpenStory();
+                    ui.OpenStory(5);
+                    ui.OpenStory(6);
                     StartCoroutine(DestroyAfterSeconds(0.01f, true));
                     break;
                 case content.Letter:
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
-                    ui.OpenStory();
+                    ui.OpenStory(7);
+                    ui.OpenStory(8);
                     StartCoroutine(DestroyAfterSeconds(0.01f, true));
                     break;
                 case content.Type_test:

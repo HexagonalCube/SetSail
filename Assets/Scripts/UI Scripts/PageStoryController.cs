@@ -5,13 +5,13 @@ using UnityEngine;
 public class PageStoryController : MonoBehaviour
 {
     public static PageStoryController Instance;
-    [SerializeField] AudioSource scribbleNoise;
     [SerializeField] GameObject[] page3;
     [SerializeField] GameObject[] page4;
     [SerializeField] GameObject[] page5;
     [SerializeField] GameObject[] page6;
     [SerializeField] GameObject[] page7;
     [SerializeField] GameObject[] page8;
+    bool[] discovered = new bool[10];
 
     delegate void DisableAllPages(bool enable = false);
     DisableAllPages DisableAll;
@@ -38,7 +38,8 @@ public class PageStoryController : MonoBehaviour
     }
     public void DiscorverPages(int page)
     {
-        scribbleNoise.PlayOneShot(scribbleNoise.clip);
+        if (!discovered[page]) { BookNoises.Instance.PlayNoise(BookNoises.Noises.ScribblePage); }
+        discovered[page] = true;
         switch (page)
         {
             case 3:

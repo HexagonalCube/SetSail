@@ -40,8 +40,8 @@ public class DockScript : GameStage
             dockSfx.PlayOneShot(dockExit);
             gameUI.UI_Fade(dockExit.length);
             canSwitch = false;
-            //StartCoroutine(DockExitTimer());
-            DemoEndScreen.SetActive(true);
+            StartCoroutine(DockExitTimer());
+            //DemoEndScreen.SetActive(true);
         }
     }
     public void DockEnter(Transform aBoat) //When Entering Dock
@@ -71,7 +71,6 @@ public class DockScript : GameStage
     IEnumerator DockEnterTimer(Transform aBoat)
     {
         yield return new WaitForSeconds(1);
-        Debug.Log("A");
         player.position = playerPoint.position;
         player.gameObject.SetActive(true);
         aBoat.position = boatPoint.position;
