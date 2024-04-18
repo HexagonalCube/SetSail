@@ -117,6 +117,13 @@ public class Footsteps : GameStage
             wood = true;
         }
     }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Wood"))
+        {
+            wood = true;
+        }
+    }
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Wood"))
