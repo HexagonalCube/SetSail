@@ -74,7 +74,7 @@ public class GameUI_Controller : MonoBehaviour
     }
     public void CursorUpdate(bool open, bool active)
     {
-        Debug.Log($"open {open}, active {active}");
+        //Debug.Log($"open {open}, active {active}");
         CursorScript.Instance.Cursor(active, open);
         //if (active && !cursorFading)
         //{
