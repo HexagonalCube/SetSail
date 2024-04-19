@@ -72,18 +72,18 @@ public class ItemScript : MonoBehaviour
             }
         }
     }
-    public void CursorActivate(bool active)
+    public void CursorActivate(bool active, bool open = true)
     {
         if (CheckIfVisible())
         {
-            ui.CursorUpdate(false, active);
+            ui.CursorUpdate(open, active);
         }
     }
     public void HiglightObjectNear(bool highlight)
     {
         if (highlight && CheckIfVisible() && canOutline)
         {
-            ui.CursorUpdate(true, true);
+            //ui.CursorUpdate(true, true);
             //ui.Interact(true);
             switch (type)
             {
