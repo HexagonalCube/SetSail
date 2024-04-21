@@ -423,6 +423,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2239899643323966715, guid: 11938913abbba8a42ac967c971823660,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: def10443a319120488582f751459cd30, type: 2}
     - target: {fileID: 2800533375640391649, guid: 11938913abbba8a42ac967c971823660,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -493,6 +498,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CaixacomFerro (3) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6654129892877645612, guid: 11938913abbba8a42ac967c971823660,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 770ea008484eb59489a4ee91ad6628f5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
