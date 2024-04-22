@@ -28,13 +28,14 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
+    - _HueVariationKwToggle: 1
     - _NormalMapKwToggle: 1
-    - _OldHueVarBehavior: 0
+    - _OldHueVarBehavior: 1
     - _WindQuality: 1
     m_Colors:
     - _BaseColor: {r: 0.09019608, g: 0.06666667, b: 0.06274508, a: 1}
-    - _Color: {r: 0.066037714, g: 0.05139728, b: 0.057671756, a: 1}
-    - _HueVariationColor: {r: 0, g: 0, b: 0, a: 0.2}
+    - _Color: {r: 0, g: 0, b: 0, a: 1}
+    - _HueVariationColor: {r: 0.2264151, g: 0.12068884, b: 0.10786757, a: 0.2}
   m_BuildTextureStacks: []
 --- !u!114 &7286813345743296691
 MonoBehaviour:
