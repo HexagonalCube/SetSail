@@ -12,7 +12,7 @@ public class DrawCollider : MonoBehaviour
     [SerializeField] Mesh mcMesh;
     [SerializeField] ColliderType type;
     [ColorUsage(false)] public Color color;
-
+    [SerializeField] bool showBarriers;
     private void OnValidate()
     {
         switch (type)
@@ -30,25 +30,28 @@ public class DrawCollider : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = new Color(color.r, color.g, color.b);
-        switch (type)
+        if (showBarriers)
         {
-            case ColliderType.Sphere:
-                Gizmos.DrawWireSphere(transform.position + sc.center, sc.radius);
-                break;
-            case ColliderType.Box:
-                if (mcMesh == null)
-                {
-                    Gizmos.DrawWireCube(transform.position, bc.size);
-                }
-                else
-                {
-                    Gizmos.DrawWireMesh(mcMesh, transform.position, transform.rotation, bc.size + (transform.localScale - Vector3.one));
-                }
-                break;
-            case ColliderType.Mesh:
-                Gizmos.DrawWireMesh(mcMesh, -1, transform.position, transform.rotation);
-                break;
+            Gizmos.color = new Color(color.r, color.g, color.b);
+            switch (type)
+            {
+                case ColliderType.Sphere:
+                    Gizmos.DrawWireSphere(transform.position + sc.center, sc.radius);
+                    break;
+                case ColliderType.Box:
+                    if (mcMesh == null)
+                    {
+                        Gizmos.DrawWireCube(transform.position, bc.size);
+                    }
+                    else
+                    {
+                        Gizmos.DrawWireMesh(mcMesh, transform.position, transform.rotation, bc.size + (transform.localScale - Vector3.one));
+                    }
+                    break;
+                case ColliderType.Mesh:
+                    Gizmos.DrawWireMesh(mcMesh, -1, transform.position, transform.rotation, transform.localScale);
+                    break;
+            }
         }
     }
 }

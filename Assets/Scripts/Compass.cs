@@ -10,6 +10,6 @@ public class Compass : MonoBehaviour
     private void Update()
     {
         float angle = Vector3.SignedAngle(new Vector3(reference.forward.x, 0,reference.forward.z), Vector3.forward,Vector3.up);
-        rot.localEulerAngles = new Vector3(0, angle, 0);
+        rot.localEulerAngles = new Vector3(rot.eulerAngles.x, angle, rot.eulerAngles.z);
     }
 }
