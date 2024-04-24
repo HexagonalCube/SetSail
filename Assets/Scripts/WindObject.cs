@@ -71,7 +71,7 @@ public class WindObject : MonoBehaviour
             {
                 //windIndicator.forward = windCurrent;
                 //windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
-                cloth.WindDirection = windCurrent;
+                cloth.WindDirection = windCurrent * 5;
                 if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
                 {
                     //Maximum Force
