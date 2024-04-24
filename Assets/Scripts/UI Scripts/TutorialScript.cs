@@ -36,6 +36,7 @@ public class TutorialScript : MonoBehaviour
         {
             SwitchTutorialStage();
         }
+        //Debug.Log($"tut{isInTutorial} prog{canProgress} phase{selected} txt{text[selected]} hddn{hidden}");
     }
     void TutorialStep()
     {
