@@ -58,10 +58,12 @@ public class TutorialScript : MonoBehaviour
     public void CloseTutorial()
     {
         isInTutorial = false;
+        HideShowTutorial(false);
     }
     public void OpenTutorial()
     {
         isInTutorial = true;
+        HideShowTutorial(true);
     }
     public void HideShowTutorial(bool show)
     {
@@ -88,9 +90,13 @@ public class TutorialScript : MonoBehaviour
                 if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN)) { TutorialStep(); HideShowTutorial(false); }
                 break;
             case 4:
-                if (Input.GetKeyDown(input.PInt) && !hidden) { tutorialText.GetComponentInParent<Image>().gameObject.SetActive(false); isInTutorial = false; }
+                if (Input.GetKeyDown(input.PInt) && !hidden) { CloseTutorial(); TutorialStep(); }
                 break;
             case 5:
+                if (Input.GetKeyDown(input.Navigation) && !hidden) { TutorialStep(); }
+                break;
+            case 6:
+                if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { CloseTutorial(); TutorialStep(); }
                 break;
         }
     }

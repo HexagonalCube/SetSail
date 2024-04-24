@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DrawCollider : MonoBehaviour
 {
@@ -36,7 +37,14 @@ public class DrawCollider : MonoBehaviour
                 Gizmos.DrawWireSphere(transform.position + sc.center, sc.radius);
                 break;
             case ColliderType.Box:
-                Gizmos.DrawWireCube(transform.position + bc.center, bc.size);
+                if (mcMesh == null)
+                {
+                    Gizmos.DrawWireCube(transform.position, bc.size);
+                }
+                else
+                {
+                    Gizmos.DrawWireMesh(mcMesh, transform.position, transform.rotation, bc.size + (transform.localScale - Vector3.one));
+                }
                 break;
             case ColliderType.Mesh:
                 Gizmos.DrawWireMesh(mcMesh, -1, transform.position, transform.rotation);

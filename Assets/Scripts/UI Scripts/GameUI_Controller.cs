@@ -74,28 +74,30 @@ public class GameUI_Controller : MonoBehaviour
     }
     public void CursorUpdate(bool open, bool active)
     {
-        if (active && !cursorFading)
-        {
-            cursorFading = true;
-            StopCoroutine(CursorColorFadeOut());
-            StartCoroutine(CursorColorFadeIn());
-            if (open && open != cursorSwitch)
-            {
-                cursorAnim.Play("CursorClose");
-            }
-            else if (!open && open != cursorSwitch)
-            {
-                cursorAnim.Play("CursorOpen");
-            }
-            cursorSwitch = open;
-        }
+        //Debug.Log($"open {open}, active {active}");
+        CursorScript.Instance.Cursor(active, open);
+        //if (active && !cursorFading)
+        //{
+        //    cursorFading = true;
+        //    StopCoroutine(CursorColorFadeOut());
+        //    StartCoroutine(CursorColorFadeIn());
+        //    if (open && open != cursorSwitch)
+        //    {
+        //        cursorAnim.Play("CursorClose");
+        //    }
+        //    else if (!open && open != cursorSwitch)
+        //    {
+        //        cursorAnim.Play("CursorOpen");
+        //    }
+        //    cursorSwitch = open;
+        //}
         
-        if (!active && !cursorFading)
-        {
-            cursorFading = true;
-            StopCoroutine(CursorColorFadeIn());
-            StartCoroutine(CursorColorFadeOut());
-        }
+        //if (!active && !cursorFading)
+        //{
+        //    cursorFading = true;
+        //    StopCoroutine(CursorColorFadeIn());
+        //    StartCoroutine(CursorColorFadeOut());
+        //}
     }
     public void UI_Fade(float seconds)
     {

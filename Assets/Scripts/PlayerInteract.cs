@@ -83,7 +83,7 @@ public class PlayerInteract : MonoBehaviour
             isInView = inview(transform.position ,transform.forward ,curItem.position, false);
             isInViewNear = inview(transform.position, transform.forward, curItem.position, true);
             curItem.GetComponent<ItemScript>().HiglightObjectNear(isInView);
-            curItem.GetComponent<ItemScript>().CursorActivate(isInViewNear);
+            curItem.GetComponent<ItemScript>().CursorActivate(isInViewNear, !isInView);
         }
     }
 }

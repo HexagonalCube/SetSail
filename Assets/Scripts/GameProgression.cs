@@ -8,7 +8,7 @@ public class GameProgression : GameStage
     public static GameProgression Instance;
     [SerializeField] private WorldStage curStage = WorldStage.Intro;
     public WorldStage Stage { get { return curStage; } set { previousStage = curStage; curStage = value; StageChange(); } }
-    private WorldStage previousStage = WorldStage.Intro;
+    public WorldStage previousStage = WorldStage.Intro;
     [SerializeField] private int itemsCollected;
     public int Items { get {  return itemsCollected; } set {  itemsCollected = value; } }
     private void Awake()

@@ -93,6 +93,7 @@ public class DockScript : GameStage
         clouds.isInBoat = true;
         SwitchGamestate(false);
         StartCoroutine(SwitchTimer());
+        if (gameState.previousStage == WorldStage.Island1) { TutorialScript.Instance.OpenTutorial(); }
     }
     private void OnDrawGizmos()
     {

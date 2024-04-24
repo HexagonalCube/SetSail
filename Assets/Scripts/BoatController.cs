@@ -106,7 +106,7 @@ public class BoatController : MonoBehaviour
             //
             dock = other.GetComponentInParent<DockScript>();
             nearDock = true;
-            TutorialScript.Instance.HideShowTutorial(true);
+            if (GameProgression.Instance.previousStage == GameStage.WorldStage.Intro) { TutorialScript.Instance.HideShowTutorial(true); }
         }
     }
     private void OnTriggerExit(Collider other)

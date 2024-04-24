@@ -62,7 +62,7 @@ public class OptionsManager : MonoBehaviour
         //Screen.SetResolution(selectedResolution.width, selectedResolution.height, fullScreen, selectedResolution.refreshRate);
         if (fullScreen)
         {
-            Screen.SetResolution(selectedResolution.width, selectedResolution.height, FullScreenMode.ExclusiveFullScreen, selectedResolution.refreshRateRatio);
+            Screen.SetResolution(selectedResolution.width, selectedResolution.height, FullScreenMode.FullScreenWindow, selectedResolution.refreshRateRatio);
         }
         else
         {
