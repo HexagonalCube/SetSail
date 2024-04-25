@@ -17639,7 +17639,7 @@ PrefabInstance:
     - target: {fileID: 5883834615066430040, guid: 5e9287b1b8c71934882a482bfc44ff36,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1062
+      value: -842.2
       objectReference: {fileID: 0}
     - target: {fileID: 5883834615066430040, guid: 5e9287b1b8c71934882a482bfc44ff36,
         type: 3}
@@ -17649,7 +17649,7 @@ PrefabInstance:
     - target: {fileID: 5883834615066430040, guid: 5e9287b1b8c71934882a482bfc44ff36,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1559
+      value: -1418.5
       objectReference: {fileID: 0}
     - target: {fileID: 5883834615066430040, guid: 5e9287b1b8c71934882a482bfc44ff36,
         type: 3}
@@ -29454,6 +29454,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 84529088701863473, guid: d15c637b8698eaa4cab7e56863be4a31,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -2429545895724512109, guid: 2296b762eb83ad546bf32aa54d839f32,
+        type: 3}
     - target: {fileID: 1707866773410414523, guid: d15c637b8698eaa4cab7e56863be4a31,
         type: 3}
       propertyPath: boat
