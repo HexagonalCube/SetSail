@@ -108,6 +108,10 @@ public class BoatController : MonoBehaviour
             nearDock = true;
             if (GameProgression.Instance.previousStage == GameStage.WorldStage.Intro) { TutorialScript.Instance.HideShowTutorial(true); }
         }
+        if (other.CompareTag("LastIsland"))
+        {
+            IslandsDistanceController.Instance.SetLastIsland = true;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -118,6 +122,10 @@ public class BoatController : MonoBehaviour
             //
             dock = null;
             nearDock = false;
+        }
+        if (other.CompareTag("LastIsland"))
+        {
+            IslandsDistanceController.Instance.SetLastIsland = false;
         }
     }
     public void EnterDock()
