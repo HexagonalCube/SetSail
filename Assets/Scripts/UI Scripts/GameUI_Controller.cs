@@ -21,8 +21,7 @@ public class GameUI_Controller : MonoBehaviour
     float textFade = 0f;
     float cursorFade = 0f;
     bool textFading = false;
-    bool cursorFading = false;
-    bool cursorSwitch;
+    //bool cursorFading = false;
     bool paused;
     bool stopInteractions = true;
     public bool CanInteract { get { return stopInteractions; } set { stopInteractions = !value; } }
@@ -185,7 +184,7 @@ public class GameUI_Controller : MonoBehaviour
         else
         {
             yield return new WaitForSecondsRealtime(0.02f);
-            cursorFading = false;
+            //cursorFading = false;
         }
     }
     private IEnumerator CursorColorFadeOut()
@@ -200,7 +199,7 @@ public class GameUI_Controller : MonoBehaviour
         else
         {
             yield return new WaitForSecondsRealtime(0.02f);
-            cursorFading = false;
+            //cursorFading = false;
         }
     }
     private IEnumerator GameFadeInOut(float seconds)
