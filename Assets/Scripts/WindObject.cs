@@ -16,6 +16,8 @@ public class WindObject : MonoBehaviour
     public Transform windIndicator; //WindFlag
     public Material flagMat; //FlagColor
 
+    [SerializeField] ClothController cloth; //Sail Cloths
+
     [SerializeField] Vector3 windCurrent; //Wind Dir
     Vector3 sailDirection; //Sail Dir
     [SerializeField] Vector3 passiveDir; //Passive Wind Dir
@@ -67,8 +69,9 @@ public class WindObject : MonoBehaviour
         {
             if (inWindZone)//When effected by winds
             {
-                windIndicator.forward = windCurrent;
-                windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                //windIndicator.forward = windCurrent;
+                //windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                cloth.WindDirection = windCurrent * 5;
                 if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff < 100)
                 {
                     //Maximum Force
@@ -93,8 +96,9 @@ public class WindObject : MonoBehaviour
             else if (!inLowZone)
             {
                 //Normal Force
-                windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
-                windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                //windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
+                //windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                cloth.WindDirection = passiveDir;
                 float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
                 if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 400, 0, 100))); timeSliding = maxSlideTime; }
                 else { StartCoroutine(BoatSlide(baseSpeed)); }
@@ -105,8 +109,9 @@ public class WindObject : MonoBehaviour
             else
             {
                 //In Low wind zones
-                windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
-                windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                //windIndicator.forward = Vector3.RotateTowards(windIndicator.forward, passiveDir, 0.005f, 0.001f);
+                //windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
+                cloth.WindDirection = passiveDir;
                 float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
                 if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed/2 + Mathf.Pow(diff, -1) * 400, 0, 100))); timeSliding = maxSlideTime; }
                 else { StartCoroutine(BoatSlide(baseSpeed/2)); }
