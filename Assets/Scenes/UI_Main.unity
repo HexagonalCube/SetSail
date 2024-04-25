@@ -7419,10 +7419,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2132081626}
+  - {fileID: 8379509078800868111}
   - {fileID: 1908765361}
   - {fileID: 1893308204}
-  - {fileID: 8379509078800868111}
+  - {fileID: 2132081626}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -30957,7 +30957,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2132081626
 RectTransform:
   m_ObjectHideFlags: 0
@@ -31590,6 +31590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8379509078800868111}
   - component: {fileID: 8379509078800868112}
+  - component: {fileID: 8379509078800868113}
   m_Layer: 5
   m_Name: ContainerLayout
   m_TagString: Untagged
@@ -31715,9 +31716,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6424479227540981478}
-        m_TargetAssemblyTypeName: CustomButton, Assembly-CSharp
-        m_MethodName: OnClick
+      - m_Target: {fileID: 8379509078800868113}
+        m_TargetAssemblyTypeName: Menu_OpenGame, Assembly-CSharp
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -31967,6 +31968,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &8379509078800868113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4550808455733196337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1e8b0a2a311a0a44a6e5087f6a6b249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &8444027531167559956
 CanvasRenderer:
   m_ObjectHideFlags: 0
