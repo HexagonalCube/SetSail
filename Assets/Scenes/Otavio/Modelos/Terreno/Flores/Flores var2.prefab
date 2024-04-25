@@ -235,7 +235,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 68d8d3aa248be304ebcd3c73fbc67d69,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6346566520358365928}
+      addedObject: {fileID: 8483918932928374962}
   m_SourcePrefab: {fileID: 100100000, guid: 68d8d3aa248be304ebcd3c73fbc67d69, type: 3}
 --- !u!23 &372687842813386351 stripped
 MeshRenderer:
@@ -375,7 +375,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4695469061656555299}
   m_PrefabAsset: {fileID: 0}
---- !u!205 &6346566520358365928
+--- !u!205 &8483918932928374962
 LODGroup:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -383,21 +383,22 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5613950146383254130}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: -5.142622, y: 82.04901, z: -19.377352}
+  m_LocalReferencePoint: {x: -5.142378, y: 82.04901, z: -19.377352}
   m_Size: 164.09802
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0
+  - screenRelativeHeight: 0.05419669
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 7752107527355037637}
     - renderer: {fileID: 4326066437347138437}
+    - renderer: {fileID: 2893803414062138075}
     - renderer: {fileID: 5613370545279837262}
     - renderer: {fileID: 5829399544092296103}
-    - renderer: {fileID: 3027480966973084954}
     - renderer: {fileID: 5035174271174754429}
+    - renderer: {fileID: 768564795951996458}
     - renderer: {fileID: 2210718166811808117}
     - renderer: {fileID: 372687842813386351}
     - renderer: {fileID: 6426749018476248638}
@@ -421,16 +422,9 @@ LODGroup:
     - renderer: {fileID: 7816142294594150274}
     - renderer: {fileID: 1901275524187668218}
     - renderer: {fileID: 4089087375511688185}
-    - renderer: {fileID: 2893803414062138075}
-    - renderer: {fileID: 768564795951996458}
+    - renderer: {fileID: 3027480966973084954}
     - renderer: {fileID: 4379834427440441021}
     - renderer: {fileID: 2567546918994396354}
-  - screenRelativeHeight: 0
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0
-    fadeTransitionWidth: 0
-    renderers: []
   m_Enabled: 1
 --- !u!23 &5828510954761395688 stripped
 MeshRenderer:
