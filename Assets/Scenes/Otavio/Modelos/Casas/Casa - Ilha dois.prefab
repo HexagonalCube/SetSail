@@ -249,89 +249,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &1168835988536901669
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4295324109020033991}
-  - component: {fileID: 6852303495462023431}
-  - component: {fileID: 305722165239597484}
-  m_Layer: 0
-  m_Name: Cylinder.001
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4295324109020033991
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168835988536901669}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 0.02197569, y: -0.0000000010421743, z: -0.023842173}
-  m_LocalScale: {x: 2.5861695, y: 2.5861695, z: 2.5861695}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7031665534531684093}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6852303495462023431
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168835988536901669}
-  m_Mesh: {fileID: -7387706064836869012, guid: f2718f80954d4064abf8e1b63cf7a001, type: 3}
---- !u!23 &305722165239597484
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1168835988536901669}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 5b43cb9be2cfd4549aa4fae8e8370e47, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1431762025489385326
 GameObject:
   m_ObjectHideFlags: 0
@@ -525,8 +442,8 @@ Transform:
   m_GameObject: {fileID: 1844581490395376424}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0027413387, y: 0.7143284, z: 0.0018455142, w: -0.6998029}
-  m_LocalPosition: {x: 0.03149359, y: 0.033402927, z: -0.026362548}
-  m_LocalScale: {x: 0.00010758183, y: 0.0007367521, z: 0.00010758183}
+  m_LocalPosition: {x: 0.0315, y: 0.0549, z: -0.0262}
+  m_LocalScale: {x: 0.00010758183, y: 0.000031903204, z: 0.00010758183}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7031665534531684093}
@@ -2210,7 +2127,6 @@ Transform:
   - {fileID: 1378560862335071470}
   - {fileID: 8531262325497014102}
   - {fileID: 4189880901626510119}
-  - {fileID: 4295324109020033991}
   - {fileID: 2182975400459109069}
   - {fileID: 1889027044386143219}
   - {fileID: 4283362099323028343}
@@ -2541,8 +2457,8 @@ Transform:
   m_GameObject: {fileID: 8488055779552937600}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0027413387, y: 0.7143284, z: 0.0018455142, w: -0.6998029}
-  m_LocalPosition: {x: -0.015859718, y: 0.033346087, z: -0.027335579}
-  m_LocalScale: {x: 0.00010758183, y: 0.0007246715, z: 0.00010758183}
+  m_LocalPosition: {x: -0.0159, y: 0.0548, z: -0.0272}
+  m_LocalScale: {x: 0.00010758183, y: 0.000031380085, z: 0.00010758183}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7031665534531684093}
