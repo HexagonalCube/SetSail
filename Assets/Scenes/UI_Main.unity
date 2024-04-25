@@ -9966,6 +9966,7 @@ MonoBehaviour:
   mcMesh: {fileID: 0}
   type: 0
   color: {r: 0, g: 1, b: 1, a: 0}
+  showBarriers: 0
 --- !u!135 &878084594
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -30944,7 +30945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 1000
+    m_Left: 1100
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
