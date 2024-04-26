@@ -73,6 +73,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: VasoDeBarroAgua
       objectReference: {fileID: 0}
+    - target: {fileID: 4662426044681834825, guid: 72005231c9842a147ae32fbb4a81c6a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8a5f6c5a4fed5f54ca65e7e36973689e, type: 2}
+    - target: {fileID: 6862510792299786921, guid: 72005231c9842a147ae32fbb4a81c6a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1afa9ee48d0d6984a8a3140f6ef70ffe, type: 2}
     - target: {fileID: 8990467675665627759, guid: 72005231c9842a147ae32fbb4a81c6a4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
