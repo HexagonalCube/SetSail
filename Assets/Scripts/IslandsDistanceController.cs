@@ -32,7 +32,7 @@ public class IslandsDistanceController : MonoBehaviour
             distances[i] = Vector3.Distance(boat.position, islands[i].position);
         }
         dist = Mathf.Min(distances);
-        Debug.Log(dist);
+        //Debug.Log(dist);
         //weather.weather = Mathf.Clamp(dist / maxDist, 0, 2);
         if (dist>maxDist)
         {
