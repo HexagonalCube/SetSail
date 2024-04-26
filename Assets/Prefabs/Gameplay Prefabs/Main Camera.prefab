@@ -1005,7 +1005,7 @@ MonoBehaviour:
   closeToItem: 0
   distanceToItem: 0
   curItem: {fileID: 0}
-  maxDist: 20
+  maxDist: 5
   minAngle: 0.2
   maxAngle: 0.35
   isInView: 0
