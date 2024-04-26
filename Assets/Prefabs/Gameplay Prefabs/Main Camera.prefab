@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4280067101668864279}
   - component: {fileID: 3122873816276501969}
   - component: {fileID: 2604539301446104427}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Pino Central
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 7530375477747577917}
   - component: {fileID: 4613553631189037712}
   - component: {fileID: 1872183403214380796}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Fundo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 6931548345856795386}
   - component: {fileID: 3247555472529503947}
   - component: {fileID: 1608723519900098502}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Corpo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -473,7 +473,7 @@ GameObject:
   - component: {fileID: 2024632590188938264}
   - component: {fileID: 3039299245446000597}
   - component: {fileID: 5308751158769774820}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sul
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -556,7 +556,7 @@ GameObject:
   - component: {fileID: 7270352821266980036}
   - component: {fileID: 8266620626763922016}
   - component: {fileID: 1215555529752685875}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Norte
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -779,7 +779,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3162635673000198216}
   - component: {fileID: 4784083959993873844}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Bussola
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,6 +818,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rot: {fileID: 4280067101668864279}
   reference: {fileID: 3826529598090357510}
+  axisOfRot: {x: 0, y: 0, z: 1}
+  eulersOffset: {x: 270, y: 0, z: 0}
 --- !u!1 &8493387436371889750
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,7 +891,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.01
-  far clip plane: 900
+  far clip plane: 1200
   field of view: 75
   orthographic: 0
   orthographic size: 5
@@ -1020,6 +1022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mapa
+      objectReference: {fileID: 0}
+    - target: {fileID: 7205010079345105860, guid: 9f9174a6a91e57b40b157414a58862ef,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7205010079345105860, guid: 9f9174a6a91e57b40b157414a58862ef,
         type: 3}

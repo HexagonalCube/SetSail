@@ -72,13 +72,13 @@ public class OptionsManager : MonoBehaviour
     public void SetVolume(float vol) //saves selected volume & sets volume to log10 scale
     {
         SaveGame.SaveVolume(vol);
-        float convertedVolume = Mathf.Log10(vol) * 20;
+        float convertedVolume = 20 * Mathf.Log10(vol + 0.01f);
         masterVolume.SetFloat("MasterVolume", convertedVolume);
     }
     void LoadVolume() //Loads saved volume & converts to log10 scale
     {
         volumeSlider.SetValueWithoutNotify(SaveGame.LoadVolume());
-        float convertedVolume = Mathf.Log10(SaveGame.LoadVolume()) * 20;
+        float convertedVolume = 20 * Mathf.Log10(SaveGame.LoadVolume() + 0.01f);
         masterVolume.SetFloat("MasterVolume",convertedVolume);
         //Debug.Log($"VolumeLoaded {SaveGame.LoadVolume()}");
     }
