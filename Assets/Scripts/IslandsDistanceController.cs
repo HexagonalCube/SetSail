@@ -37,7 +37,7 @@ public class IslandsDistanceController : MonoBehaviour
         if (dist>maxDist)
         {
             LerpWeatherUp(lerpUp);
-            if (dist > maxDist * 1.2f && lastIsland) { weather.isRain = true; } else { weather.isRain = false; }
+            if (dist > maxDist * 1.2f && !lastIsland) { weather.isRain = true; } else { weather.isRain = false; }
         }
         else
         {
