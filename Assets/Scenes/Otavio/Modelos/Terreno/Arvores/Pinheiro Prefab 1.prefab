@@ -58,11 +58,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7c0f3d53e073dd14f9e865e419681195, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: b8bce706ba9b3b045b8a348667cc6ac3, type: 2}
     - target: {fileID: 919132149155446097, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
         type: 3}
       propertyPath: m_Name
       value: Pinheiro Prefab 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4094498511579378197, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31e8625f00b0e8a45847f36c82a80143, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -80,18 +95,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3166955420534835246}
   m_SourcePrefab: {fileID: 100100000, guid: 1a7fe34f7b2d9834a959623bdd4ecae0, type: 3}
---- !u!23 &210743369429482589 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -360158266794112922, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
-    type: 3}
-  m_PrefabInstance: {fileID: 8785608133906920507}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &233774007516996115 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -373156430564764120, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
-    type: 3}
-  m_PrefabInstance: {fileID: 8785608133906920507}
-  m_PrefabAsset: {fileID: 0}
 --- !u!23 &4297332723309697892 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -4445068932910108833, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
@@ -118,8 +121,8 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8443591644405614954}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: -1.0147057, y: 56.522804, z: 1.9279671}
-  m_Size: 139.80116
+  m_LocalReferencePoint: {x: -0.09812927, y: 4.175085, z: 0.13885498}
+  m_Size: 10.326483
   m_FadeMode: 1
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
@@ -127,9 +130,7 @@ LODGroup:
   - screenRelativeHeight: 0.025455218
     fadeTransitionWidth: 0
     renderers:
-    - renderer: {fileID: 233774007516996115}
     - renderer: {fileID: 4297332723309697892}
-    - renderer: {fileID: 210743369429482589}
     - renderer: {fileID: 4701288241700013614}
   m_Enabled: 1
 --- !u!64 &8406817663335316192
