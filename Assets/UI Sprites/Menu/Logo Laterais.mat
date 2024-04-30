@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Logo
+  m_Name: Logo Laterais
   m_Shader: {fileID: 4800000, guid: 650dd9526735d5b46b79224bc6e94025, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -128,8 +128,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 0.69803923, g: 0.57585716, b: 0.21568628, a: 1}
-    - _Color: {r: 0.69803923, g: 0.57585716, b: 0.2156862, a: 1}
+    - _BaseColor: {r: 0.084905684, g: 0.08270294, b: 0.07168923, a: 1}
+    - _Color: {r: 0.08490568, g: 0.08270291, b: 0.071689196, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
