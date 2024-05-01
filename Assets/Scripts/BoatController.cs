@@ -70,6 +70,7 @@ public class BoatController : MonoBehaviour
         wind.SwitchBoatStopped(true);
         rotateBoat.rotEnabled = false;
         rotateSail.rotEnabled = false;
+        rotateSail.transform.localEulerAngles = Vector3.zero;
         mainCamera.SwitchCamera(false);
         boatSFX.ExitBoat();
         //sailStowed = true;
@@ -85,6 +86,7 @@ public class BoatController : MonoBehaviour
             wind.SwitchBoatStopped(sailStowed);
             boatSFX.sailRaised = true;
             sailAnim.Play("LoweredSail");
+            SailSfx.Instance.Sailing = false;
         }
     }
     public void ReleaseSail()
@@ -95,6 +97,7 @@ public class BoatController : MonoBehaviour
             wind.SwitchBoatStopped(sailStowed);
             boatSFX.sailRaised = false;
             sailAnim.Play("RaisedSail");
+            SailSfx.Instance.Sailing = true;
         }
     }
     private void OnTriggerEnter(Collider other)

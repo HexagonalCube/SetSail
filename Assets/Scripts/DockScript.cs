@@ -75,6 +75,7 @@ public class DockScript : GameStage
         player.gameObject.SetActive(true);
         aBoat.position = boatPoint.position;
         aBoat.rotation = boatPoint.rotation;
+        boat.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY;
         boat.DisableBoat();
         inDock = true;
         clouds.isInBoat = true;
@@ -91,6 +92,7 @@ public class DockScript : GameStage
         boat.EnableBoat();
         inDock = false;
         clouds.isInBoat = true;
+        boat.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         SwitchGamestate(false);
         StartCoroutine(SwitchTimer());
         if (gameState.previousStage == WorldStage.Island1) { TutorialScript.Instance.OpenTutorial(); }
