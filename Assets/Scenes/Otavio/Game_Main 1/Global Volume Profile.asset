@@ -46,7 +46,7 @@ MonoBehaviour:
     m_Value: 0.05
   scatter:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.476
   clamp:
     m_OverrideState: 1
     m_Value: 65506.6
@@ -90,7 +90,7 @@ MonoBehaviour:
     m_Value: 0.7
   rayDensity:
     m_OverrideState: 1
-    m_Value: 0.303
+    m_Value: 0.262
   sunTransformPosition:
     m_OverrideState: 0
     m_Value: {x: 1848, y: 3943, z: -3586}
