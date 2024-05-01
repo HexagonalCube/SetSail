@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour
     public float sensitivity = 3;
     bool active = true;
     public bool cameraActive {  get { return active; } set {  active = value; } }
-
+    public bool InBoat { get { return inBoat; } set { inBoat = value; } }
     [SerializeField] bool inBoat = false;
     [SerializeField] Camera cameraMask;
     private void Awake()
