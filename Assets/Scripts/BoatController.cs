@@ -17,6 +17,7 @@ public class BoatController : MonoBehaviour
     [SerializeField] Animator sailAnim;
     [SerializeField] GameObject sailGeo;
     [SerializeField] SFXController boatSFX;
+    [SerializeField] Rebound bounce;
     [SerializeField] bool basicEnabled = true;
     [SerializeField] GameUI_Controller gameUI;
     public bool sailStowed = false;
@@ -54,6 +55,7 @@ public class BoatController : MonoBehaviour
         gameUI.scheduleFadeOut = true;
         wind.enabled = true;
         wind.SwitchBoatStopped(true);
+        EnableDisableBounce(true);
         rotateBoat.rotEnabled = true;
         rotateSail.rotEnabled = true;
         mainCamera.SwitchCamera(true);
@@ -68,6 +70,7 @@ public class BoatController : MonoBehaviour
         rb.velocity = Vector3.zero;
         wind.enabled = false;
         wind.SwitchBoatStopped(true);
+        EnableDisableBounce(false);
         rotateBoat.rotEnabled = false;
         rotateSail.rotEnabled = false;
         rotateSail.transform.localEulerAngles = Vector3.zero;
@@ -77,6 +80,10 @@ public class BoatController : MonoBehaviour
         StowSail();
         boatSFX.sailRaised = true;
         basicEnabled = false;
+    }
+    public void EnableDisableBounce(bool enabled)
+    {
+        bounce.enabled = enabled;
     }
     public void StowSail()
     {
@@ -109,7 +116,8 @@ public class BoatController : MonoBehaviour
             //
             dock = other.GetComponentInParent<DockScript>();
             nearDock = true;
-            if (GameProgression.Instance.previousStage == GameStage.WorldStage.Intro) { TutorialScript.Instance.HideShowTutorial(true); }
+            //Debug.Log("DockAreaEnter");
+            if (GameProgression.Instance.previousStage == GameStage.WorldStage.Intro && !TutorialScript.Instance.NearDock) { TutorialScript.Instance.HideShowTutorial(true); TutorialScript.Instance.NearDock = true; }
         }
         if (other.CompareTag("LastIsland"))
         {
@@ -125,6 +133,7 @@ public class BoatController : MonoBehaviour
             //
             dock = null;
             nearDock = false;
+            if (GameProgression.Instance.previousStage == GameStage.WorldStage.Intro) { TutorialScript.Instance.HideShowTutorial(false); TutorialScript.Instance.NearDock = false; }
         }
         if (other.CompareTag("LastIsland"))
         {

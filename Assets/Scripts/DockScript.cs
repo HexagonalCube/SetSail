@@ -70,6 +70,7 @@ public class DockScript : GameStage
     }
     IEnumerator DockEnterTimer(Transform aBoat)
     {
+        boat.EnableDisableBounce(false);
         yield return new WaitForSeconds(1);
         player.position = playerPoint.position;
         player.gameObject.SetActive(true);

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DebugScript : MonoBehaviour
+public class DebugScript : GameStage
 {
     [SerializeField] GameObject player;
     [SerializeField] GameObject main;
@@ -44,6 +44,18 @@ public class DebugScript : MonoBehaviour
         Debug.Log(playerPoints[i].name);
         player.transform.position = playerPoints[i].position;
         footsteps.Terrain = terrains[i];
+        switch (i)
+        {
+            case 0:
+                GameProgression.Instance.Stage = WorldStage.Island1;
+                break;
+            case 1:
+                GameProgression.Instance.Stage = WorldStage.Island2;
+                break;
+            case 2:
+                GameProgression.Instance.Stage = WorldStage.Island3;
+                break;
+        }
     }
     public void SetPlayerBoat(bool t)
     {
