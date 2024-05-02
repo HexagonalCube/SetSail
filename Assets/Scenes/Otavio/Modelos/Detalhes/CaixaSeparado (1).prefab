@@ -82,7 +82,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e3c46988796cfb8458c0b1694fd88e17, type: 2}
+      objectReference: {fileID: 2100000, guid: def10443a319120488582f751459cd30, type: 2}
     - target: {fileID: 2451499528242232350, guid: ffdc3068b4a5ff840a7c26b017c3f63a,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -100,6 +100,42 @@ PrefabInstance:
     - {fileID: 6080071330175737964, guid: ffdc3068b4a5ff840a7c26b017c3f63a, type: 3}
     - {fileID: 783609542372435672, guid: ffdc3068b4a5ff840a7c26b017c3f63a, type: 3}
     - {fileID: 8999975405659607098, guid: ffdc3068b4a5ff840a7c26b017c3f63a, type: 3}
+    - {fileID: 7881865058007461088, guid: ffdc3068b4a5ff840a7c26b017c3f63a, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1190762186346630590, guid: ffdc3068b4a5ff840a7c26b017c3f63a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8646702739883300082}
   m_SourcePrefab: {fileID: 100100000, guid: ffdc3068b4a5ff840a7c26b017c3f63a, type: 3}
+--- !u!1 &6491684614648773756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1190762186346630590, guid: ffdc3068b4a5ff840a7c26b017c3f63a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5373206833159385538}
+  m_PrefabAsset: {fileID: 0}
+--- !u!205 &8646702739883300082
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491684614648773756}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.49999994, z: 0.00015628338}
+  m_Size: 1.0029299
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.03616069
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 7535664502075870684}
+  m_Enabled: 1
+--- !u!23 &7535664502075870684 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2451499528242232350, guid: ffdc3068b4a5ff840a7c26b017c3f63a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5373206833159385538}
+  m_PrefabAsset: {fileID: 0}

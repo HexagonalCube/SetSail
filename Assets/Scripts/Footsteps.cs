@@ -55,6 +55,7 @@ public class Footsteps : GameStage
         }
         else
         {
+            Debug.Log(GameProgression.Instance.Stage);
             if (GameProgression.Instance.Stage == WorldStage.Island1)
             {
                 if (textureValues[0] > 0)

@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController Instance;
     [SerializeField] CharacterController cc;
     [SerializeField] GameProgression gameProg;
 
@@ -20,6 +21,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool nearDock;
     [SerializeField] DockScript dock;
     [SerializeField] GameUI_Controller gameUIController;
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(this);
+        }
+        else { Instance = this; }
+    }
     private void Start()
     {
         cc = GetComponent<CharacterController>();

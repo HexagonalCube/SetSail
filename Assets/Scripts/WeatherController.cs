@@ -33,8 +33,8 @@ public class WeatherController : MonoBehaviour
         clouds.cloudScale = 230 / (1+weather);
         clouds.cloudPower = 90 / (1+weather);
         clouds.cloudHeight = 30 * (2+weather);
-        clouds.cloudSpeed = new Vector2 (weather*10+1, weather*10+1);
-        clouds.cloudColor = Color.Lerp(baseColor, stormColor, weather);
+        clouds.cloudSpeed = new Vector2 (weather+1, weather+1);
+        clouds.cloudColor = Color.Lerp(baseColor, stormColor, weather/2);
         clouds.colorIntensity = 4 / (1+weather);
         clouds.cloudSmooth = 0.4f - (weather/5);
         clouds.UpdateMaterial();
@@ -56,7 +56,7 @@ public class WeatherController : MonoBehaviour
     {
         if (weather > 0.1f)
         {
-            sun.intensity = 2 - weather;
+            sun.intensity = 2f - (0.3f + weather * 1.5f);
             skybox.SetFloat("_Exposure", 1.3f * 1 / (weather * 2 + 1));
         }
         

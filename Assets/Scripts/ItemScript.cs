@@ -88,16 +88,16 @@ public class ItemScript : MonoBehaviour
             switch (type)
             {
                 case content.Emerald:
-                    ui.Interact(true, "Pegar Esmeralda (E)");
+                    ui.Interact(true, "Inspecionar Esmeralda (E)");
                     break;
                 case content.Bucket:
-                    ui.Interact(true, "Pegar Balde (E)");
+                    ui.Interact(true, "Inspecionar Balde (E)");
                     break;
                 case content.Photo:
-                    ui.Interact(true, "Pegar [ITEM] (E)");
+                    ui.Interact(true, "Pegar Foto (E)");
                     break;
                 case content.Letter:
-                    ui.Interact(true, "Pegar [ITEM] (E)");
+                    ui.Interact(true, "Pegar Carta (E)");
                     break;
                 default: break;
             }

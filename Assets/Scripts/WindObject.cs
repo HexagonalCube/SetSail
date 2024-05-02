@@ -88,7 +88,7 @@ public class WindObject : MonoBehaviour
                 else
                 {
                     //Paralel to Wind force
-                    if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed * 3)); timeSliding = maxSlideTime; }
+                    if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed * 1.5f)); timeSliding = maxSlideTime; }
                     else { StartCoroutine(BoatSlide(minSpeed)); }
                     flagMat.color = Color.cyan;
                 }
@@ -100,11 +100,23 @@ public class WindObject : MonoBehaviour
                 //windIndicator.localEulerAngles = windIndicator.localEulerAngles - new Vector3(windIndicator.localEulerAngles.x, 0, windIndicator.localEulerAngles.z);
                 cloth.WindDirection = passiveDir;
                 float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
-                if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 400, 0, 100))); timeSliding = maxSlideTime; }
+                if (!boatStopped) { rb.AddForce(rb.transform.forward * baseSpeed /*(Mathf.Clamp(baseSpeed + Mathf.Pow(diff, -1) * 400, 0, 100))*/ ); timeSliding = maxSlideTime; }
                 else { StartCoroutine(BoatSlide(baseSpeed)); }
-                if (diff < 10f) { flagMat.color = Color.magenta; }
-                else if (diff < 25f) { flagMat.color = Color.green; }
-                else {  flagMat.color = Color.yellow; }
+                switch (diff)
+                {
+                    case > 10f:
+                        flagMat.color = Color.magenta;
+                        break;
+                    case < 25f:
+                        flagMat.color = Color.green;
+                        break;
+                    default:
+                        flagMat.color = Color.yellow;
+                        break;
+                }
+                //if (diff < 10f) { flagMat.color = Color.magenta; }
+                //else if (diff < 25f) { flagMat.color = Color.green; }
+                //else {  flagMat.color = Color.yellow; }
             }
             else
             {

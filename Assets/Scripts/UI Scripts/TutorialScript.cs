@@ -16,7 +16,9 @@ public class TutorialScript : MonoBehaviour
     [SerializeField] bool canProgress = true;
     [SerializeField] protected bool isInTutorial = true;
     [SerializeField] bool hidden;
+    [SerializeField] bool nearDock = false;
     public int TutProgress { get { return selected; } }
+    public bool NearDock { get { return nearDock; } set { nearDock = value; } }
     private void Awake()
     {
         if (Instance != null)
@@ -32,9 +34,35 @@ public class TutorialScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.anyKeyDown && isInTutorial)
+        if (isInTutorial && Input.anyKeyDown)
         {
-            SwitchTutorialStage();
+            switch (selected) //Fixed Tutorial Skipping????
+            {
+                default:
+                    break;
+                case 0:
+                    if (Input.GetKeyDown(input.Pause) || Input.GetKeyDown(input.Diary)) { SwitchTutorialStage(); }
+                    break;
+                case 1:
+                    if (Input.GetKeyDown(input.SailRL)) { SwitchTutorialStage(); }
+                    break;
+                case 2:
+                    if (Input.GetKeyDown(input.RudderP) || Input.GetKeyDown(input.RudderN)) { SwitchTutorialStage(); }
+                    break;
+                case 3:
+                    if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN)) { SwitchTutorialStage(); }
+                    break;
+                case 4:
+                    if (Input.GetKeyDown(input.PInt) && !hidden) { SwitchTutorialStage(); }
+                    break;
+                case 5:
+                    if (Input.GetKeyDown(input.Navigation) && !hidden) { SwitchTutorialStage(); }
+                    break;
+                case 6:
+                    if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { SwitchTutorialStage(); }
+                    break;
+            }
+            //SwitchTutorialStage();
         }
     }
     void TutorialStep()
@@ -59,6 +87,8 @@ public class TutorialScript : MonoBehaviour
     {
         isInTutorial = false;
         HideShowTutorial(false);
+        int i = 50;
+        while (i > 0) { i--; HideShowTutorial(false); }
     }
     public void OpenTutorial()
     {
@@ -67,37 +97,42 @@ public class TutorialScript : MonoBehaviour
     }
     public void HideShowTutorial(bool show)
     {
+        Debug.Log("AAA" + show);
         hidden = !show;
         panel.enabled = show;
         tutorialText.SetText(show == true ? text[selected] : "");
     }
     void SwitchTutorialStage()
     {
-        switch (selected)
+        Debug.Log(selected);
+        if (isInTutorial)
         {
-            default:
-                break;
-            case 0:
-                if (Input.GetKeyDown(input.Pause) || Input.GetKeyDown(input.Diary)) { TutorialStep(); }
-                break;
-            case 1:
-                if (Input.GetKeyDown(input.SailRL)) { TutorialStep(); }
-                break;
-            case 2:
-                if (Input.GetKeyDown(input.RudderP) || Input.GetKeyDown(input.RudderN)) { TutorialStep(); }
-                break;
-            case 3:
-                if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN)) { TutorialStep(); HideShowTutorial(false); }
-                break;
-            case 4:
-                if (Input.GetKeyDown(input.PInt) && !hidden) { CloseTutorial(); TutorialStep(); }
-                break;
-            case 5:
-                if (Input.GetKeyDown(input.Navigation) && !hidden) { TutorialStep(); }
-                break;
-            case 6:
-                if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { CloseTutorial(); TutorialStep(); }
-                break;
+            switch (selected)
+            {
+                default:
+                    break;
+                case 0:
+                    if (Input.GetKeyDown(input.Pause) || Input.GetKeyDown(input.Diary)) { TutorialStep(); }
+                    break;
+                case 1:
+                    if (Input.GetKeyDown(input.SailRL)) { TutorialStep(); }
+                    break;
+                case 2:
+                    if (Input.GetKeyDown(input.RudderP) || Input.GetKeyDown(input.RudderN)) { TutorialStep(); }
+                    break;
+                case 3:
+                    if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN)) { TutorialStep(); if (!nearDock) { HideShowTutorial(false); } }
+                    break;
+                case 4:
+                    if (Input.GetKeyDown(input.PInt) && !hidden) { CloseTutorial(); TutorialStep(); }
+                    break;
+                case 5:
+                    if (Input.GetKeyDown(input.Navigation) && !hidden) { TutorialStep(); }
+                    break;
+                case 6:
+                    if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { CloseTutorial(); TutorialStep(); }
+                    break;
+            }
         }
     }
 }
