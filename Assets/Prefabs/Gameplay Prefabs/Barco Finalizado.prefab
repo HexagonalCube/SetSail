@@ -863,7 +863,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2241326689584352838}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -892,11 +892,11 @@ SpringJoint:
   m_ConnectedBody: {fileID: 975280230093532542}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.6487427, y: -6.230318, z: -1.5610352}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: 0.6487427, y: 0.07, z: -1.5610352}
   serializedVersion: 2
-  m_Spring: 75
-  m_Damper: 2
+  m_Spring: 10
+  m_Damper: 1
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -905,7 +905,7 @@ SpringJoint:
   m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
-  m_ConnectedMassScale: 0.0001
+  m_ConnectedMassScale: 1
 --- !u!64 &6674002934541014112
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1221,7 +1221,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3165064694161800251}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1250,11 +1250,11 @@ SpringJoint:
   m_ConnectedBody: {fileID: 975280230093532542}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.60614014, y: -6.2308264, z: -1.6165771}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: -0.606, y: 0.07, z: -1.6166}
   serializedVersion: 2
-  m_Spring: 75
-  m_Damper: 2
+  m_Spring: 10
+  m_Damper: 1
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -1263,7 +1263,7 @@ SpringJoint:
   m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
-  m_ConnectedMassScale: 0.0001
+  m_ConnectedMassScale: 1
 --- !u!65 &3579531726145116154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3325786666237203499}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1584,11 +1584,11 @@ SpringJoint:
   m_ConnectedBody: {fileID: 975280230093532542}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.49249268, y: -5.451426, z: 2.798462}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: 0.49249268, y: 0.85, z: 2.798462}
   serializedVersion: 2
-  m_Spring: 75
-  m_Damper: 2
+  m_Spring: 10
+  m_Damper: 1
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -1597,7 +1597,7 @@ SpringJoint:
   m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
-  m_ConnectedMassScale: 0.0001
+  m_ConnectedMassScale: 1
 --- !u!65 &3352335126824939962
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1820,6 +1820,157 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3894525255657836255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8832271483924828217}
+  - component: {fileID: 5831403238803390893}
+  - component: {fileID: 1210593179269220653}
+  m_Layer: 6
+  m_Name: SailSfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8832271483924828217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894525255657836255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.49, z: -0.67}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6935823894201815514}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5831403238803390893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894525255657836255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40b7e798b1e6aae4aa64d442fb27e6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sailOpen: {fileID: 8300000, guid: 824f1398b8e371048b3142a788b8db05, type: 3}
+  sailClose: {fileID: 8300000, guid: 8a7d5dc24927f4e4d8555ae79369d1fb, type: 3}
+  sailBump: {fileID: 8300000, guid: a156c7261360e544e916df0942bf227c, type: 3}
+  sailSounds:
+  - {fileID: 8300000, guid: 15a9d54b8d7ec9e4c890931f68c87fc6, type: 3}
+  - {fileID: 8300000, guid: caba5f91698901740ad171a2e3fc4890, type: 3}
+  previousClip: {fileID: 0}
+  sailSource: {fileID: 1210593179269220653}
+  volumeScale: 0.578
+--- !u!82 &1210593179269220653
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3894525255657836255}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 3222576950948981224, guid: 15cbc6679559b904c8d12db05f2bd57a,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &3946520898003174695
 GameObject:
   m_ObjectHideFlags: 0
@@ -2951,7 +3102,7 @@ MonoBehaviour:
   underWaterAngularDrag: 2.5
   airDrag: 0.5
   airAngularDrag: 1
-  floatingPower: 18
+  floatingPower: 15
   oceanManager: {fileID: 0}
   hull_Rb: {fileID: 975280230093532542}
   floatersUnderwater: 0
@@ -3340,6 +3491,7 @@ Transform:
   - {fileID: 2868079747838020744}
   - {fileID: 3237018962719492704}
   - {fileID: 1200549708758093342}
+  - {fileID: 8832271483924828217}
   m_Father: {fileID: 3119376908682754847}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5579376189904813046
@@ -3443,7 +3595,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6176330238637778115}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3472,11 +3624,11 @@ SpringJoint:
   m_ConnectedBody: {fileID: 975280230093532542}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.46929932, y: -6.2308264, z: -0.5062256}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: -0.47, y: 0.07, z: -0.51}
   serializedVersion: 2
-  m_Spring: 75
-  m_Damper: 2
+  m_Spring: 10
+  m_Damper: 1
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -3485,7 +3637,7 @@ SpringJoint:
   m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
-  m_ConnectedMassScale: 0.0001
+  m_ConnectedMassScale: 1
 --- !u!65 &2997060368064511364
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3551,7 +3703,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6601575124448660438}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -3580,11 +3732,11 @@ SpringJoint:
   m_ConnectedBody: {fileID: 975280230093532542}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.14770508, y: -5.45177, z: 3.8302002}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: -0.14770508, y: 0.85, z: 3.8302002}
   serializedVersion: 2
-  m_Spring: 75
-  m_Damper: 2
+  m_Spring: 10
+  m_Damper: 1
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -3593,7 +3745,7 @@ SpringJoint:
   m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
-  m_ConnectedMassScale: 0.0001
+  m_ConnectedMassScale: 1
 --- !u!64 &631589216484859505
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3993,7 +4145,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7104998234134529116}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 0.1
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4022,11 +4174,11 @@ SpringJoint:
   m_ConnectedBody: {fileID: 975280230093532542}
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.7288208, y: -6.2299514, z: -0.37695312}
+  m_AutoConfigureConnectedAnchor: 0
+  m_ConnectedAnchor: {x: 0.7288208, y: 0.07, z: -0.37695312}
   serializedVersion: 2
-  m_Spring: 75
-  m_Damper: 2
+  m_Spring: 10
+  m_Damper: 1
   m_MinDistance: 0
   m_MaxDistance: 0
   m_Tolerance: 0.025
@@ -4035,7 +4187,7 @@ SpringJoint:
   m_EnableCollision: 1
   m_EnablePreprocessing: 1
   m_MassScale: 1
-  m_ConnectedMassScale: 0.0001
+  m_ConnectedMassScale: 1
 --- !u!65 &5321473173972690595
 BoxCollider:
   m_ObjectHideFlags: 0
