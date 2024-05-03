@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool nearDock;
     [SerializeField] DockScript dock;
     [SerializeField] GameUI_Controller gameUIController;
+    [SerializeField] Animator animator;
     private void Awake()
     {
         if (Instance != null)
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 move = transform.forward * Input.GetAxis("Vertical") * speed + transform.right * Input.GetAxis("Horizontal") * speed;
-        cc.Move(move * Time.deltaTime * speed);
+        //cc.Move(move * Time.deltaTime * speed);
         //if (move != Vector3.zero)
         //{
         //    gameObject.transform.forward = move;
@@ -59,7 +60,11 @@ public class PlayerController : MonoBehaviour
         //}
 
         pVelocity.y += gravity * Time.deltaTime;
-        cc.Move(pVelocity * Time.deltaTime);
+        //cc.Move(pVelocity * Time.deltaTime);
+        cc.Move((move * speed + pVelocity) * Time.deltaTime);
+        Vector2 groundSpeed = new Vector2(cc.velocity.x, cc.velocity.z);
+        animator.SetFloat("Velocidade", Mathf.Clamp01(groundSpeed.normalized.magnitude) * Input.GetAxis("Vertical"));
+        Debug.Log(groundSpeed);
     }
     private void OnTriggerEnter(Collider other)
     {

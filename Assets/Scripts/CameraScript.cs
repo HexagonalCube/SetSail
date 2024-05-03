@@ -59,7 +59,7 @@ public class CameraScript : MonoBehaviour
                 rotation.y += Input.GetAxis("Mouse X") * sensitivity;
                 rotation.x += -Input.GetAxis("Mouse Y") * sensitivity;
                 //prendendo a rotacao aos limites
-                rotation.y = Mathf.Clamp(rotation.y, minY, maxY);
+                //rotation.y = Mathf.Clamp(rotation.y, minY, maxY);
                 rotation.x = Mathf.Clamp(rotation.x, minX, maxX);
                 //Calculando quanto o mouse se moveu
                 Vector2 vectorDiff = rotation - cameraVec;
@@ -76,7 +76,7 @@ public class CameraScript : MonoBehaviour
 
                 rotation.y += Input.GetAxis("Mouse X") * sensitivity;
                 rotation.x += -Input.GetAxis("Mouse Y") * sensitivity;
-                rotation.x = Mathf.Clamp(rotation.x, -90, 90);
+                rotation.x = Mathf.Clamp(rotation.x, -90, 55);
 
                 transform.localEulerAngles = rotation;
                 player.localEulerAngles = new Vector2(0, rotation.y);
