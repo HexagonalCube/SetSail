@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -33,7 +34,7 @@ public class OptionsManager : MonoBehaviour
         {
             //float w = fullScreenResolutionsAvailable[i].width;
             //float h = fullScreenResolutionsAvailable[i].height;
-            fullScreenResolutionList.Add($"{fullScreenResolutionsAvailable[i].width} x {fullScreenResolutionsAvailable[i].height} ({fullScreenResolutionsAvailable[i].refreshRateRatio}Hz)");
+            fullScreenResolutionList.Add(fullScreenResolutionsAvailable[i].ToString());//($"{fullScreenResolutionsAvailable[i].width} x {fullScreenResolutionsAvailable[i].height} ({Mathf.FloorToInt(fullScreenResolutionsAvailable[i].refreshRateRatio)}Hz)");
         }
         resolutionSelector.AddOptions(fullScreenResolutionList);
         resolutionSelector.SetValueWithoutNotify(SaveGame.LoadResolutionIndex());
@@ -72,13 +73,13 @@ public class OptionsManager : MonoBehaviour
     public void SetVolume(float vol) //saves selected volume & sets volume to log10 scale
     {
         SaveGame.SaveVolume(vol);
-        float convertedVolume = Mathf.Log10(vol) * 20;
+        float convertedVolume = 20 * Mathf.Log10(vol + 0.01f);
         masterVolume.SetFloat("MasterVolume", convertedVolume);
     }
     void LoadVolume() //Loads saved volume & converts to log10 scale
     {
         volumeSlider.SetValueWithoutNotify(SaveGame.LoadVolume());
-        float convertedVolume = Mathf.Log10(SaveGame.LoadVolume()) * 20;
+        float convertedVolume = 20 * Mathf.Log10(SaveGame.LoadVolume() + 0.01f);
         masterVolume.SetFloat("MasterVolume",convertedVolume);
         //Debug.Log($"VolumeLoaded {SaveGame.LoadVolume()}");
     }

@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Caixa1
-    second: {fileID: 2100000, guid: e3c46988796cfb8458c0b1694fd88e17, type: 2}
+    second: {fileID: 2100000, guid: d44fd1d716903704793ea36280a4d174, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: CaixaFora
-    second: {fileID: 2100000, guid: b24522bad73950242acb17875d3a2498, type: 2}
+    second: {fileID: 2100000, guid: 5b43cb9be2cfd4549aa4fae8e8370e47, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -47,7 +47,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 3
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1

@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f081646a0815b604e9291c2a58d46b15, type: 2}
+    - target: {fileID: -4024817563388547749, guid: 0e43837de9446aa449f2f2bd886163bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1afa9ee48d0d6984a8a3140f6ef70ffe, type: 2}
     - target: {fileID: 832803992094961853, guid: 0e43837de9446aa449f2f2bd886163bf,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -73,6 +78,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VasoDeBarro01
       objectReference: {fileID: 0}
+    - target: {fileID: 5041993057024364926, guid: 0e43837de9446aa449f2f2bd886163bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e3c46988796cfb8458c0b1694fd88e17, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

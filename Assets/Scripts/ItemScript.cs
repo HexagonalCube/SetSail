@@ -72,32 +72,32 @@ public class ItemScript : MonoBehaviour
             }
         }
     }
-    public void CursorActivate(bool active)
+    public void CursorActivate(bool active, bool open = true)
     {
         if (CheckIfVisible())
         {
-            ui.CursorUpdate(false, active);
+            ui.CursorUpdate(open, active);
         }
     }
     public void HiglightObjectNear(bool highlight)
     {
         if (highlight && CheckIfVisible() && canOutline)
         {
-            ui.CursorUpdate(true, true);
+            //ui.CursorUpdate(true, true);
             //ui.Interact(true);
             switch (type)
             {
                 case content.Emerald:
-                    ui.Interact(true, "Pegar Esmeralda (E)");
+                    ui.Interact(true, "Inspecionar Esmeralda (E)");
                     break;
                 case content.Bucket:
-                    ui.Interact(true, "Pegar Balde (E)");
+                    ui.Interact(true, "Inspecionar Balde (E)");
                     break;
                 case content.Photo:
-                    ui.Interact(true, "Pegar [ITEM] (E)");
+                    ui.Interact(true, "Pegar Foto (E)");
                     break;
                 case content.Letter:
-                    ui.Interact(true, "Pegar [ITEM] (E)");
+                    ui.Interact(true, "Pegar Carta (E)");
                     break;
                 default: break;
             }

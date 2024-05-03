@@ -30,7 +30,7 @@ public class PlayerInteract : MonoBehaviour
     {
         if (isInView)
         {
-            if(curItem != null) { curItem.GetComponent<ItemScript>().Interact(); }
+            if(curItem != null && distanceToItem < maxDist) { curItem.GetComponent<ItemScript>().Interact(); }
         }
         else
         {
@@ -61,7 +61,17 @@ public class PlayerInteract : MonoBehaviour
         {
             return false;
         }
-        else if (angleDiff < minAngle && !viewNear) { return true; }
+        else if (angleDiff < minAngle && !viewNear)
+        {
+            if (distanceToItem > maxDist)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         if (angleDiff > maxAngle && viewNear)
         {
             return false;
@@ -83,7 +93,7 @@ public class PlayerInteract : MonoBehaviour
             isInView = inview(transform.position ,transform.forward ,curItem.position, false);
             isInViewNear = inview(transform.position, transform.forward, curItem.position, true);
             curItem.GetComponent<ItemScript>().HiglightObjectNear(isInView);
-            curItem.GetComponent<ItemScript>().CursorActivate(isInViewNear);
+            curItem.GetComponent<ItemScript>().CursorActivate(isInViewNear, !isInView);
         }
     }
 }
