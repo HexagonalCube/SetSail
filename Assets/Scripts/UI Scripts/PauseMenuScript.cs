@@ -71,4 +71,19 @@ public class PauseMenuScript : MonoBehaviour
                 break;
         }
     }
+    public void On1Tab()
+    {
+        PanelSwitcher(Panel.Story);
+        PageSwitcher.Instance.SelectPage = 1;
+    }
+    public void On2Tab()
+    {
+        PanelSwitcher(Panel.Story);
+        PageSwitcher.Instance.SelectPage = 3;
+    }
+    public void On3Tab()
+    {
+        PanelSwitcher(Panel.Story);
+        PageSwitcher.Instance.SelectPage = 5;
+    }
 }
