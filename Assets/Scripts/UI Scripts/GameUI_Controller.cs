@@ -9,6 +9,7 @@ public class GameUI_Controller : MonoBehaviour
 {
     public static GameUI_Controller Instance;
     [SerializeField] TMP_Text interactionText;
+    [SerializeField] Image interactionBg;
     [SerializeField] GameObject controlsHud;
     [SerializeField] Image cursor;
     [SerializeField] Animator cursorAnim;
@@ -148,6 +149,7 @@ public class GameUI_Controller : MonoBehaviour
         {
             TextFadeAdd(0.1f);
             interactionText.color = new Color(1, 1, 1, textFade);
+            interactionBg.color = new Color(1, 1, 1 , textFade);
             yield return new WaitForSecondsRealtime(0.02f);
             StartCoroutine(TextColorFadeIn());
         }
@@ -163,6 +165,7 @@ public class GameUI_Controller : MonoBehaviour
         {
             TextFadeSub(0.1f);
             interactionText.color = new Color(1, 1, 1, textFade);
+            interactionBg.color = new Color(1, 1, 1, textFade);
             yield return new WaitForSecondsRealtime(0.02f);
             StartCoroutine(TextColorFadeOut());
         }

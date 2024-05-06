@@ -24,6 +24,8 @@ public class CameraScript : MonoBehaviour
     public bool InBoat { get { return inBoat; } set { inBoat = value; } }
     [SerializeField] bool inBoat = false;
     [SerializeField] Camera cameraMask;
+    [SerializeField] float cameraSmoothing = 10f;
+    float smoothing = 0f;
     private void Awake()
     {
         if (Instance != null)
@@ -72,7 +74,9 @@ public class CameraScript : MonoBehaviour
             }
             else
             {
-                transform.position = cameraLandPoint.position;
+                transform.position = Vector3.Lerp(transform.position, cameraLandPoint.position, cameraSmoothing * Time.deltaTime);
+                //transform.position = new Vector3(Mathf.Lerp(a[0], b[0], t), Mathf.Lerp(a[1], b[1], t), Mathf.Lerp(a[2], b[2], t));
+                Debug.Log($"{cameraLandPoint.position} {transform.position} {cameraSmoothing*Time.deltaTime}");
 
                 rotation.y += Input.GetAxis("Mouse X") * sensitivity;
                 rotation.x += -Input.GetAxis("Mouse Y") * sensitivity;
