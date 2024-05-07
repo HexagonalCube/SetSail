@@ -24,6 +24,7 @@ public class EndScript : MonoBehaviour
         {
             obj.SetActive(true);
         }
+        CameraScript.Instance.cameraActive = false;
         StartCoroutine(WaitForAnimationFinished());
     }
     public IEnumerator WaitForAnimationFinished()

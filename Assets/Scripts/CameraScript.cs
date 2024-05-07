@@ -20,12 +20,12 @@ public class CameraScript : MonoBehaviour
     [Header("Velocidade da rotacao da camera")]
     public float sensitivity = 3;
     [SerializeField] bool active = true;
-    public bool cameraActive {  get { return active; } set {  active = value; } }
+    public bool cameraActive {  get { return active; } set { active = value; } }
     public bool InBoat { get { return inBoat; } set { inBoat = value; } }
     [SerializeField] bool inBoat = false;
     [SerializeField] Camera cameraMask;
     [SerializeField] float cameraSmoothing = 10f;
-    float smoothing = 0f;
+    //float smoothing = 0f;
     private void Awake()
     {
         if (Instance != null)
@@ -36,7 +36,7 @@ public class CameraScript : MonoBehaviour
     }
     private void Start()
     {
-        active = true;
+        //active = true;
         rotation = transform.localEulerAngles;
         cameraMask.gameObject.SetActive(inBoat);
         Cursor.lockState = CursorLockMode.Locked;
@@ -45,7 +45,7 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
-        if (cameraActive)
+        if (active)
         {
             cameraMask.gameObject.SetActive(inBoat);
             if (inBoat)
