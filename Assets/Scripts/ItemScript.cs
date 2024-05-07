@@ -4,6 +4,8 @@ using UnityEngine;
 /// <summary>
 /// Will eventually trigger story content
 /// </summary>
+[RequireComponent (typeof(Outline))]
+[RequireComponent (typeof(SphereCollider))]
 public class ItemScript : MonoBehaviour
 {
     [SerializeField] content type;
@@ -13,9 +15,11 @@ public class ItemScript : MonoBehaviour
     bool canOutline = true;
     private void Start()
     {
+        transform.tag = "Item";
         gameProg = FindFirstObjectByType<GameProgression>();
         outline = GetComponent<Outline>();
         outline.enabled = false;
+        GetComponent<SphereCollider>().isTrigger = true;
     }
     enum content
     {
@@ -23,6 +27,7 @@ public class ItemScript : MonoBehaviour
         Bucket,
         Photo,
         Letter,
+        End,
         Type_test
     }
     bool CheckIfVisible()
@@ -66,6 +71,12 @@ public class ItemScript : MonoBehaviour
                     ui.OpenStory(8);
                     StartCoroutine(DestroyAfterSeconds(0.01f, true));
                     break;
+                case content.End:
+                    canOutline = false;
+                    ui.Interact(false);
+                    gameProg.Items++;
+                    EndScript.Instance.StartEndSequence();
+                    break;
                 case content.Type_test:
                     GetComponentInParent<TestObjectives>().SelectObjective();
                     break;
@@ -98,6 +109,9 @@ public class ItemScript : MonoBehaviour
                     break;
                 case content.Letter:
                     ui.Interact(true, "Pegar Carta (E)");
+                    break;
+                case content.End:
+                    ui.Interact(true, "[FIM DO JOGO]");
                     break;
                 default: break;
             }
