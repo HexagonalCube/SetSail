@@ -13,6 +13,7 @@ public class InputController : MonoBehaviour
     [Space]
     [SerializeField] KeyCode interact = KeyCode.E;
     [SerializeField] KeyCode raiseLowerCompass = KeyCode.C;
+    [SerializeField] KeyCode raiseLowerCompass2 = KeyCode.M;
     [SerializeField] KeyCode sailPositive = KeyCode.W;
     [SerializeField] KeyCode sailNegative = KeyCode.S;
     [SerializeField] KeyCode raiseLowerSail = KeyCode.Space;
@@ -62,7 +63,7 @@ public class InputController : MonoBehaviour
             pController.ExitDock();
             pInteract.Interact();
         }
-        if (Input.GetKeyDown(raiseLowerCompass))
+        if ((Input.GetKeyDown(raiseLowerCompass) || Input.GetKeyDown(raiseLowerCompass2)) && CameraScript.Instance.InBoat)
         {
             pInstruments.RaiseLowerCompass();
         }
