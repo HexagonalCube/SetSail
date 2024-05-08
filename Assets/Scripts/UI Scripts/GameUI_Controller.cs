@@ -110,14 +110,14 @@ public class GameUI_Controller : MonoBehaviour
         paused = true;
         pause.PauseGame();
     }
-    public void OpenStory(int page = 1)
+    public void OpenStory(int pageToLearn = 10, int pageToOpen = 0)
     {
         book.SetActive(true);
         bookP.OnStoryButtonClick();
         paused = true;
         pause.PauseGame();
-        PageStoryController.Instance.DiscorverPages(page);
-        PageSwitcher.Instance.SelectPage = page-1;
+        PageStoryController.Instance.DiscorverPages(pageToLearn);
+        PageSwitcher.Instance.SelectPage = pageToOpen;
     }
     public void ClosePause()
     {

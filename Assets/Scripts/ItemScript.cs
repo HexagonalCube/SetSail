@@ -45,30 +45,28 @@ public class ItemScript : MonoBehaviour
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
-                    ui.OpenStory(3);
+                    ui.OpenStory(0,2);
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Bucket:
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
-                    ui.OpenStory(4);
+                    ui.OpenStory(1,3);
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Photo:
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
-                    ui.OpenStory(5);
-                    ui.OpenStory(6);
+                    ui.OpenStory(2,4);
                     StartCoroutine(DestroyAfterSeconds(0.01f, true));
                     break;
                 case content.Letter:
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
-                    ui.OpenStory(7);
-                    ui.OpenStory(8);
+                    ui.OpenStory(3,5);
                     StartCoroutine(DestroyAfterSeconds(0.01f, true));
                     break;
                 case content.End:

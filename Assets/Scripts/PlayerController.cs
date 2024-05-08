@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         cc.Move((move * speed + pVelocity) * Time.deltaTime);
         Vector2 groundSpeed = new Vector2(cc.velocity.x, cc.velocity.z);
         animator.SetFloat("Velocidade", Mathf.Clamp01(groundSpeed.normalized.magnitude) * Input.GetAxis("Vertical"));
-        Debug.Log(groundSpeed);
+        //Debug.Log(groundSpeed);
     }
     private void OnTriggerEnter(Collider other)
     {
