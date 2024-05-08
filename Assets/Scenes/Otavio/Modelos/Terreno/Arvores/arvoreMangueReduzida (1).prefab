@@ -73,15 +73,30 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -4297379251714274595, guid: 11b64b8f914c06149950e08b939263e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -2944052144950584721, guid: 11b64b8f914c06149950e08b939263e8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5b43cb9be2cfd4549aa4fae8e8370e47, type: 2}
+    - target: {fileID: -1996565655982169732, guid: 11b64b8f914c06149950e08b939263e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 11b64b8f914c06149950e08b939263e8,
         type: 3}
       propertyPath: m_Name
       value: arvoreMangueReduzida (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11b64b8f914c06149950e08b939263e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 1051800459883699163, guid: 11b64b8f914c06149950e08b939263e8,
         type: 3}
@@ -93,6 +108,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b8bce706ba9b3b045b8a348667cc6ac3, type: 2}
+    - target: {fileID: 6610104704268620937, guid: 11b64b8f914c06149950e08b939263e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7174165756185842543, guid: 11b64b8f914c06149950e08b939263e8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -264,6 +289,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: arvoreMangue lod3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b04f851d34eff414a9e4b0aca74ee6a4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -363,6 +393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: arvoreMangue lod2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 714e91224d9ff1f428218d71b10f8de8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

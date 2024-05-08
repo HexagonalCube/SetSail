@@ -83,6 +83,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pinheiro lod2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -162,6 +167,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PINHEIRO distante
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 90df32617867f0b4696a30f65b36daf5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -247,6 +257,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pinheiro Prefab 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495782043842861554, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517151293260689795, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4094498511579378197, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
         type: 3}
