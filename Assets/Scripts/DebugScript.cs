@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class DebugScript : GameStage
     [SerializeField] GameObject main;
     [SerializeField] AudioClip[] music;
     [SerializeField] AudioSource source;
+    [SerializeField] AudioClip[] beeps;
+    [SerializeField] float beepScale;
     [SerializeField] Transform[] playerPoints;
     [SerializeField] TMP_Dropdown musicDropdown;
     [SerializeField] TMP_Dropdown islandDropdown;
@@ -18,6 +21,9 @@ public class DebugScript : GameStage
     List<string> musicList;
     List<string> islandList;
     bool lo;
+    bool debug;
+    enum Sequence { Up, Up2, Down, Down2, Left, Right, Left2, Right2, Start, Inside }
+    Sequence combo = Sequence.Up;
     private void Start()
     {
         musicList = new List<string>(music.Length);
@@ -59,6 +65,7 @@ public class DebugScript : GameStage
     }
     public void SetPlayerBoat(bool t)
     {
+        Debug.Log("boat "+t);
         CameraScript.Instance.InBoat = t;
         player.SetActive(!t);
     }
@@ -74,15 +81,54 @@ public class DebugScript : GameStage
         source.loop = lo;
         source.Play();
     }
+    void CheckCombo(Sequence state)
+    {
+        switch (state)
+        {
+            case Sequence.Up:
+                if (Input.GetKeyDown(KeyCode.UpArrow)) { combo = Sequence.Up2; source.PlayOneShot(beeps[0], beepScale); }
+                break;
+            case Sequence.Up2:
+                if (Input.GetKeyDown(KeyCode.UpArrow)) { combo = Sequence.Down; source.PlayOneShot(beeps[0], beepScale); } else { combo = Sequence.Up; source.PlayOneShot(beeps[1], beepScale); }
+                break;
+            case Sequence.Down:
+                if (Input.GetKeyDown(KeyCode.DownArrow)) { combo = Sequence.Down2; source.PlayOneShot(beeps[0], beepScale); } else { combo = Sequence.Up; source.PlayOneShot(beeps[1], beepScale); }
+                break;
+            case Sequence.Down2:
+                if (Input.GetKeyDown(KeyCode.DownArrow)) { combo = Sequence.Left; source.PlayOneShot(beeps[0], beepScale); } else { combo = Sequence.Up; source.PlayOneShot(beeps[1], beepScale); }
+                break;
+            case Sequence.Left:
+                if (Input.GetKeyDown(KeyCode.LeftArrow)) { combo = Sequence.Right; source.PlayOneShot(beeps[0], beepScale); } else { combo = Sequence.Up; source.PlayOneShot(beeps[1], beepScale); }
+                break;
+            case Sequence.Left2:
+                if (Input.GetKeyDown(KeyCode.LeftArrow)) { combo = Sequence.Right2; source.PlayOneShot(beeps[0], beepScale); } else { combo = Sequence.Up; source.PlayOneShot(beeps[1], beepScale); }
+                break;
+            case Sequence.Right:
+                if (Input.GetKeyDown(KeyCode.RightArrow)) { combo = Sequence.Left2; source.PlayOneShot(beeps[0], beepScale); } else { combo = Sequence.Up; source.PlayOneShot(beeps[1], beepScale); }
+                break;
+            case Sequence.Right2:
+                if (Input.GetKeyDown(KeyCode.RightArrow)) { combo = Sequence.Start; source.PlayOneShot(beeps[0], beepScale); } else { combo = Sequence.Up; source.PlayOneShot(beeps[1], beepScale); }
+                break;
+            case Sequence.Start:
+                if (Input.GetKeyDown(KeyCode.Return)) { debug = true; source.PlayOneShot(beeps[2], beepScale); }
+                break;
+        }
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
+
+        if (Input.anyKeyDown && !debug)
+        {
+            CheckCombo(combo);
+        }
+        if (Input.GetKeyDown(KeyCode.G) && debug)
         {
             switch (main.activeSelf)
             {
                 case true:
                     main.SetActive(false);
                     Cursor.lockState = CursorLockMode.Locked;
+                    combo = Sequence.Up;
                     break;
                 case false:
                     main.SetActive(true);

@@ -34,7 +34,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         //Debug.Log("Menu");
         BookNoises.Instance.PlayNoise(BookNoises.Noises.IndentPage);
-        GameFadeout(true);
+        StartCoroutine(GameFadeout(true));
     }
     public void OnConfigButtonClick()
     {
@@ -57,7 +57,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         //Debug.Log("Quit");
         BookNoises.Instance.PlayNoise(BookNoises.Noises.IndentPage);
-        GameFadeout(false);
+        StartCoroutine(GameFadeout(false));
     }
     void DisableAllPanels() //Disables all panels prior to activation
     {
@@ -103,13 +103,15 @@ public class PauseMenuScript : MonoBehaviour
     {
         if (menu)
         {
-            GameUI_Controller.Instance.UI_Fade(5f);
+            //Debug.Log("A");
+            GameUI_Controller.Instance.UI_Fade(2f);
             yield return new WaitForSecondsRealtime(1.2f);
             SceneManager.LoadScene(0);
         }
         else
         {
-            GameUI_Controller.Instance.UI_Fade(5f);
+            //Debug.Log("B");
+            GameUI_Controller.Instance.UI_Fade(2f);
             yield return new WaitForSecondsRealtime(1.2f);
             Application.Quit();
         }
