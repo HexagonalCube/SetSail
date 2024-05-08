@@ -11,8 +11,8 @@ public class CameraScript : MonoBehaviour
     [Header("Limites da camera")]
     [SerializeField] float minX = -45f;
     [SerializeField] float maxX = 10f;
-    [SerializeField] float minY = 0;
-    [SerializeField] float maxY = 180;
+    //[SerializeField] float minY = 0;
+    //[SerializeField] float maxY = 180;
     [Header("Valores de Debug")]
     [SerializeField] Vector2 rotation;
     [SerializeField] Vector2 realVector;
