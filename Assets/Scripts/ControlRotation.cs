@@ -20,8 +20,12 @@ public class ControlRotation : MonoBehaviour
         angle = transform.localRotation.y;
         if (!(Mathf.Abs(Input.GetAxis("Horizontal"))>0.1f))
         {
-            if (inputRotation > 0) { inputRotation -= 1 * Time.deltaTime; }
-            else if (inputRotation < 0) { inputRotation += 1 * Time.deltaTime; }
+            if (Mathf.Abs(inputRotation) > 0.01f)
+            {
+                if (inputRotation > 0) { inputRotation -= 1 * Time.deltaTime; }
+                else if (inputRotation < 0) { inputRotation += 1 * Time.deltaTime; }
+            }
+            else { inputRotation = 0; }
         }
     }
     public void TurnSailLeft()

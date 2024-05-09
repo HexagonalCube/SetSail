@@ -419,6 +419,8 @@ MonoBehaviour:
   wavesSplashSFX: {fileID: 8300000, guid: 10f8051fec2cb5e49812b72cd0b20fc1, type: 3}
   woodCreakSFX: {fileID: 8300000, guid: 389a35fbf6a23574abaa4ecc0cf94796, type: 3}
   windsSoftSFX: {fileID: 8300000, guid: 9b45a0e7c321f6d40b7c4c7d163a16ae, type: 3}
+  WaterMoving: {fileID: 0}
+  WindMoving: {fileID: 0}
   inBoat: 1
   sailRaised: 0
   inStorm: 0
@@ -974,17 +976,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 89ff1aa074f4fb34fb2033c9ba392207,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 89ff1aa074f4fb34fb2033c9ba392207,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 89ff1aa074f4fb34fb2033c9ba392207,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 89ff1aa074f4fb34fb2033c9ba392207,
         type: 3}
@@ -1019,7 +1021,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 89ff1aa074f4fb34fb2033c9ba392207,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2224501898141008334, guid: 89ff1aa074f4fb34fb2033c9ba392207,
         type: 3}
@@ -1164,11 +1166,12 @@ MonoBehaviour:
   startEnabled: 0
   nearDock: 0
   dock: {fileID: 0}
+  sailAnim: {fileID: 0}
   sailGeo: {fileID: 7440013614975834828}
   boatSFX: {fileID: 5972551894504957525}
   basicEnabled: 0
   gameUI: {fileID: 0}
-  sailUp: 0
+  sailStowed: 0
 --- !u!114 &2115158757984988114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1209,12 +1212,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inWindZone: 0
   inEndZone: 0
+  inLowZone: 0
   boatStopped: 0
   windZone: {fileID: 0}
   rb: {fileID: 822848610243789852}
   sail: {fileID: 1706492772087209019}
   windIndicator: {fileID: 316230549979513860}
   flagMat: {fileID: 2100000, guid: d918e573b8084544b9813e2c1905fa26, type: 2}
+  cloth: {fileID: 0}
   windCurrent: {x: 0, y: 0, z: 0}
   passiveDir: {x: 0, y: 0, z: 0}
   passiveScale: 0.1
@@ -1223,6 +1228,8 @@ MonoBehaviour:
   angleDiffL: 0
   dirDiff: 0
   speedCur: 0
+  maxSlideTime: 5
+  timeSliding: 0
   passiveAngleDiffR: 0
   passiveAngleDiffL: 0
   angleMin: 40
