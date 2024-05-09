@@ -1,6 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
 public class EndScript : MonoBehaviour
@@ -38,7 +38,7 @@ public class EndScript : MonoBehaviour
     }
     void QuitSequence()
     {
-
+        SceneManager.LoadScene(0);
     }
     private void Update()
     {
