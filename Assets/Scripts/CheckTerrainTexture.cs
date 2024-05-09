@@ -34,11 +34,17 @@ public class CheckTerrainTexture : MonoBehaviour
     }
     void CheckTexture()
     {
+        int step = 0;
         float[,,] aMap = t.terrainData.GetAlphamaps(posX, posZ, 1, 1);
-        textureValues[0] = aMap[0, 0, 0];
-        textureValues[1] = aMap[0, 0, 1];
-        textureValues[2] = aMap[0, 0, 2];
-        textureValues[3] = aMap[0, 0, 3];
-        textureValues[4] = aMap[0, 0, 4];
+        //textureValues[0] = aMap[0, 0, 0];
+        //textureValues[1] = aMap[0, 0, 1];
+        //textureValues[2] = aMap[0, 0, 2];
+        //textureValues[3] = aMap[0, 0, 3];
+        //textureValues[4] = aMap[0, 0, 4];
+        foreach (float value in textureValues)
+        {
+            textureValues[step] = aMap[0, 0, step];
+            step++;
+        }
     }
 }

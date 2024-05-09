@@ -95,6 +95,25 @@ public class Footsteps : GameStage
                     speaker.PlayOneShot(GetClip(stoneClips), textureValues[3]);
                 }
             }
+            if (GameProgression.Instance.Stage == WorldStage.Island3)
+            {
+                if (textureValues[0] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(stoneClips), textureValues[0]);
+                }
+                if (textureValues[1] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(stoneClips), textureValues[1]);
+                }
+                if (textureValues[2] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(gravelClips), textureValues[2]);
+                }
+                if (textureValues[3] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(stoneClips), textureValues[3]);
+                }
+            }
         }
     }
     AudioClip GetClip(AudioClip[] clipArray)
