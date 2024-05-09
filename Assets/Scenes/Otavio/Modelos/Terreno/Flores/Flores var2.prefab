@@ -425,18 +425,22 @@ LODGroup:
   m_AnimateCrossFading: 1
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.05419669
+  - screenRelativeHeight: 0.051719494
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 684086887081259005}
-    - renderer: {fileID: 0}
     - renderer: {fileID: 1222684995563160526}
-    - renderer: {fileID: 0}
     - renderer: {fileID: 6509057973749529138}
-    - renderer: {fileID: 0}
+    - renderer: {fileID: 6311015364101131890}
     - renderer: {fileID: 362323337288030905}
     - renderer: {fileID: 7846251922438350791}
   m_Enabled: 1
+--- !u!23 &6311015364101131890 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1638346210444566865, guid: 68d8d3aa248be304ebcd3c73fbc67d69,
+    type: 3}
+  m_PrefabInstance: {fileID: 4695469061656555299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &6509057973749529138 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 1980873029594617105, guid: 68d8d3aa248be304ebcd3c73fbc67d69,

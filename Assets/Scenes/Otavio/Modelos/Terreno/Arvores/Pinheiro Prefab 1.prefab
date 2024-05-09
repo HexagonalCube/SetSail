@@ -63,6 +63,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PINHEIRO distante
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 90df32617867f0b4696a30f65b36daf5,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -79,6 +84,111 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 90df32617867f0b4696a30f65b36daf5,
     type: 3}
   m_PrefabInstance: {fileID: 996563891368125362}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3397435603200467388
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9108100826063213520}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.014681438
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.014681438
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.014681438
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31e8625f00b0e8a45847f36c82a80143, type: 2}
+    - target: {fileID: 919132149155446097, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_Name
+      value: pinheiro lod2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 96d8b749b3f6ce84cb1fc0276076382d, type: 3}
+--- !u!4 &2930898684641674839 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3397435603200467388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &4100395586277473592 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 96d8b749b3f6ce84cb1fc0276076382d,
+    type: 3}
+  m_PrefabInstance: {fileID: 3397435603200467388}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8785608133906920507
 PrefabInstance:
@@ -153,18 +263,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pinheiro Prefab 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1495782043842861554, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517151293260689795, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 4094498511579378197, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 31e8625f00b0e8a45847f36c82a80143, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -5539764629200458662, guid: 1a7fe34f7b2d9834a959623bdd4ecae0, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 747097162546349145}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2930898684641674839}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1a7fe34f7b2d9834a959623bdd4ecae0,
         type: 3}
@@ -201,18 +331,22 @@ LODGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8443591644405614954}
   serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.0010643005, y: 4.2960987, z: -0.0010075569}
-  m_Size: 10.568512
+  m_LocalReferencePoint: {x: -0.0010643005, y: 4.2929807, z: -0.0010075569}
+  m_Size: 10.574748
   m_FadeMode: 1
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.11466903
+  - screenRelativeHeight: 0.095
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 4297332723309697892}
     - renderer: {fileID: 4701288241700013614}
-  - screenRelativeHeight: 0.034275327
+  - screenRelativeHeight: 0.07
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 4100395586277473592}
+  - screenRelativeHeight: 0.01
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1879430639885287222}
