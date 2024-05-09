@@ -26,6 +26,7 @@ public class IslandsDistanceController : MonoBehaviour
     }
     private void Update()
     {
+        //Debug.Log($"Diast {dist} Max {maxDist}");
         distances = new float[islands.Length];
         for (int i = 0; i < islands.Length; i++)
         {
@@ -36,11 +37,13 @@ public class IslandsDistanceController : MonoBehaviour
         //weather.weather = Mathf.Clamp(dist / maxDist, 0, 2);
         if (dist>maxDist)
         {
+            //Debug.Log("A");
             LerpWeatherUp(lerpUp);
             if (dist > maxDist * 1.2f && !lastIsland) { weather.isRain = true; } else { weather.isRain = false; }
         }
         else
         {
+            //Debug.Log("B");
             LerpWeatherDown(lerpDown);
         }
         weather.weather = weatherToGive;
