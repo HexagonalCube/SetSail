@@ -91,7 +91,23 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 6274551059561463830}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e43837de9446aa449f2f2bd886163bf,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -7983023969957463494}
   m_SourcePrefab: {fileID: 100100000, guid: 0e43837de9446aa449f2f2bd886163bf, type: 3}
+--- !u!23 &5245014942521799656 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 832803992094961853, guid: 0e43837de9446aa449f2f2bd886163bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4847209778091934549}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &5315843103878846705 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -8466463009637606492, guid: 0e43837de9446aa449f2f2bd886163bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4847209778091934549}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5730221728894123524 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0e43837de9446aa449f2f2bd886163bf,
@@ -121,3 +137,27 @@ CapsuleCollider:
   m_Height: 0.54983616
   m_Direction: 1
   m_Center: {x: 0, y: 0.22508192, z: -0.004119873}
+--- !u!205 &-7983023969957463494
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5730221728894123524}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0.24511285, z: 0}
+  m_Size: 0.48528382
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.4301584
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5245014942521799656}
+    - renderer: {fileID: 5315843103878846705}
+  - screenRelativeHeight: 0.031248068
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5245014942521799656}
+  m_Enabled: 1

@@ -6,6 +6,7 @@ public class Footsteps : GameStage
     public static Footsteps Instance;
     [SerializeField] CheckTerrainTexture t;
     [SerializeField] AudioSource speaker;
+    [SerializeField] CharacterController cc;
     [Space]
     [SerializeField] AudioClip[] stoneClips;
     [SerializeField] AudioClip[] dirtClips;
@@ -34,7 +35,7 @@ public class Footsteps : GameStage
     }
     private void Update()
     {
-        float i = Mathf.Abs(Input.GetAxis("Vertical")) + Mathf.Abs(Input.GetAxis("Horizontal"));
+        float i = Mathf.Clamp01(cc.velocity.normalized.magnitude);
         if (i > 0.5f && !playing) { PlayFootstep(); }
     }
     IEnumerator steptimer()
@@ -55,7 +56,7 @@ public class Footsteps : GameStage
         }
         else
         {
-            Debug.Log(GameProgression.Instance.Stage);
+            //Debug.Log(GameProgression.Instance.Stage);
             if (GameProgression.Instance.Stage == WorldStage.Island1)
             {
                 if (textureValues[0] > 0)
@@ -88,6 +89,25 @@ public class Footsteps : GameStage
                 if (textureValues[2] > 0)
                 {
                     speaker.PlayOneShot(GetClip(dirtClips), textureValues[2]);
+                }
+                if (textureValues[3] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(stoneClips), textureValues[3]);
+                }
+            }
+            if (GameProgression.Instance.Stage == WorldStage.Island3)
+            {
+                if (textureValues[0] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(stoneClips), textureValues[0]);
+                }
+                if (textureValues[1] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(stoneClips), textureValues[1]);
+                }
+                if (textureValues[2] > 0)
+                {
+                    speaker.PlayOneShot(GetClip(gravelClips), textureValues[2]);
                 }
                 if (textureValues[3] > 0)
                 {

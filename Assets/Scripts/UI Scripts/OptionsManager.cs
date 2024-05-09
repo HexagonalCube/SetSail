@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -33,7 +35,7 @@ public class OptionsManager : MonoBehaviour
         {
             //float w = fullScreenResolutionsAvailable[i].width;
             //float h = fullScreenResolutionsAvailable[i].height;
-            fullScreenResolutionList.Add($"{fullScreenResolutionsAvailable[i].width} x {fullScreenResolutionsAvailable[i].height} ({fullScreenResolutionsAvailable[i].refreshRateRatio}Hz)");
+            fullScreenResolutionList.Add($"{fullScreenResolutionsAvailable[i].width} x {fullScreenResolutionsAvailable[i].height} ({Mathf.FloorToInt(Convert.ToSingle(fullScreenResolutionsAvailable[i].refreshRateRatio.value))}Hz)");
         }
         resolutionSelector.AddOptions(fullScreenResolutionList);
         resolutionSelector.SetValueWithoutNotify(SaveGame.LoadResolutionIndex());

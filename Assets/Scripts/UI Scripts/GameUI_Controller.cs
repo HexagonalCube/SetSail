@@ -9,6 +9,7 @@ public class GameUI_Controller : MonoBehaviour
 {
     public static GameUI_Controller Instance;
     [SerializeField] TMP_Text interactionText;
+    [SerializeField] Image interactionBg;
     [SerializeField] GameObject controlsHud;
     [SerializeField] Image cursor;
     [SerializeField] Animator cursorAnim;
@@ -109,14 +110,14 @@ public class GameUI_Controller : MonoBehaviour
         paused = true;
         pause.PauseGame();
     }
-    public void OpenStory(int page = 1)
+    public void OpenStory(int pageToLearn = 10, int pageToOpen = 0)
     {
         book.SetActive(true);
         bookP.OnStoryButtonClick();
         paused = true;
         pause.PauseGame();
-        PageStoryController.Instance.DiscorverPages(page);
-        PageSwitcher.Instance.SelectPage = page-1;
+        PageStoryController.Instance.DiscorverPages(pageToLearn);
+        PageSwitcher.Instance.SelectPage = pageToOpen;
     }
     public void ClosePause()
     {
@@ -148,6 +149,7 @@ public class GameUI_Controller : MonoBehaviour
         {
             TextFadeAdd(0.1f);
             interactionText.color = new Color(1, 1, 1, textFade);
+            interactionBg.color = new Color(1, 1, 1 , textFade);
             yield return new WaitForSecondsRealtime(0.02f);
             StartCoroutine(TextColorFadeIn());
         }
@@ -163,6 +165,7 @@ public class GameUI_Controller : MonoBehaviour
         {
             TextFadeSub(0.1f);
             interactionText.color = new Color(1, 1, 1, textFade);
+            interactionBg.color = new Color(1, 1, 1, textFade);
             yield return new WaitForSecondsRealtime(0.02f);
             StartCoroutine(TextColorFadeOut());
         }

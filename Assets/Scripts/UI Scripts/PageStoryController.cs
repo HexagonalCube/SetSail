@@ -1,28 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PageStoryController : MonoBehaviour
 {
     public static PageStoryController Instance;
-    [SerializeField] GameObject[] page3;
-    [SerializeField] GameObject[] page4;
-    [SerializeField] GameObject[] page5;
-    [SerializeField] GameObject[] page6;
-    [SerializeField] GameObject[] page7;
-    [SerializeField] GameObject[] page8;
-    bool[] discovered = new bool[10];
-
-    delegate void DisableAllPages(bool enable = false);
+    [SerializeField] GameObject[] pages;
+    [SerializeField] GameObject[] buttons;
+    [SerializeField] GameObject[] tabsAurea;
+    [SerializeField] GameObject[] tabsParadisi;
+    bool[] discovered = new bool[20];
+    public bool[] PagesDiscovered {  get { return discovered; } }
+    delegate void DisableAllPages(int page = 0, bool enabled = false);
     DisableAllPages DisableAll;
     private void OnEnable()
     {
-        DisableAll += DisableEnalbePage3;
-        DisableAll += DisableEnalbePage4;
-        DisableAll += DisableEnalbePage5;
-        DisableAll += DisableEnalbePage6;
-        DisableAll += DisableEnalbePage7;
-        DisableAll += DisableEnalbePage8;
+        DisableAll += DisableEnalbePages;
+        DisableAll += DisableEnableButtons;
+        DisableAll += DisableEnableTabs;
     }
     private void Awake()
     {
@@ -34,74 +30,62 @@ public class PageStoryController : MonoBehaviour
     }
     private void Start()
     {
-        DisableAll.Invoke();
+        for (int i = 0; i < pages.Length; i++)
+        {
+            DisableAll.Invoke(i);
+        }
     }
     public void DiscorverPages(int page)
     {
-        if (!discovered[page]) { BookNoises.Instance.PlayNoise(BookNoises.Noises.ScribblePage); }
+        if (page !=10 && !discovered[page]) { BookNoises.Instance.PlayNoise(BookNoises.Noises.ScribblePage); }
         discovered[page] = true;
-        switch (page)
+        DisableEnalbePages(page, true);
+        DisableEnableButtons(page, true);
+        if (page <2)
         {
-            case 3:
-                DisableEnalbePage3(true);
-                break;
-            case 4:
-                DisableEnalbePage4(true);
-                break;
-            case 5:
-                DisableEnalbePage5(true);
-                break;
-            case 6:
-                DisableEnalbePage6(true);
-                break;
-            case 7:
-                DisableEnalbePage7(true);
-                break;
-            case 8:
-                DisableEnalbePage8(true);
-                break;
+            DisableEnableTabs(1, true);
         }
+        else if (page < 3) { DisableEnableTabs(2, true); }
     }
-    void DisableEnalbePage3(bool enable = false)
+    void DisableEnalbePages(int page = 0, bool enable = false)
     {
-        foreach (var obj in page3)
-        {
-            obj.gameObject.SetActive(enable);
-        }
+        if(page!=10)
+        pages[page].SetActive(enable);
     }
-    void DisableEnalbePage4(bool enable = false)
+    void DisableEnableButtons(int button = 0, bool enable = false)
     {
-        foreach (var obj in page4)
-        {
-            obj.gameObject.SetActive(enable);
-        }
+        if (button != 10)
+        buttons[button].SetActive(enable);
     }
-    void DisableEnalbePage5(bool enable = false)
+    void DisableEnableTabs(int placeholder = 0, bool enable = false)
     {
-        foreach (var obj in page5)
+        switch (placeholder)
         {
-            obj.gameObject.SetActive(enable);
-        }
-    }
-    void DisableEnalbePage6(bool enable = false)
-    {
-        foreach (var obj in page6)
-        {
-            obj.gameObject.SetActive(enable);
-        }
-    }
-    void DisableEnalbePage7(bool enable = false)
-    {
-        foreach (var obj in page7)
-        {
-            obj.gameObject.SetActive(enable);
-        }
-    }
-    void DisableEnalbePage8(bool enable = false)
-    {
-        foreach (var obj in page8)
-        {
-            obj.gameObject.SetActive(enable);
+            case 0:
+                Debug.Log("AllTabs "+enable);
+                foreach (var tab in tabsAurea)
+                {
+                    tab.SetActive(enable);
+                }
+                foreach (var tab in tabsParadisi)
+                {
+                    tab.SetActive(enable);
+                }
+                break;
+            case 1:
+                Debug.Log("AureaTabs " + enable);
+                foreach (var tab in tabsAurea)
+                {
+                    tab.SetActive(enable);
+                }
+                break;
+            case 2:
+                Debug.Log("ParadisiTabs " + enable);
+                foreach (var tab in tabsParadisi)
+                {
+                    tab.SetActive(enable);
+                }
+                break;
         }
     }
 }

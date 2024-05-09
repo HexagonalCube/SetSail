@@ -104,7 +104,7 @@ public class TutorialScript : MonoBehaviour
     }
     void SwitchTutorialStage()
     {
-        Debug.Log(selected);
+        //Debug.Log(selected);
         if (isInTutorial)
         {
             switch (selected)
