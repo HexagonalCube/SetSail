@@ -21,6 +21,10 @@ public class WeatherController : MonoBehaviour
     {
         UpdateWeather();
     }
+    private void Start()
+    {
+        UpdateWeather();
+    }
     public void UpdateWeather() //Update managers to set values
     {
         UpdateOcean();
