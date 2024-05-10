@@ -530,10 +530,10 @@ LODGroup:
   m_LocalReferencePoint: {x: 0.0000030994415, y: 0.019095037, z: -0.000012820587}
   m_Size: 0.061681297
   m_FadeMode: 1
-  m_AnimateCrossFading: 1
+  m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.47123304
+  - screenRelativeHeight: 0.3337016
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2354330392537314356}
@@ -550,7 +550,7 @@ LODGroup:
     - renderer: {fileID: 7921181357011761162}
     - renderer: {fileID: 4960109635861871417}
     - renderer: {fileID: 899547297291562745}
-  - screenRelativeHeight: 0.27943024
+  - screenRelativeHeight: 0.14708394
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2354330392537314356}
