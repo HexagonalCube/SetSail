@@ -63,7 +63,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: tocha var1 (15) Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2956279316268948884, guid: b5614a00047b2e74ebf87f09f4c67fb5, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
