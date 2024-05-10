@@ -5,15 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class Menu_OpenGame : MonoBehaviour
 {
+    [SerializeField] GameObject panelFade;
+    [SerializeField] Animator animator;
 
-    public static void StartGame()
+    public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        panelFade.SetActive(true);
+        animator.SetBool("FinalFade", true);
+        StartCoroutine(TimeWait());   
     }
 
-    public static void ExitConfirm()
+    public void ExitConfirm()
     {
         Application.Quit();
     }
 
+    IEnumerator TimeWait()
+    {
+        yield return new WaitForSeconds(4f);
+        SceneManager.LoadScene(1);
+    }
 }

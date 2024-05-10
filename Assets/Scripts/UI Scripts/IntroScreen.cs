@@ -6,6 +6,7 @@ public class IntroScreen : MonoBehaviour
 {
     [SerializeField] Animator animator;
     [SerializeField] GameObject startGameText;
+
     bool canStart = false;
     private void Start()
     {
