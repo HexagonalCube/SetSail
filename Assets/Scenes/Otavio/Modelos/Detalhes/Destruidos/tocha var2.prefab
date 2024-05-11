@@ -68,6 +68,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: ff08905d95115dc40bc5076121be5b52, type: 2}
+    - target: {fileID: -8008850380109414816, guid: 52a825e9f25244f409d93e163c47b7c4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5b43cb9be2cfd4549aa4fae8e8370e47, type: 2}
     - target: {fileID: -7890903979953516889, guid: 52a825e9f25244f409d93e163c47b7c4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -140,10 +145,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 52a825e9f25244f409d93e163c47b7c4,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: -5509748408824591762}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 52a825e9f25244f409d93e163c47b7c4,
-        type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1694605798114264557}
   m_SourcePrefab: {fileID: 100100000, guid: 52a825e9f25244f409d93e163c47b7c4, type: 3}
 --- !u!1 &4571225522318340808 stripped
@@ -152,34 +153,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3724803125772996505}
   m_PrefabAsset: {fileID: 0}
---- !u!205 &-5509748408824591762
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4571225522318340808}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -1.4192295, y: 219.17975, z: -0.06735802}
-  m_Size: 438.3595
-  m_FadeMode: 1
-  m_AnimateCrossFading: 1
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.11078146
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!65 &1694605798114264557
 BoxCollider:
   m_ObjectHideFlags: 0

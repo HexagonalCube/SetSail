@@ -223,7 +223,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7047239852885296212}
-  - component: {fileID: 1427398444420444810}
   - component: {fileID: 7914273503860975865}
   m_Layer: 0
   m_Name: tocha var1 (13)
@@ -249,24 +248,6 @@ Transform:
   - {fileID: 65247152538036651}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -14.624, y: 24.785, z: 18.8}
---- !u!205 &1427398444420444810
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7676108361028607726}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 1
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.2400455
-    fadeTransitionWidth: 0
-    renderers: []
-  m_Enabled: 1
 --- !u!65 &7914273503860975865
 BoxCollider:
   m_ObjectHideFlags: 0
