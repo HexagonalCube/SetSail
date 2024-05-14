@@ -9,10 +9,11 @@ public class MusicComposer1000 : MonoBehaviour
     [SerializeField] AudioClip[] storyMusic;
     [SerializeField] AudioSource source;
     int curClip;
-    int previousClip;
-    int previousClip2;
+    int previousClip = 100;
+    int previousClip2 = 100;
     bool plucks = false;
     bool fading = false;
+    bool choosing = false;
     private void Awake()
     {
         if (Instance != null)
@@ -29,9 +30,16 @@ public class MusicComposer1000 : MonoBehaviour
     }
     private void Update()
     {
-        if (plucks && !source.isPlaying)
+        Debug.Log($"enabled{plucks} playing{source.isPlaying}");
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            RandomizeTimeTracks(musicPlucks, 1f);
+            StartPlucksMusic();
+        }
+        if (plucks && !source.isPlaying && !choosing)
+        {
+            Debug.Log("A");
+            choosing = true;
+            StartCoroutine(RandomizeTimeTracks(musicPlucks, 1f));
         }
     }
     public void StartStoryMusic(int index)
@@ -98,16 +106,22 @@ public class MusicComposer1000 : MonoBehaviour
     AudioClip PickRandomClip(AudioClip[] clips, int tries = 0)
     {
         tries++;
+        Debug.Log($"is_previous {previousClip == curClip}/ is_repeating {curClip == previousClip2}/ i {curClip}/ tries {tries}");
         while (previousClip == curClip || curClip == previousClip2)
         {
             curClip = Random.Range(0,clips.Length);
         }
         if (curClip != previousClip && curClip != previousClip2 || tries > 6)
         {
+            //Debug.Log(curClip + " " + tries);
+            previousClip2 = previousClip;
+            previousClip = curClip;
+            choosing = false;
             return clips[curClip];
         }
         else
         {
+            //Debug.Log(curClip + " " + tries);
             return PickRandomClip(clips, tries);
         }
     }
