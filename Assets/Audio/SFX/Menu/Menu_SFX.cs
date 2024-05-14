@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Menu_SFX : MonoBehaviour
 {
-    //component Audio inside Button
+    //audio output
     [SerializeField] AudioSource audioSource;
 
     //imported audio files
@@ -45,10 +45,5 @@ public class Menu_SFX : MonoBehaviour
     {
         audioSource.PlayOneShot(negativeHover);
     }
-
-
-
-
-
 
 }

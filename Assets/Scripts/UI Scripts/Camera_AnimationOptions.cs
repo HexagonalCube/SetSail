@@ -8,6 +8,7 @@ public class Camera_AnimationOptions : MonoBehaviour
     [SerializeField] GameObject panelConfigs;
     [SerializeField] GameObject panelCredits;
     [SerializeField] GameObject panelMenu;
+    [SerializeField] GameObject logo;
 
     public void GoToCredits()
     {
@@ -36,6 +37,7 @@ public class Camera_AnimationOptions : MonoBehaviour
         if (enable)
         {
             panelMenu.SetActive(!enable);
+            logo.SetActive(!enable);
             yield return new WaitForSeconds(1f);
             panelConfigs.SetActive(enable);  
 
@@ -44,6 +46,7 @@ public class Camera_AnimationOptions : MonoBehaviour
             panelConfigs.SetActive(enable);
             yield return new WaitForSeconds(1f);
             panelMenu.SetActive(!enable);
+            logo.SetActive(!enable);
         }
     }
 
@@ -54,6 +57,7 @@ public class Camera_AnimationOptions : MonoBehaviour
         if (enable)
         {
             panelMenu.SetActive(!enable);
+            logo.SetActive(!enable);
             yield return new WaitForSeconds(1f);
             panelCredits.SetActive(enable);
 
@@ -63,6 +67,7 @@ public class Camera_AnimationOptions : MonoBehaviour
             panelCredits.SetActive(enable);
             yield return new WaitForSeconds(1f);
             panelMenu.SetActive(!enable);
+            logo.SetActive(!enable);
         }
     }
 
