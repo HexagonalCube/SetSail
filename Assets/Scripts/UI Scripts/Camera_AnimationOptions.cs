@@ -5,8 +5,19 @@ using UnityEngine;
 public class Camera_AnimationOptions : MonoBehaviour
 {
     [SerializeField] Animator animator;
-    [SerializeField] GameObject panel;
+    [SerializeField] GameObject panelConfigs;
+    [SerializeField] GameObject panelCredits;
     [SerializeField] GameObject panelMenu;
+
+    public void GoToCredits()
+    {
+        StartCoroutine(WaitForTime(true));
+    }
+
+    public void ReturnFromCredits()
+    {
+        StartCoroutine(WaitForTime(false));
+    }
 
     public void GoToSettings()
     {
@@ -26,14 +37,34 @@ public class Camera_AnimationOptions : MonoBehaviour
         {
             panelMenu.SetActive(!enable);
             yield return new WaitForSeconds(1f);
-            panel.SetActive(enable);  
+            panelConfigs.SetActive(enable);  
 
         } else
         {
-            panel.SetActive(enable);
+            panelConfigs.SetActive(enable);
             yield return new WaitForSeconds(1f);
             panelMenu.SetActive(!enable);
         }
     }
+
+    IEnumerator WaitForTime(bool enable)
+    {
+        animator.SetBool("Creditos", enable);
+
+        if (enable)
+        {
+            panelMenu.SetActive(!enable);
+            yield return new WaitForSeconds(1f);
+            panelCredits.SetActive(enable);
+
+        }
+        else
+        {
+            panelCredits.SetActive(enable);
+            yield return new WaitForSeconds(1f);
+            panelMenu.SetActive(!enable);
+        }
+    }
+
 
 }

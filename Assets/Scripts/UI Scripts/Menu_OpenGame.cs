@@ -8,6 +8,8 @@ public class Menu_OpenGame : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public static void StartGame()
     {

@@ -62,7 +62,7 @@ public class PageStoryController : MonoBehaviour
         switch (placeholder)
         {
             case 0:
-                Debug.Log("AllTabs "+enable);
+                //Debug.Log("AllTabs "+enable);
                 foreach (var tab in tabsAurea)
                 {
                     tab.SetActive(enable);
@@ -73,14 +73,14 @@ public class PageStoryController : MonoBehaviour
                 }
                 break;
             case 1:
-                Debug.Log("AureaTabs " + enable);
+                //Debug.Log("AureaTabs " + enable);
                 foreach (var tab in tabsAurea)
                 {
                     tab.SetActive(enable);
                 }
                 break;
             case 2:
-                Debug.Log("ParadisiTabs " + enable);
+                //Debug.Log("ParadisiTabs " + enable);
                 foreach (var tab in tabsParadisi)
                 {
                     tab.SetActive(enable);

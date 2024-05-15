@@ -16,6 +16,7 @@ public class BoatController : MonoBehaviour
     [SerializeField] DockScript dock;
     [SerializeField] Animator sailAnim;
     [SerializeField] GameObject sailGeo;
+    [SerializeField] GameObject passenger;
     [SerializeField] SFXController boatSFX;
     [SerializeField] Rebound bounce;
     [SerializeField] bool basicEnabled = true;
@@ -58,6 +59,7 @@ public class BoatController : MonoBehaviour
         EnableDisableBounce(true);
         rotateBoat.rotEnabled = true;
         rotateSail.rotEnabled = true;
+        passenger.SetActive(true);
         mainCamera.SwitchCamera(true);
         basicEnabled = true;
         //sailStowed = false;
@@ -74,6 +76,7 @@ public class BoatController : MonoBehaviour
         rotateBoat.rotEnabled = false;
         rotateSail.rotEnabled = false;
         rotateSail.transform.localEulerAngles = Vector3.zero;
+        passenger.SetActive(false);
         mainCamera.SwitchCamera(false);
         boatSFX.ExitBoat();
         //sailStowed = true;
