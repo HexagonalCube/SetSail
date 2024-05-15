@@ -69,6 +69,6 @@ public class WeatherController : MonoBehaviour
         //121216 foggy
         Color newcolor = Color.Lerp(Color.HSVToRGB(201f/360f, 22f/100f, 100f/100f), Color.HSVToRGB(240f/360f, 18f/100f, 9f/100f), weather / 2f);
         RenderSettings.fogColor = newcolor;
-        Debug.Log(newcolor);
+        //Debug.Log(newcolor);
     }
 }
