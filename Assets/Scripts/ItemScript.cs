@@ -109,7 +109,7 @@ public class ItemScript : MonoBehaviour
                     ui.Interact(true, "Pegar Carta (E)");
                     break;
                 case content.End:
-                    ui.Interact(true, "[FIM DO JOGO]");
+                    ui.Interact(true, "Pegar Boneca (E)");
                     break;
                 default: break;
             }
