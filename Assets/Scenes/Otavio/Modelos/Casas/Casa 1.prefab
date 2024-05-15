@@ -517,8 +517,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.11105689, y: 0.1, z: 0.13979164}
-  m_Center: {x: 0.0002252636, y: 0.03, z: -0.0013576795}
+  m_Size: {x: 0.041483704, y: 0.038901508, z: 0.051375605}
+  m_Center: {x: 0.0007129155, y: 0.01895883, z: -0.00022367096}
 --- !u!205 &1008467418496053584
 LODGroup:
   m_ObjectHideFlags: 0
@@ -530,10 +530,10 @@ LODGroup:
   m_LocalReferencePoint: {x: 0.0000030994415, y: 0.019095037, z: -0.000012820587}
   m_Size: 0.061681297
   m_FadeMode: 1
-  m_AnimateCrossFading: 1
+  m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.47123304
+  - screenRelativeHeight: 0.3337016
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2354330392537314356}
@@ -550,7 +550,7 @@ LODGroup:
     - renderer: {fileID: 7921181357011761162}
     - renderer: {fileID: 4960109635861871417}
     - renderer: {fileID: 899547297291562745}
-  - screenRelativeHeight: 0.27943024
+  - screenRelativeHeight: 0.14708394
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2354330392537314356}
