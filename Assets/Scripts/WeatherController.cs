@@ -28,6 +28,15 @@ public class WeatherController : MonoBehaviour
     }
     private void Start()
     {
+        UpdateWeather += UpdateOcean;
+        UpdateWeather += UpdateClouds;
+        UpdateWeather += UpdateRain;
+        UpdateWeather += UpdateSun;
+        UpdateWeather += UpdateFog;
+        UpdateWeather();
+    }
+    public void UpdateThisWeather()
+    {
         UpdateWeather();
     }
     void UpdateClouds() //DO NOT TOUCH UNLESS CHANGING VISUAL SETTINGS

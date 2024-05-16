@@ -130,7 +130,10 @@ public class TutorialScript : MonoBehaviour
                     if (Input.GetKeyDown(input.Navigation) && !hidden) { TutorialStep(); }
                     break;
                 case 6:
-                    if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { CloseTutorial(); TutorialStep(); }
+                    if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { TutorialStep(); }
+                    break;
+                case 7:
+                    if (Input.GetKeyDown(input.SailRL) && !hidden) { TutorialStep(); CloseTutorial(); }
                     break;
             }
         }

@@ -12,6 +12,7 @@ public class ControlRotation : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] float inputRotation;
     [SerializeField] public bool rotEnabled = true;
+    [SerializeField] AudioSource slushing;
     float angle;
 
 
@@ -64,6 +65,7 @@ public class ControlRotation : MonoBehaviour
         {
             animator.SetFloat("xAxis", inputRotation);
             transform.Rotate(new Vector3(0, 45 * inputRotation, 0) * Time.deltaTime);
+            slushing.volume = Mathf.Abs(inputRotation/2f);
         } 
     }
 }
