@@ -30,7 +30,7 @@ public class MusicComposer1000 : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log($"enabled{plucks} playing{source.isPlaying}");
+        //Debug.Log($"enabled{plucks} playing{source.isPlaying}");
         if (Input.GetKeyDown(KeyCode.P))
         {
             StartPlucksMusic();
