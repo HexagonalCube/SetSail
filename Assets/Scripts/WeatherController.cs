@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
+//using UnityEngine.Experimental.GlobalIllumination;
 /// <summary>
 /// Controls weather conditions
 /// </summary>
@@ -17,16 +15,20 @@ public class WeatherController : MonoBehaviour
     public bool isRain;
     [SerializeField] Color baseColor;
     [SerializeField] Color stormColor;
+    public delegate void Weather();
+    public Weather UpdateWeather;
     private void OnValidate() //Update in editor when values change
     {
+        UpdateWeather += UpdateOcean;
+        UpdateWeather += UpdateClouds;
+        UpdateWeather += UpdateRain;
+        UpdateWeather += UpdateSun;
+        UpdateWeather += UpdateFog;
         UpdateWeather();
     }
-    public void UpdateWeather() //Update managers to set values
+    private void Start()
     {
-        UpdateOcean();
-        UpdateClouds();
-        UpdateRain();
-        UpdateSun();
+        UpdateWeather();
     }
     void UpdateClouds() //DO NOT TOUCH UNLESS CHANGING VISUAL SETTINGS
     {
@@ -41,7 +43,7 @@ public class WeatherController : MonoBehaviour
     }
     void UpdateOcean() //DO NOT TOUCH UNLESS CHANGING VISUAL SETTINGS
     {
-        ocean.waveHeight = 600 + (200*weather);
+        ocean.waveHeight = 600 + (100*weather);
         //ocean.wavesFrequency = 1.5f + (0.5f*weather);
         //ocean.waveSpeed = 4 + (3*weather);
         ocean.UpdateMaterial();
@@ -60,5 +62,13 @@ public class WeatherController : MonoBehaviour
             skybox.SetFloat("_Exposure", 1.3f * 1 / (weather * 2 + 1));
         }
         
+    }
+    void UpdateFog()
+    {
+        //C5EAFE clear
+        //121216 foggy
+        Color newcolor = Color.Lerp(Color.HSVToRGB(201f/360f, 22f/100f, 100f/100f), Color.HSVToRGB(240f/360f, 18f/100f, 9f/100f), weather / 2f);
+        RenderSettings.fogColor = newcolor;
+        //Debug.Log(newcolor);
     }
 }

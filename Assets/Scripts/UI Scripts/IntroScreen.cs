@@ -33,6 +33,7 @@ public class IntroScreen : MonoBehaviour
     {
         if (canStart)
         {
+            MusicComposer1000.Instance.FadeCurTrack(0.001f);
             CameraScript.Instance.cameraActive = true;
             canStart = false;
             animator.SetTrigger("FadeOut");

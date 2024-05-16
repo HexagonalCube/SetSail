@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameProgression : GameStage
 {
+    [SerializeField] Footsteps steps;
     [SerializeField] Terrain[] playableTerrains;
     public static GameProgression Instance;
     [SerializeField] private WorldStage curStage = WorldStage.Intro;
@@ -24,13 +25,13 @@ public class GameProgression : GameStage
         switch (Stage)
         {
             case WorldStage.Island1:
-                Footsteps.Instance.Terrain = playableTerrains[0];
+                steps.Terrain = playableTerrains[0];
                 break;
             case WorldStage.Island2:
-                Footsteps.Instance.Terrain = playableTerrains[1];
+                steps.Terrain = playableTerrains[1];
                 break;
             case WorldStage.Island3:
-                Footsteps.Instance.Terrain = playableTerrains[2];
+                steps.Terrain = playableTerrains[2];
                 break;
         }
         switch (itemsCollected)

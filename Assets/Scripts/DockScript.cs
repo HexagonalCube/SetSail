@@ -61,6 +61,24 @@ public class DockScript : GameStage
             gameState.Stage = dockStage;
         }
         else { gameState.Stage = seaStage; }
+        switch (gameState.Stage)
+        {
+            case WorldStage.Island1:
+                MusicComposer1000.Instance.StartStoryMusic(1);
+                break;
+            case WorldStage.Island2:
+                MusicComposer1000.Instance.StartStoryMusic(2);
+                break;
+            case WorldStage.Island3:
+                MusicComposer1000.Instance.StartStoryMusic(3);
+                break;
+            case WorldStage.MidSea:
+                MusicComposer1000.Instance.StartPlucksMusic();
+                break;
+            case WorldStage.OpenSea:
+                MusicComposer1000.Instance.StartPlucksMusic();
+                break;
+        }
     }
     IEnumerator SwitchTimer()
     {

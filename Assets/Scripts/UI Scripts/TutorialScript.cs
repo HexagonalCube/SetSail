@@ -97,14 +97,14 @@ public class TutorialScript : MonoBehaviour
     }
     public void HideShowTutorial(bool show)
     {
-        Debug.Log("AAA" + show);
+        //Debug.Log("AAA" + show);
         hidden = !show;
         panel.enabled = show;
         tutorialText.SetText(show == true ? text[selected] : "");
     }
     void SwitchTutorialStage()
     {
-        Debug.Log(selected);
+        //Debug.Log(selected);
         if (isInTutorial)
         {
             switch (selected)

@@ -11,8 +11,8 @@ public class CameraScript : MonoBehaviour
     [Header("Limites da camera")]
     [SerializeField] float minX = -45f;
     [SerializeField] float maxX = 10f;
-    [SerializeField] float minY = 0;
-    [SerializeField] float maxY = 180;
+    //[SerializeField] float minY = 0;
+    //[SerializeField] float maxY = 180;
     [Header("Valores de Debug")]
     [SerializeField] Vector2 rotation;
     [SerializeField] Vector2 realVector;
@@ -20,10 +20,12 @@ public class CameraScript : MonoBehaviour
     [Header("Velocidade da rotacao da camera")]
     public float sensitivity = 3;
     [SerializeField] bool active = true;
-    public bool cameraActive {  get { return active; } set {  active = value; } }
+    public bool cameraActive {  get { return active; } set { active = value; } }
     public bool InBoat { get { return inBoat; } set { inBoat = value; } }
     [SerializeField] bool inBoat = false;
     [SerializeField] Camera cameraMask;
+    [SerializeField] float cameraSmoothing = 10f;
+    //float smoothing = 0f;
     private void Awake()
     {
         if (Instance != null)
@@ -34,7 +36,7 @@ public class CameraScript : MonoBehaviour
     }
     private void Start()
     {
-        active = true;
+        //active = true;
         rotation = transform.localEulerAngles;
         cameraMask.gameObject.SetActive(inBoat);
         Cursor.lockState = CursorLockMode.Locked;
@@ -43,7 +45,7 @@ public class CameraScript : MonoBehaviour
 
     void Update()
     {
-        if (cameraActive)
+        if (active)
         {
             cameraMask.gameObject.SetActive(inBoat);
             if (inBoat)
@@ -59,7 +61,7 @@ public class CameraScript : MonoBehaviour
                 rotation.y += Input.GetAxis("Mouse X") * sensitivity;
                 rotation.x += -Input.GetAxis("Mouse Y") * sensitivity;
                 //prendendo a rotacao aos limites
-                rotation.y = Mathf.Clamp(rotation.y, minY, maxY);
+                //rotation.y = Mathf.Clamp(rotation.y, minY, maxY);
                 rotation.x = Mathf.Clamp(rotation.x, minX, maxX);
                 //Calculando quanto o mouse se moveu
                 Vector2 vectorDiff = rotation - cameraVec;
@@ -72,11 +74,13 @@ public class CameraScript : MonoBehaviour
             }
             else
             {
-                transform.position = cameraLandPoint.position;
+                transform.position = Vector3.Lerp(transform.position, cameraLandPoint.position, cameraSmoothing * Time.deltaTime);
+                //transform.position = new Vector3(Mathf.Lerp(a[0], b[0], t), Mathf.Lerp(a[1], b[1], t), Mathf.Lerp(a[2], b[2], t));
+                //Debug.Log($"{cameraLandPoint.position} {transform.position} {cameraSmoothing*Time.deltaTime}");
 
                 rotation.y += Input.GetAxis("Mouse X") * sensitivity;
                 rotation.x += -Input.GetAxis("Mouse Y") * sensitivity;
-                rotation.x = Mathf.Clamp(rotation.x, -90, 90);
+                rotation.x = Mathf.Clamp(rotation.x, -90, 55);
 
                 transform.localEulerAngles = rotation;
                 player.localEulerAngles = new Vector2(0, rotation.y);

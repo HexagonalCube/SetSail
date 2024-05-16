@@ -4,15 +4,6 @@ using UnityEngine;
 
 public class UI_Navigation : MonoBehaviour
 {
-    public static UI_Navigation Instance;
-    private void Awake()
-    {
-        if (Instance != null)
-        {
-            Destroy(this);
-        }
-        else { Instance = this; }
-    }
     public void StoryButtonClick()
     {
         PauseMenuScript.Instance.OnStoryButtonClick();
@@ -32,5 +23,20 @@ public class UI_Navigation : MonoBehaviour
     public void QuitButtonClick()
     {
         PauseMenuScript.Instance.OnQuitButtonClick();
+    }
+    public void SwitchTabs(int tab)
+    {
+        switch (tab)
+        {
+            case 0:
+                PauseMenuScript.Instance.On1Tab();
+                break;
+            case 1:
+                PauseMenuScript.Instance.On2Tab();
+                break;
+            case 2:
+                PauseMenuScript.Instance.On3Tab();
+                break;
+        }
     }
 }
