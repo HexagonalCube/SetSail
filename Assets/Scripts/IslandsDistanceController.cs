@@ -14,6 +14,7 @@ public class IslandsDistanceController : MonoBehaviour
     [SerializeField] float weatherToGive;
     [SerializeField] float lerpUp;
     [SerializeField] float lerpDown;
+    [SerializeField] bool debugDistances;
     static float t;
     public bool SetLastIsland {  get { return lastIsland; } set {  lastIsland = value; } }
     private void Awake()
@@ -23,6 +24,10 @@ public class IslandsDistanceController : MonoBehaviour
             Destroy(this);
         }
         else { Instance = this; }
+    }
+    private void Start()
+    {
+        weather = GetComponent<WeatherController>();
     }
     private void Update()
     {
@@ -47,7 +52,7 @@ public class IslandsDistanceController : MonoBehaviour
             LerpWeatherDown(lerpDown);
         }
         weather.weather = weatherToGive;
-        weather.UpdateWeather();
+        weather.UpdateThisWeather();
     }
     void LerpWeatherUp(float count)
     {
@@ -73,12 +78,15 @@ public class IslandsDistanceController : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        foreach (Transform t in islands)
+        if (debugDistances)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(t.position, maxDist);
-            Gizmos.color = Color.blue;
-            Gizmos.DrawWireSphere(t.position, maxDist * 1.2f);
+            foreach (Transform t in islands)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(t.position, maxDist);
+                Gizmos.color = Color.blue;
+                Gizmos.DrawWireSphere(t.position, maxDist * 1.2f);
+            }
         }
     }
 }

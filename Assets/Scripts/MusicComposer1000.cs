@@ -72,7 +72,7 @@ public class MusicComposer1000 : MonoBehaviour
         yield return new WaitForFixedUpdate();
         source.volume = Mathf.Lerp(0, source.volume, i);
         i -= strenght;
-        Debug.Log($"{i} {strenght} {source.volume}");
+        //Debug.Log($"{i} {strenght} {source.volume}");
         if (source.volume <= 0)
         {
             source.volume = 0;
