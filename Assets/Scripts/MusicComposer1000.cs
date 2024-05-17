@@ -11,7 +11,7 @@ public class MusicComposer1000 : MonoBehaviour
     int curClip;
     int previousClip = 100;
     int previousClip2 = 100;
-    bool plucks = false;
+    [SerializeField] bool plucks = false;
     bool fading = false;
     bool choosing = false;
     private void Awake()
@@ -26,7 +26,7 @@ public class MusicComposer1000 : MonoBehaviour
     {
         source = GetComponent<AudioSource>();
         //StartCoroutine(GameStart());
-        StartStoryMusic(0);
+        if (!plucks) { StartStoryMusic(0); }
     }
     private void Update()
     {

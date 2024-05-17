@@ -10,6 +10,7 @@ public class GameUI_Controller : MonoBehaviour
     public static GameUI_Controller Instance;
     [SerializeField] TMP_Text interactionText;
     [SerializeField] Image interactionBg;
+    [SerializeField] Animator interactionAnim;
     [SerializeField] GameObject controlsHud;
     [SerializeField] Image cursor;
     [SerializeField] Animator cursorAnim;
@@ -56,20 +57,23 @@ public class GameUI_Controller : MonoBehaviour
     }
     public void Interact(bool on, string text = "")
     {
+        Debug.Log($"{on} {text}");
         interactionText.text = text;
         if (on && !textFading && !stopInteractions)
         {
-            textFading = true;
-            StopCoroutine(TextColorFadeOut());
+            interactionAnim.SetBool("Visible", on);
+            //textFading = true;
+            //StopCoroutine(TextColorFadeOut());
             //Debug.Log("ACTIVE");
-            StartCoroutine(TextColorFadeIn());
+            //StartCoroutine(TextColorFadeIn());
         }
         if (!on && !textFading && !stopInteractions)
         {
-            textFading = true;
-            StopCoroutine(TextColorFadeIn());
+            interactionAnim.SetBool("Visible", on);
+            //textFading = true;
+            //StopCoroutine(TextColorFadeIn());
             //Debug.Log("NOT");
-            StartCoroutine(TextColorFadeOut());
+            //StartCoroutine(TextColorFadeOut());
         }
     }
     public void CursorUpdate(bool open, bool active)

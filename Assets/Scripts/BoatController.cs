@@ -115,7 +115,7 @@ public class BoatController : MonoBehaviour
         if (other.CompareTag("DockEnter"))
         {
             //Trigger Visual Indication HERE (like button overlay or smth)
-            if (basicEnabled) { gameUI.Interact(true, "Atracar (E)"); }
+            if (basicEnabled && !(TutorialScript.Instance.TutProgress == 4)) { gameUI.Interact(true, "Atracar (E)"); }
             //
             dock = other.GetComponentInParent<DockScript>();
             nearDock = true;

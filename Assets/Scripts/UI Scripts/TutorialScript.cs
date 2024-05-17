@@ -58,8 +58,11 @@ public class TutorialScript : MonoBehaviour
                 case 5:
                     if (Input.GetKeyDown(input.Navigation) && !hidden) { SwitchTutorialStage(); }
                     break;
-                case 6:
+                case 7:
                     if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { SwitchTutorialStage(); }
+                    break;
+                case 6:
+                    if (Input.GetKeyDown(input.SailRL) && !hidden) { SwitchTutorialStage(); }
                     break;
             }
             //SwitchTutorialStage();
@@ -130,12 +133,13 @@ public class TutorialScript : MonoBehaviour
                     if (Input.GetKeyDown(input.Navigation) && !hidden) { TutorialStep(); }
                     break;
                 case 6:
-                    if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { TutorialStep(); }
+                    if (Input.GetKeyDown(input.SailRL) && !hidden) { TutorialStep(); }
                     break;
                 case 7:
-                    if (Input.GetKeyDown(input.SailRL) && !hidden) { TutorialStep(); CloseTutorial(); }
+                    if (Input.GetKeyDown(input.SailP) || Input.GetKeyDown(input.SailN) && !hidden) { TutorialStep(); CloseTutorial(); }
                     break;
             }
         }
+        //Debug.Log($"{isInTutorial} {selected} {hidden}");
     }
 }
