@@ -69,7 +69,7 @@ public class WeatherController : MonoBehaviour
         {
             //FFEDBD clear
             //4D6376 foggy                                           Clear                                                    Foggy
-            Color newcolor = Color.Lerp(Color.HSVToRGB(44f / 360f, 23f / 100f, 100f / 100f), Color.HSVToRGB(208f / 360f, 35f / 100f, 46f / 100f), weather / 2f);
+            Color newcolor = Color.Lerp(Color.HSVToRGB(44f / 360f, 23f / 100f, 100f / 100f), Color.HSVToRGB(208f / 360f, 63f / 100f, 74f / 100f), weather / 2f);
             sun.intensity = 2f; //Doofus
             sun.color = newcolor;
             skybox.SetFloat("_Exposure", 1.3f * 1 / (weather * 2 + 1));
