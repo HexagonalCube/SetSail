@@ -13450,7 +13450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -300}
+  m_AnchoredPosition: {x: 0, y: -465.1}
   m_SizeDelta: {x: 200, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &807403992
@@ -14503,13 +14503,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1125545947}
-  - {fileID: 807403991}
   - {fileID: 1527189309}
+  - {fileID: 807403991}
   m_Father: {fileID: 576964313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 25}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &867474635
@@ -27887,8 +27887,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1100, y: 100}
+  m_AnchoredPosition: {x: 0, y: -200}
+  m_SizeDelta: {x: 1200, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527189310
 MonoBehaviour:
@@ -27910,7 +27910,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Cr\xE9ditos:"
+  m_text: "Equipe:\nEduardo Lira Xavier - Arte e Textura\nGustavo Carniel - Programa\xE7\xE3o,
+    Modelagem, UI e Design gr\xE1fico\nJo\xE3o Pedro Velletri Sundfeld - Game design,
+    Programa\xE7\xE3o, M\xFAsica e Efeitos sonoros\nHelena Teng Cheng - Rigging e
+    Modelagem\nOtavio Luiz de 0liveira Porto - Arte 2D, Game Design, Dire\xE7\xE3o
+    de Arte e Level Design\n\"Aji\" Pedro Henrique Marques Lopes - Textura, Modelagem
+    e Revis\xE3o\u200B\nSophya Dib Rodrigues - Roteiro, Dire\xE7\xE3o de Arte e Level
+    Design\n\nPlaytesters:\nAlan Fernando (Mr.Goburin), Luyi Khionori Oshiro Yano,\nLaura
+    Jacintho Mendes, Rafael Giannella, LukasXerouzo, Lia Fuziy, Nicolas Battisti,\nFabiano
+    de Freitas Pereira, Helena Capelosi, Jaime Faiman"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90176eba484efb248833fa83a74d49d2, type: 2}
   m_sharedMaterial: {fileID: 1627278336734020169, guid: 90176eba484efb248833fa83a74d49d2,
@@ -27938,8 +27946,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27948,9 +27956,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: 2
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 12
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
