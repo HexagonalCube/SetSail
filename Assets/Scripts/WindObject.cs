@@ -198,6 +198,7 @@ public class WindObject : MonoBehaviour
             inWindZone = true;
             inEndZone = true;
             windCurrent = windZone.GetComponent<WindArea>().direction;
+            GameUI_Controller.Instance.Comment("Não consigo atravessar este vento...");
         }
         if(col.gameObject.tag == "windLow")
         {
