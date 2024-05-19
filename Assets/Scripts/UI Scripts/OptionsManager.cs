@@ -19,9 +19,11 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] Resolution selectedResolution;
     [SerializeField] Slider volumeSlider;
     [SerializeField] AudioMixer masterVolume;
+    [SerializeField] float[] unsuportedResolutions;
     private void Start() //Gets Fisrt-Time and previously set options
     {
-        fullScreenResolutionsAvailable = Screen.resolutions;
+        SetupResolution();
+        //fullScreenResolutionsAvailable = Screen.resolutions;
         GetResolutions();
         fullScreen = SaveGame.LoadFullscreen();
         selectedResolution = fullScreenResolutionsAvailable[SaveGame.LoadResolutionIndex()];
@@ -29,12 +31,57 @@ public class OptionsManager : MonoBehaviour
         UpdateResolution();
         LoadVolume();
     }
+    void SetupResolution()
+    {
+        int item = 0;
+        int setup = 0;
+        for (int i = 0; i < Screen.resolutions.Length; i++)
+        {
+            float w = Screen.resolutions[i].width;
+            float h = Screen.resolutions[i].height;
+            bool available = true;
+            for (int j = 0; j < unsuportedResolutions.Length; j++)
+            {
+                if (Mathf.Approximately(w / h, unsuportedResolutions[j]))
+                {
+                    available = false;
+                }
+            }
+            if (available)
+            {
+                setup++;
+            }
+        }
+        fullScreenResolutionsAvailable = new Resolution[setup];
+        for (int i = 0; i < Screen.resolutions.Length; i++)
+        {
+            float w = Screen.resolutions[i].width;
+            float h = Screen.resolutions[i].height;
+            bool available = true;
+            for (int j = 0; j < unsuportedResolutions.Length; j++)
+            {
+                if (Mathf.Approximately(w / h, unsuportedResolutions[j]))
+                {
+                    available = false;
+                }
+            }
+            if (available)
+            {
+                fullScreenResolutionsAvailable[item] = Screen.resolutions[i];
+                item++;
+            }
+        }
+    }
     void GetResolutions() //Gets all available resolutions, & sets player default to highest
     {
         for (int i = 0; i < fullScreenResolutionsAvailable.Length; i++)
         {
             //float w = fullScreenResolutionsAvailable[i].width;
             //float h = fullScreenResolutionsAvailable[i].height;
+            //if (!Mathf.Approximately(w / h, 4f / 3f) && !Mathf.Approximately(w / h, 5f / 4f))
+            //{
+
+            //}
             fullScreenResolutionList.Add($"{fullScreenResolutionsAvailable[i].width} x {fullScreenResolutionsAvailable[i].height} ({Mathf.FloorToInt(Convert.ToSingle(fullScreenResolutionsAvailable[i].refreshRateRatio.value))}Hz)");
         }
         resolutionSelector.AddOptions(fullScreenResolutionList);
