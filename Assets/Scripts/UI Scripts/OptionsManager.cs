@@ -19,7 +19,7 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] Resolution selectedResolution;
     [SerializeField] Slider volumeSlider;
     [SerializeField] AudioMixer masterVolume;
-    [SerializeField] float[] unsuportedResolutions;
+    [SerializeField] OptionsData data;
     private void Start() //Gets Fisrt-Time and previously set options
     {
         SetupResolution();
@@ -40,9 +40,9 @@ public class OptionsManager : MonoBehaviour
             float w = Screen.resolutions[i].width;
             float h = Screen.resolutions[i].height;
             bool available = true;
-            for (int j = 0; j < unsuportedResolutions.Length; j++)
+            for (int j = 0; j < data.aspectRatioBlacklist.Length; j++)
             {
-                if (Mathf.Approximately(w / h, unsuportedResolutions[j]))
+                if (Mathf.Approximately(w / h, data.aspectRatioBlacklist[j]))
                 {
                     available = false;
                 }
@@ -58,9 +58,9 @@ public class OptionsManager : MonoBehaviour
             float w = Screen.resolutions[i].width;
             float h = Screen.resolutions[i].height;
             bool available = true;
-            for (int j = 0; j < unsuportedResolutions.Length; j++)
+            for (int j = 0; j < data.aspectRatioBlacklist.Length; j++)
             {
-                if (Mathf.Approximately(w / h, unsuportedResolutions[j]))
+                if (Mathf.Approximately(w / h, data.aspectRatioBlacklist[j]))
                 {
                     available = false;
                 }
