@@ -57,7 +57,7 @@ public class GameUI_Controller : MonoBehaviour
     }
     public void Interact(bool on, string text = "")
     {
-        Debug.Log($"{on} {text}");
+        //Debug.Log($"{on} {text}");
         interactionText.text = text;
         if (on && !textFading && !stopInteractions)
         {
