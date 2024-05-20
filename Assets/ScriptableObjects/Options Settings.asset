@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eb2622c2d3a6fa4c8e6b58acd5e5ce8, type: 3}
   m_Name: Options Settings
   m_EditorClassIdentifier: 
-  aspectRatioBlacklist: []
+  aspectRatioBlacklist:
+  - 1.3333334
+  - 1.25
