@@ -73,6 +73,9 @@ public class ItemScript : MonoBehaviour
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
+                    CameraScript.Instance.enabled = false;
+                    InputController.Instance.enabled = false;
+                    Footsteps.Instance.gameObject.SetActive(false);
                     MusicComposer1000.Instance.StartStoryMusic(4);
                     EndScript.Instance.StartEndSequence();
                     break;

@@ -38,7 +38,7 @@ public class EndScript : MonoBehaviour
     }
     void QuitSequence()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
     private void Update()
     {
