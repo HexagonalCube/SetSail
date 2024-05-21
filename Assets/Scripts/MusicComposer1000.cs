@@ -35,6 +35,10 @@ public class MusicComposer1000 : MonoBehaviour
         {
             StartPlucksMusic();
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            StartStoryMusic(3);
+        }
         if (plucks && !source.isPlaying && !choosing)
         {
             Debug.Log("A");

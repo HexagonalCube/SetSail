@@ -73,6 +73,7 @@ public class ItemScript : MonoBehaviour
                     canOutline = false;
                     ui.Interact(false);
                     gameProg.Items++;
+                    MusicComposer1000.Instance.StartStoryMusic(4);
                     EndScript.Instance.StartEndSequence();
                     break;
                 case content.Type_test:

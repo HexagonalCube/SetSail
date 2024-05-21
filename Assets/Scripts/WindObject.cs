@@ -77,20 +77,20 @@ public class WindObject : MonoBehaviour
                     //Maximum Force
                     if (!boatStopped) { rb.AddForce(rb.transform.forward * maxSpeed);  timeSliding = maxSlideTime; }
                     else { StartCoroutine(BoatSlide(maxSpeed)); }
-                    flagMat.color = Color.green;
+                    //flagMat.color = Color.green;
                 }
                 else if ((angleDiffR < angleMin || angleDiffL < angleMin) && dirDiff > 100)
                 {
                     //Minimum Force
                     if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed)); timeSliding = maxSlideTime; }
-                    flagMat.color = Color.red;
+                    //flagMat.color = Color.red;
                 }
                 else
                 {
                     //Paralel to Wind force
                     if (!boatStopped) { rb.AddForce(rb.transform.forward * (minSpeed * 1.5f)); timeSliding = maxSlideTime; }
                     else { StartCoroutine(BoatSlide(minSpeed)); }
-                    flagMat.color = Color.cyan;
+                    //flagMat.color = Color.cyan;
                 }
             }
             else if (!inLowZone)
@@ -105,13 +105,13 @@ public class WindObject : MonoBehaviour
                 switch (diff)
                 {
                     case > 10f:
-                        flagMat.color = Color.magenta;
+                        //flagMat.color = Color.magenta;
                         break;
                     case < 25f:
-                        flagMat.color = Color.green;
+                        //flagMat.color = Color.green;
                         break;
                     default:
-                        flagMat.color = Color.yellow;
+                        //flagMat.color = Color.yellow;
                         break;
                 }
                 //if (diff < 10f) { flagMat.color = Color.magenta; }
@@ -127,16 +127,16 @@ public class WindObject : MonoBehaviour
                 float diff = Mathf.Min(passiveAngleDiffL, passiveAngleDiffR);
                 if (!boatStopped) { rb.AddForce(rb.transform.forward * (Mathf.Clamp(baseSpeed/2 + Mathf.Pow(diff, -1) * 400, 0, 100))); timeSliding = maxSlideTime; }
                 else { StartCoroutine(BoatSlide(baseSpeed/2)); }
-                if (diff < 10f) { flagMat.color = Color.magenta; }
-                else if (diff < 25f) { flagMat.color = Color.green; }
-                else { flagMat.color = Color.yellow; }
+                if (diff < 10f) { /*flagMat.color = Color.magenta;*/ }
+                else if (diff < 25f) { /*flagMat.color = Color.green;*/ }
+                else { /*flagMat.color = Color.yellow;*/ }
             }
         }
         else //When at edge of map
         {
             windIndicator.forward = windCurrent;
             rb.AddForce(windCurrent * 75);
-            flagMat.color = Color.red;
+            //flagMat.color = Color.red;
         }
     }
     IEnumerator BoatSlide(float speed)

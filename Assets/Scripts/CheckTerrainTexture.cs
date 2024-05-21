@@ -31,6 +31,8 @@ public class CheckTerrainTexture : MonoBehaviour
         float zCoord = mapPosition.z * t.terrainData.alphamapHeight;
         posX = (int)xCoord;
         posZ = (int)zCoord;
+        //Debug.Log($"sX{t.terrainData.size.x}, sZ{t.terrainData.size.z}, tW{t.terrainData.alphamapWidth}, tH{t.terrainData.alphamapHeight}");
+        //Debug.Log($"t {terrainPosition}, map{mapPosition}, x{xCoord}, z{zCoord}");
     }
     void CheckTexture()
     {
