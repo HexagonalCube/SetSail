@@ -65,7 +65,7 @@ public class ControlRotation : MonoBehaviour
         {
             animator.SetFloat("xAxis", inputRotation);
             transform.Rotate(new Vector3(0, 45 * inputRotation, 0) * Time.deltaTime);
-            slushing.volume = Mathf.Abs(inputRotation/2f);
+            slushing.volume = Mathf.Abs(inputRotation/1.5f);
         } 
     }
 }
