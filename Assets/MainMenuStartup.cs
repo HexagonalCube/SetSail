@@ -10,5 +10,7 @@ public class MainMenuStartup : MonoBehaviour
     {
         FindAnyObjectByType(typeof(WeatherController)).GetComponent<WeatherController>().UpdateWeather();
         Time.timeScale = 1.0f;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
