@@ -10,6 +10,7 @@ public class PauseMenuScript : MonoBehaviour
     [SerializeField] GameUI_Controller ui;
     [SerializeField] GameObject configPanel;
     [SerializeField] GameObject storyPanel;
+    [SerializeField] GameObject tipsPanel;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         //Debug.Log("Controls");
         BookNoises.Instance.PlayNoise(BookNoises.Noises.IndentPage);
+        PanelSwitcher(Panel.Tips);
     }
     public void OnQuitButtonClick()
     {
@@ -63,6 +65,7 @@ public class PauseMenuScript : MonoBehaviour
     {
         configPanel.SetActive(false);
         storyPanel.SetActive(false);
+        tipsPanel.SetActive(false);
     }
     //NEED PAGES SWITCHER
     void PanelSwitcher(Panel page)
@@ -77,7 +80,7 @@ public class PauseMenuScript : MonoBehaviour
                 storyPanel.SetActive(true);
                 break;
             case Panel.Tips:
-
+                tipsPanel.SetActive(true);
                 break;
         }
     }

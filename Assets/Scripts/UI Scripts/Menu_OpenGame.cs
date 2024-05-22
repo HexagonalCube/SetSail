@@ -12,7 +12,8 @@ public class Menu_OpenGame : MonoBehaviour
     {
         panelFade.SetActive(true);
         animator.SetBool("FinalFade", true);
-        StartCoroutine(TimeWait());   
+        StartCoroutine(TimeWait());
+        GameAudioFade.Instance.AudioFadeOut();
     }
 
     public void ExitConfirm()

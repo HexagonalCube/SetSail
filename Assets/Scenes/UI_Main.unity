@@ -2083,6 +2083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 142012170}
   - component: {fileID: 142012169}
+  - component: {fileID: 142012171}
   - component: {fileID: 142012168}
   m_Layer: 0
   m_Name: Music
@@ -2102,9 +2103,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 575836058926181537, guid: 15cbc6679559b904c8d12db05f2bd57a,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: b7a1f4e571004cb4c89ca8cf9de3c852, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.788
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2195,7 +2196,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 142012167}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a4511ccc3deef5f4e8cc9a3ae8493722, type: 3}
   m_Name: 
@@ -2234,6 +2235,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &142012171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142012167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2244d734e7c09574ca9c20eb0b9d8f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 15cbc6679559b904c8d12db05f2bd57a, type: 2}
 --- !u!1 &147732499
 GameObject:
   m_ObjectHideFlags: 0
@@ -4937,8 +4951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.6147461, y: 8.36499}
-  m_SizeDelta: {x: 5.609551, y: 24.470026}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 19.999996, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &275228902
 MonoBehaviour:
@@ -9086,10 +9100,11 @@ AudioSource:
   m_GameObject: {fileID: 528546105}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8212566405413600915, guid: 15cbc6679559b904c8d12db05f2bd57a,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3b7bdcb998a486142814925ff943b84d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.9
   m_Pitch: 1
   Loop: 0
   Mute: 0
