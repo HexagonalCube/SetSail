@@ -5,11 +5,14 @@ using UnityEngine;
 public class IntroScreen : MonoBehaviour
 {
     [SerializeField] Animator animator;
+    [SerializeField] Animator textBoxAnimator;
     [SerializeField] GameObject startGameText;
+    [SerializeField] GameObject boxText;
 
     bool canStart = false;
     private void Start()
     {
+        boxText.SetActive(false);
         startGameText.SetActive(false);
         CameraScript.Instance.cameraActive = false;
         StartCoroutine(WaitForAnimationFinished());
@@ -26,6 +29,7 @@ public class IntroScreen : MonoBehaviour
     }
     void EnableStartGame()
     {
+        boxText.SetActive(true);
         startGameText.SetActive(true);
         canStart = true;
     }
@@ -37,7 +41,9 @@ public class IntroScreen : MonoBehaviour
             CameraScript.Instance.cameraActive = true;
             canStart = false;
             animator.SetTrigger("FadeOut");
-            startGameText.SetActive(false);
+            textBoxAnimator.SetTrigger("TextBoxFinal");
+            startGameText.GetComponent<Animator>().SetTrigger("SolidText");
+            //startGameText.SetActive(false);
             InputController.Instance.EnableInput = true;
             Destroy(this);
         }
