@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 8230301940363814569}
   - component: {fileID: 6829043316698834813}
   - component: {fileID: 8920428394668090053}
+  - component: {fileID: 628079273508262564}
+  - component: {fileID: 8345794685599962057}
   m_Layer: 8
   m_Name: WindArea
   m_TagString: windArea
@@ -271,6 +273,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &628079273508262564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116710201408509530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ac329edb345ca4698aa07ed7a6bbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 6829043316698834813}
+  seconds: 0
+  random: 1
+--- !u!114 &8345794685599962057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116710201408509530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48ac329edb345ca4698aa07ed7a6bbda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  source: {fileID: 6829043316698834813}
+  seconds: 0
+  random: 1
 --- !u!1 &332501687501370214
 GameObject:
   m_ObjectHideFlags: 0
