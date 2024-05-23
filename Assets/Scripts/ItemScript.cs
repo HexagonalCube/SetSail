@@ -70,11 +70,18 @@ public class ItemScript : MonoBehaviour
                     StartCoroutine(DestroyAfterSeconds(0.01f, true));
                     break;
                 case content.Letter:
-                    canOutline = false;
-                    ui.Interact(false);
-                    gameProg.Items++;
-                    ui.OpenStory(3,5);
-                    StartCoroutine(DestroyAfterSeconds(0.01f, true));
+                    if (gameProg.Items >= 3)
+                    {
+                        canOutline = false;
+                        ui.Interact(false);
+                        gameProg.Items++;
+                        ui.OpenStory(3, 5);
+                        StartCoroutine(DestroyAfterSeconds(0.01f, true));
+                    }
+                    else
+                    {
+                        GameUI_Controller.Instance.Comment("Hmmm...");
+                    }
                     break;
                 case content.End:
                     canOutline = false;
