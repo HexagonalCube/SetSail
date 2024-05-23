@@ -1533,7 +1533,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d918e573b8084544b9813e2c1905fa26, type: 2}
+  - {fileID: 2100000, guid: 2ef2e03d4abe6044b822cd0924c4dd22, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3170,6 +3170,7 @@ MonoBehaviour:
   dock: {fileID: 0}
   sailAnim: {fileID: 2077175126054770564}
   sailGeo: {fileID: 0}
+  passenger: {fileID: 0}
   boatSFX: {fileID: 9073243294425608826}
   bounce: {fileID: 6142222712784232029}
   basicEnabled: 1
@@ -3256,6 +3257,7 @@ MonoBehaviour:
   animator: {fileID: 4324655846421127130}
   inputRotation: 0
   rotEnabled: 1
+  slushing: {fileID: 0}
 --- !u!114 &462992433668293952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3660,6 +3662,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   inputRotation: 0
   rotEnabled: 1
+  slushing: {fileID: 0}
 --- !u!95 &2077175126054770564
 Animator:
   serializedVersion: 5

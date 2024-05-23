@@ -14634,6 +14634,7 @@ RectTransform:
   - {fileID: 1125545947}
   - {fileID: 1527189309}
   - {fileID: 807403991}
+  - {fileID: 1043143589}
   m_Father: {fileID: 576964313}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -18132,6 +18133,81 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 252536353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1043143588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1043143589}
+  - component: {fileID: 1043143591}
+  - component: {fileID: 1043143590}
+  m_Layer: 5
+  m_Name: Logo Melies
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1043143589
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043143588}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 861281769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 450, y: 270}
+  m_SizeDelta: {x: 350, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1043143590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043143588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d2239b2bcdd50384ea02573df839f5bc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1043143591
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043143588}
+  m_CullTransparentMesh: 1
 --- !u!1001 &1044278956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26015,7 +26091,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d7f26d40af2c21e40a467a0ad88bf856, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0f31f51047754064eaccb0dba09af7d1, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -28017,7 +28093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -200}
+  m_AnchoredPosition: {x: 30, y: -275}
   m_SizeDelta: {x: 1200, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527189310
@@ -28040,15 +28116,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Equipe:\nEduardo Lira Xavier - Arte e Textura\nGustavo Carniel - Programa\xE7\xE3o,
-    Modelagem, UI e Design gr\xE1fico\nJo\xE3o Pedro Velletri Sundfeld - Game design,
-    Programa\xE7\xE3o, M\xFAsica e Efeitos sonoros\nHelena Teng Cheng - Rigging e
-    Modelagem\nOtavio Luiz de 0liveira Porto - Arte 2D, Game Design, Dire\xE7\xE3o
-    de Arte e Level Design\n\"Aji\" Pedro Henrique Marques Lopes - Textura, Modelagem
-    e Revis\xE3o\u200B\nSophya Dib Rodrigues - Roteiro, Dire\xE7\xE3o de Arte e Level
-    Design\n\nPlaytesters:\nAlan Fernando (Mr.Goburin), Luyi Khionori Oshiro Yano,\nLaura
-    Jacintho Mendes, Rafael Giannella, LukasXerouzo, Lia Fuziy, Nicolas Battisti,\nFabiano
-    de Freitas Pereira, Helena Capelosi, Jaime Faiman"
+  m_text: "Projeto Integrador III - 2024:\nEduardo Lira Xavier - Arte e Textura\nGustavo
+    Carniel - Programa\xE7\xE3o, Modelagem, UI e Design gr\xE1fico\nJo\xE3o Pedro
+    Velletri Sundfeld - Game design, Programa\xE7\xE3o, M\xFAsica e Efeitos sonoros\nHelena
+    Teng Cheng - Rigging e Modelagem\nOtavio Luiz de 0liveira Porto - Arte 2D, Game
+    Design, Dire\xE7\xE3o de Arte e Level Design\n\"Aji\" Pedro Henrique Marques
+    Lopes - Textura, Modelagem e Revis\xE3o\u200B\nSophya Dib Rodrigues - Roteiro,
+    Dire\xE7\xE3o de Arte e Level Design\n\nPlaytesters:\nAlan Fernando (Mr.Goburin),
+    Luyi Khionori Oshiro Yano,\nLaura Jacintho Mendes, Rafael Giannella, LukasXerouzo,
+    Lia Fuziy, Nicolas Battisti,\nFabiano de Freitas Pereira, Helena Capelosi, Jaime
+    Faiman"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90176eba484efb248833fa83a74d49d2, type: 2}
   m_sharedMaterial: {fileID: 1627278336734020169, guid: 90176eba484efb248833fa83a74d49d2,
@@ -28076,14 +28153,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 2
@@ -41851,8 +41928,8 @@ MonoBehaviour:
   m_Padding:
     m_Left: -970
     m_Right: 0
-    m_Top: 211
-    m_Bottom: -350
+    m_Top: 120
+    m_Bottom: -320
   m_ChildAlignment: 4
   m_Spacing: -790
   m_ChildForceExpandWidth: 1
