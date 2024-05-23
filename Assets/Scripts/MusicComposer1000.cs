@@ -31,14 +31,14 @@ public class MusicComposer1000 : MonoBehaviour
     private void Update()
     {
         //Debug.Log($"enabled{plucks} playing{source.isPlaying}");
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            StartPlucksMusic();
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            StartStoryMusic(3);
-        }
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    StartPlucksMusic();
+        //}
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    StartStoryMusic(3);
+        //}
         if (plucks && !source.isPlaying && !choosing)
         {
             Debug.Log("A");
