@@ -49,11 +49,18 @@ public class ItemScript : MonoBehaviour
                     StartCoroutine(DestroyAfterSeconds(0.01f));
                     break;
                 case content.Bucket:
-                    canOutline = false;
-                    ui.Interact(false);
-                    gameProg.Items++;
-                    ui.OpenStory(1,3);
-                    StartCoroutine(DestroyAfterSeconds(0.01f));
+                    if (gameProg.Items >= 1)
+                    {
+                        canOutline = false;
+                        ui.Interact(false);
+                        gameProg.Items++;
+                        ui.OpenStory(1, 3);
+                        StartCoroutine(DestroyAfterSeconds(0.01f));
+                    }
+                    else
+                    {
+                        GameUI_Controller.Instance.Comment("Hmmm...");
+                    }
                     break;
                 case content.Photo:
                     canOutline = false;
