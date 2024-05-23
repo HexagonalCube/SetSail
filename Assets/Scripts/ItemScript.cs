@@ -104,7 +104,10 @@ public class ItemScript : MonoBehaviour
                     ui.Interact(true, "Inspecionar Esmeralda (E)");
                     break;
                 case content.Bucket:
-                    ui.Interact(true, "Inspecionar Balde (E)");
+                    if (gameProg.Items >= 1)
+                    {
+                        ui.Interact(true, "Inspecionar Balde (E)");
+                    }
                     break;
                 case content.Photo:
                     ui.Interact(true, "Pegar Foto (E)");
