@@ -127,7 +127,10 @@ public class ItemScript : MonoBehaviour
                     ui.Interact(true, "Pegar Foto (E)");
                     break;
                 case content.Letter:
-                    ui.Interact(true, "Pegar Carta (E)");
+                    if (gameProg.Items >= 3)
+                    {
+                        ui.Interact(true, "Pegar Carta (E)");
+                    }
                     break;
                 case content.End:
                     ui.Interact(true, "Pegar Boneca (E)");
@@ -144,7 +147,39 @@ public class ItemScript : MonoBehaviour
     {
         if (highlight && canOutline)
         {
-            outline.enabled = true;
+            switch (type)
+            {
+                case content.Emerald:
+                    outline.enabled = true;
+                    break;
+                case content.Bucket:
+                    if (gameProg.Items >= 1)
+                    {
+                        outline.enabled = true;
+                    }
+                    else
+                    {
+                        outline.enabled = false; ui.Interact(false); ui.CursorUpdate(false, false);
+                    }
+                    break;
+                case content.Photo:
+                    outline.enabled = true;
+                    break;
+                case content.Letter:
+                    if (gameProg.Items >= 3)
+                    {
+                        outline.enabled = true;
+                    }
+                    else
+                    {
+                        outline.enabled = false; ui.Interact(false); ui.CursorUpdate(false, false);
+                    }
+                    break;
+                case content.End:
+                    outline.enabled = true;
+                    break;
+                default: break;
+            }
         }
         else { outline.enabled = false; ui.Interact(false); ui.CursorUpdate(false, false); }
     }

@@ -31,7 +31,7 @@ public class EndScript : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(2f);
         yield return new WaitUntil(delegate { return !video.isPlaying; });
-        yield return new WaitForSecondsRealtime(2f);
+        //yield return new WaitForSecondsRealtime(2f);
         video.Stop();
         video.time = video.length - 1;
         canQuitFlag = true;
@@ -42,7 +42,7 @@ public class EndScript : MonoBehaviour
     }
     private void Update()
     {
-        if (canQuitFlag && Input.anyKeyDown)
+        if (canQuitFlag && Input.GetKeyDown(InputController.Instance.Diary))
         {
             QuitSequence();
         }

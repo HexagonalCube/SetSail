@@ -10058,7 +10058,6 @@ GameObject:
   - component: {fileID: 576964311}
   - component: {fileID: 576964310}
   - component: {fileID: 576964315}
-  - component: {fileID: 576964314}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -10154,20 +10153,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &576964314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 576964309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1e8b0a2a311a0a44a6e5087f6a6b249, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelFade: {fileID: 0}
-  animator: {fileID: 0}
 --- !u!114 &576964315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20385,7 +20370,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 576964314}
+      - m_Target: {fileID: 8379509078800868113}
         m_TargetAssemblyTypeName: Menu_OpenGame, Assembly-CSharp
         m_MethodName: ExitConfirm
         m_Mode: 1

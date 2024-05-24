@@ -20,6 +20,8 @@ public class GameUI_Controller : MonoBehaviour
     [SerializeField] GamePause pause;
     //[SerializeField] TextUpdater interactText;
     [SerializeField] TextUpdater commentText;
+    [SerializeField] Button ConfigButton;
+    [SerializeField] Button StartPageButton;
     float textFade = 0f;
     float cursorFade = 0f;
     bool textFading = false;
@@ -113,6 +115,7 @@ public class GameUI_Controller : MonoBehaviour
         bookP.OnConfigButtonClick();
         paused = true;
         pause.PauseGame();
+        ConfigButton.Select();
     }
     public void OpenStory(int pageToLearn = 10, int pageToOpen = 0)
     {
@@ -122,6 +125,7 @@ public class GameUI_Controller : MonoBehaviour
         pause.PauseGame();
         PageStoryController.Instance.DiscorverPages(pageToLearn);
         PageSwitcher.Instance.SelectPage = pageToOpen;
+        StartPageButton.Select();
     }
     public void ClosePause()
     {

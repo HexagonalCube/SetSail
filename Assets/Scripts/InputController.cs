@@ -99,7 +99,7 @@ public class InputController : MonoBehaviour
         {
             if (gameUI.IsPaused)
             {
-                gameUI.ClosePause();
+                PauseMenuScript.Instance.OnCloseButtonClick();
             }
             else
             {
@@ -111,7 +111,7 @@ public class InputController : MonoBehaviour
 
             if (gameUI.IsPaused)
             {
-                gameUI.ClosePause();
+                PauseMenuScript.Instance.OnCloseButtonClick();
             }
             else
             {

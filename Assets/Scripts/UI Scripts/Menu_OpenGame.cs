@@ -12,18 +12,25 @@ public class Menu_OpenGame : MonoBehaviour
     {
         panelFade.SetActive(true);
         animator.SetBool("FinalFade", true);
-        StartCoroutine(TimeWait());
+        StartCoroutine(WaitEnterGame());
+        GameAudioFade.Instance.AudioFadeOut();
+    }
+    public void ExitConfirm()
+    {
+        panelFade.SetActive(true);
+        animator.SetBool("FinalFade", true);
+        StartCoroutine(WaitExitGame());
         GameAudioFade.Instance.AudioFadeOut();
     }
 
-    public void ExitConfirm()
-    {
-        Application.Quit();
-    }
-
-    IEnumerator TimeWait()
+    IEnumerator WaitEnterGame()
     {
         yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(1);
+    }
+    IEnumerator WaitExitGame()
+    {
+        yield return new WaitForSeconds(4f);
+        Application.Quit();
     }
 }
