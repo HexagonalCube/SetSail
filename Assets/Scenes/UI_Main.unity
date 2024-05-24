@@ -1527,10 +1527,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: -510
+    m_Left: -674
     m_Right: 0
     m_Top: 20
-    m_Bottom: 40
+    m_Bottom: 32
   m_ChildAlignment: 4
   m_Spacing: -255.56
   m_ChildForceExpandWidth: 1
@@ -1750,7 +1750,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 660, y: -50}
+  m_AnchoredPosition: {x: 671, y: -50}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &117912713
@@ -7588,7 +7588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -50}
+  m_AnchoredPosition: {x: 243, y: -50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &456770160
@@ -8982,7 +8982,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 660, y: -40}
+  m_AnchoredPosition: {x: 682, y: -51}
   m_SizeDelta: {x: 350, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528546107
@@ -10100,7 +10100,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -18169,8 +18169,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 450, y: 270}
-  m_SizeDelta: {x: 350, y: 600}
+  m_AnchoredPosition: {x: 450, y: 290}
+  m_SizeDelta: {x: 250, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1043143590
 MonoBehaviour:
@@ -21438,7 +21438,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 295, y: -434.8133}
+  m_AnchoredPosition: {x: 213, y: -441.48004}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179954981
@@ -21448,7 +21448,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1179954979}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -21807,7 +21807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 295, y: -320}
+  m_AnchoredPosition: {x: 213, y: -324}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1203244198
@@ -21817,7 +21817,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203244196}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -28095,7 +28095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -275}
+  m_AnchoredPosition: {x: 50, y: -240}
   m_SizeDelta: {x: 1200, y: 1100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1527189310
@@ -28118,19 +28118,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Projeto Integrador III - 2024:\nEduardo Lira Xavier - Arte e Textura\nGustavo
-    Carniel - Programa\xE7\xE3o, Modelagem, UI e Design gr\xE1fico\nJo\xE3o Pedro
-    Velletri Sundfeld - Game design, Programa\xE7\xE3o, M\xFAsica e Efeitos sonoros\nHelena
-    Teng Cheng - Rigging e Modelagem\nOtavio Luiz de 0liveira Porto - Arte 2D, Game
-    Design, Dire\xE7\xE3o de Arte e Level Design\n\"Aji\" Pedro Henrique Marques
-    Lopes - Textura, Modelagem e Revis\xE3o\u200B\nSophya Dib Rodrigues - Roteiro,
-    Dire\xE7\xE3o de Arte e Level Design\n\nPlaytesters:\nAlan Fernando (Mr.Goburin),
-    Luyi Khionori Oshiro Yano,\nLaura Jacintho Mendes, Rafael Giannella, LukasXerouzo,
-    Lia Fuziy, Nicolas Battisti,\nFabiano de Freitas Pereira, Helena Capelosi, Jaime
-    Faiman"
+  m_text: "<line-height=150%><b><size=150%>Projeto Integrador III - 2024:</size></b>\n</line-height><size=125%>Eduardo
+    Lira Xavier</size> - Arte e Textura\n<size=125%>Gustavo Carniel</size> - Programa\xE7\xE3o,
+    Modelagem, UI e Design gr\xE1fico\n<size=125%>Jo\xE3o Pedro Velletri Sundfeld</size>
+    - Game design, Programa\xE7\xE3o, M\xFAsica e Efeitos sonoros\n<size=125%>Helena
+    Teng Cheng</size> - Rigging e Modelagem\n<size=125%>Otavio Luiz de 0liveira Porto</size>
+    - Arte 2D, Game Design, Dire\xE7\xE3o de Arte e Level Design\n<size=125%>(Aji)
+    Pedro Henrique Marques Lopes</size> - Textura, Modelagem e Revis\xE3o\u200B\n<size=125%>Sophya
+    Dib Rodrigues</size> - Roteiro, Dire\xE7\xE3o de Arte e Level Design\n\n<line-height=150%><b><size=150%>Playtesters:</size></b>\n</line-height>Alan
+    Fernando (Mr.Goburin), Luyi Khionori Oshiro Yano,\nLaura Jacintho Mendes, Rafael
+    Giannella, LukasXerouzo, Lia Fuziy, Nicolas Battisti,\nFabiano de Freitas Pereira,
+    Helena Capelosi, Jaime Faiman"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 90176eba484efb248833fa83a74d49d2, type: 2}
-  m_sharedMaterial: {fileID: 1627278336734020169, guid: 90176eba484efb248833fa83a74d49d2,
+  m_fontAsset: {fileID: 11400000, guid: c3357b90aeba240498fdc92615dcf16b, type: 2}
+  m_sharedMaterial: {fileID: 8785480106827812032, guid: c3357b90aeba240498fdc92615dcf16b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -28155,8 +28156,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -30322,7 +30323,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 660, y: -40}
+  m_AnchoredPosition: {x: 671, y: -40}
   m_SizeDelta: {x: 370, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1588236447
@@ -31927,7 +31928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -55}
+  m_AnchoredPosition: {x: 243, y: -55}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1690939125
@@ -33467,7 +33468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 150, y: -55}
+  m_AnchoredPosition: {x: 243, y: -55}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1775097204
@@ -35662,7 +35663,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 295, y: -205.18666}
+  m_AnchoredPosition: {x: 213, y: -206.52}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1885024917
@@ -35672,7 +35673,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885024915}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
