@@ -49,7 +49,7 @@ public class GameProgression : GameStage
     }
     public bool CheckBarrier(int password)
     {
-        if (itemsCollected == password) { return true; }
+        if (itemsCollected >= password) { return true; }
         else { return false; }
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1290250486750352509}
   - component: {fileID: 4522394553596839513}
+  - component: {fileID: 2597044316571786965}
   m_Layer: 0
   m_Name: arvore_seca
   m_TagString: Untagged
@@ -49,19 +50,42 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.16844946
+  - screenRelativeHeight: 0.10900553
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 3043759922225711818}
-  - screenRelativeHeight: 0.055171955
+  - screenRelativeHeight: 0.036835585
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 7958416909057199246}
-  - screenRelativeHeight: 0.020179024
+  - screenRelativeHeight: 0.013931499
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 9107035114562324246}
   m_Enabled: 1
+--- !u!136 &2597044316571786965
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921967593304346311}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 45
+  m_Height: 750
+  m_Direction: 1
+  m_Center: {x: 0, y: 275, z: 0}
 --- !u!1001 &4466460478284437070
 PrefabInstance:
   m_ObjectHideFlags: 0
