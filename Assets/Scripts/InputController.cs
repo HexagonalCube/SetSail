@@ -36,6 +36,7 @@ public class InputController : MonoBehaviour
     public KeyCode Pause { get { return pauseKey; } }
     public KeyCode Diary { get { return diaryKey; } }
     public KeyCode Navigation { get { return navigationKey; } }
+    public InstrumentsController Instruments { get { return pInstruments; } }
     #endregion
 
     private void Awake()

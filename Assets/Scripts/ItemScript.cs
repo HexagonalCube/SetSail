@@ -90,7 +90,7 @@ public class ItemScript : MonoBehaviour
                     CameraScript.Instance.enabled = false;
                     InputController.Instance.enabled = false;
                     Footsteps.Instance.gameObject.SetActive(false);
-                    MusicComposer1000.Instance.StartStoryMusic(4);
+                    MusicComposer1000.Instance.IMPORTANTENDMUSIC();
                     EndScript.Instance.StartEndSequence();
                     break;
                 case content.Type_test:

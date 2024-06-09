@@ -52,6 +52,7 @@ public class DockScript : GameStage
             gameUI.UI_Fade(dockEnter.length);
             canSwitch = false;
             StartCoroutine(DockEnterTimer(aBoat));
+            InputController.Instance.Instruments.ForceState(false);
         }
     }
     void SwitchGamestate(bool toLand)

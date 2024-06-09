@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class MusicComposer1000 : MonoBehaviour
 {
@@ -45,6 +46,13 @@ public class MusicComposer1000 : MonoBehaviour
             choosing = true;
             StartCoroutine(RandomizeTimeTracks(musicPlucks, 1f));
         }
+    }
+    public void IMPORTANTENDMUSIC()
+    {
+        source.Stop();
+        source.clip = storyMusic[4];
+        source.volume = 1f;
+        source.Play();
     }
     public void StartStoryMusic(int index)
     {

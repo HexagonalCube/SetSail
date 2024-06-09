@@ -19,6 +19,25 @@ public class InstrumentsController : MonoBehaviour
             animator.Play("IdleLoweredCompass");
         }
     }
+    public void ForceState(bool open)
+    {
+        if (!open)
+        {
+            if (raised)
+            {
+                animator.Play("LowerCompass");
+            }
+            raised = false;
+        }
+        else
+        {
+            if (!raised)
+            {
+                animator.Play("RaiseCompass");
+            }
+            raised = true;
+        }
+    }
     public void RaiseLowerCompass()
     {
         if (raised)
