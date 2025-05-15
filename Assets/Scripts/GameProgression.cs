@@ -37,13 +37,13 @@ public class GameProgression : GameStage
         switch (itemsCollected)
         {
             case >=6:
-                WindLevelController.Instance.setLevel = 3;
-                break;
-            case >=4:
                 WindLevelController.Instance.setLevel = 2;
                 break;
-            case >=2:
+            case >=4:
                 WindLevelController.Instance.setLevel = 1;
+                break;
+            case >=2:
+                WindLevelController.Instance.setLevel = 0;
                 break;
         }
     }
